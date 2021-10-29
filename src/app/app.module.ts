@@ -12,6 +12,10 @@ import { SignupSuccessComponent } from './auth/signup-success/signup-success.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HeaderComponent } from './header/header.component';
+import { UserListComponent } from './auth/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     UserProfileComponent,
     SignupComponent,
     SignupSuccessComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    HeaderComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +34,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     ReactiveFormsModule,
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

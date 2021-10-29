@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupRequestPayload } from './signup-request.payload';
 import { SharedService } from '../shared/shared.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   signupRequestPayload:SignupRequestPayload;
   signupForm:any= FormGroup; 
   
-  constructor(private authService:SharedService, private router:Router) {
+  constructor(private authService:SharedService, private router:Router,private toastr: ToastrService) {
     this.signupForm = {
       username: '',
       name: '',
@@ -57,6 +58,7 @@ export class SignupComponent implements OnInit {
       this.router.navigateByUrl('/register-success');
     }, error => {
       console.log('register failed');
+      this.toastr.error('Registration Failed! Please try again');
     });
   }
 

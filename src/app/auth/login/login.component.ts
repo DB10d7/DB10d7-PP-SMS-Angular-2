@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SharedService } from '../shared/shared.service';
 import { LoginRequestPayload } from './login-request.payload';
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm:any= FormGroup;
   loginRequestPayload:any= LoginRequestPayload;
   
-  constructor(private authService:SharedService, private router:Router) {
+  constructor(private authService:SharedService, private router:Router,private toastr: ToastrService,private activatedRoute: ActivatedRoute) {
     this.loginForm = {
       username: '',
       password: '',
@@ -29,16 +30,29 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      
+    });
+  /*  this.activatedRoute.queryParams
+      .subscribe(params => {
+        if (params.registered !== undefined && params.registered === 'true') {
+          this.toastr.success('Signup Successful');
+          this.registerSuccessMessage = 'Please Check your inbox for activation email '
+            + 'activate your account before you Login!';
+        }
+      }); */
   }
   onSubmit(){
     this.loginRequestPayload.username = this.loginForm.get('username').value;
     this.loginRequestPayload.password = this.loginForm.get('password').value;
-    this.loginRequestPayload.password = this.loginForm.get('confirmPassword').value
+    
 
     this.authService.login(this.loginRequestPayload).subscribe(data => {
       if (data) {
         console.log('login success');
-        this.router.navigateByUrl('/studentList');
+        this.router.navigateByUrl('/userList');
       } else {
         console.log('Login failed');
       }

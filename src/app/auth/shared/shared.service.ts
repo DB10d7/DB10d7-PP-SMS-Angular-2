@@ -35,15 +35,32 @@ export class SharedService {
         return true;
       }));
   }
+  getJwtToken() {
+    return this.localStorage.retrieve('authenticationToken');
+  }
   getUserName() {
     return this.localStorage.retrieve('username');
   }
   getRefreshToken() {
     return this.localStorage.retrieve('refreshToken');
   }
+  refreshToken() {
+    return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/refresh/token',
+      this.refreshTokenPayload)
+      .pipe(tap(response => {
+        this.localStorage.clear('authenticationToken');
+        this.localStorage.clear('expiresAt');
 
+        this.localStorage.store('authenticationToken',
+          response.authenticationToken);
+        this.localStorage.store('expiresAt', response.expiresAt);
+      }));
+  }
  /* isLoggedIn(): boolean {
     return this.getJwtToken() != null;
   } */
-
+  getUserList(): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/'));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/');
+  }
 }
