@@ -11,6 +11,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SignupSuccessComponent } from './auth/signup-success/signup-success.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './auth/update-user/update-user.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UpdateUserComponent } from './auth/update-user/update-user.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
