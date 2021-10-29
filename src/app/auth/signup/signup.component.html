@@ -10,7 +10,7 @@
             <form class="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
               <div class="mb-4">
                   <label for="exampleInputEmail1" class="form-label"
-                    > Enter Your Name</label
+                    > Enter Your UserName</label
                   >
                   <input
                     type="text"
@@ -20,6 +20,18 @@
                     required="required"
                   />
                 </div>
+                <div class="mb-4">
+                    <label for="exampleInputEmail1" class="form-label"
+                      > Enter Your Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputUserName"
+                      [formControlName]="'name'"
+                      required="required"
+                    />
+                  </div>
               <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label"
                   > Enter Your Email address</label

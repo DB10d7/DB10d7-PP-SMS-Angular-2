@@ -10,6 +10,7 @@ import { TokenInterceptor } from './token-interceptor';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SignupSuccessComponent } from './auth/signup-success/signup-success.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './auth/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     UserProfileComponent,
     SignupComponent,
-    SignupSuccessComponent
+    SignupSuccessComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
