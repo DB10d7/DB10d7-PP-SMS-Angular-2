@@ -10,8 +10,8 @@ import { map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
-  
+export class AuthService {
+
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
     username: this.getUserName()
@@ -56,9 +56,9 @@ export class SharedService {
         this.localStorage.store('expiresAt', response.expiresAt);
       }));
   }
- /* isLoggedIn(): boolean {
+  isLoggedIn(): boolean {
     return this.getJwtToken() != null;
-  } */
+  } 
   getUserList(): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/');

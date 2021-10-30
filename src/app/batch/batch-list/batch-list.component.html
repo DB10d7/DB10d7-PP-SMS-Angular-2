@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="row">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">CreatedBy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let batch of listBatch">
+              <th>{{batch.id}}</th>
+              <th>{{batch.name}}</th>
+              <th>{{batch.description}}</th>
+              <th>{{batch.createdBy}}</th>
+            <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
+              <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
+              <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
+          </tr>        
+        </tbody>
+      </table>
+      <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
+    </div>
+  </div>

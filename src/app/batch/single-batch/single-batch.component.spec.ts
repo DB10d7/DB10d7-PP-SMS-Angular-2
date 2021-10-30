@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignupSuccessComponent } from './signup-success.component';
+import { SingleBatchComponent } from './single-batch.component';
 
-describe('SignupSuccessComponent', () => {
-  let component: SignupSuccessComponent;
-  let fixture: ComponentFixture<SignupSuccessComponent>;
+describe('SingleBatchComponent', () => {
+  let component: SingleBatchComponent;
+  let fixture: ComponentFixture<SingleBatchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignupSuccessComponent ]
+      declarations: [ SingleBatchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignupSuccessComponent);
+    fixture = TestBed.createComponent(SingleBatchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

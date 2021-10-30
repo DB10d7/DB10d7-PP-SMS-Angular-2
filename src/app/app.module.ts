@@ -8,7 +8,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { TokenInterceptor } from './token-interceptor';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SignupSuccessComponent } from './auth/signup-success/signup-success.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
@@ -16,6 +15,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './auth/user-list/user-list.component';
+import { HomeComponent } from './home/home.component';
+import { TrainerHomeComponent } from './display-home/trainer-home/trainer-home.component';
+import { BatchListComponent } from './batch/batch-list/batch-list.component';
+import { SingleBatchComponent } from './batch/single-batch/single-batch.component';
+import { DayListComponent } from './day/day-list/day-list.component';
+import { SingleDayComponent } from './day/single-day/single-day.component';
+import { StudentListComponent } from './student/student-list/student-list.component';
+import { SingleStudentComponent } from './student/single-student/single-student.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +30,17 @@ import { UserListComponent } from './auth/user-list/user-list.component';
     LoginComponent,
     UserProfileComponent,
     SignupComponent,
-    SignupSuccessComponent,
     UpdateUserComponent,
     HeaderComponent,
-    UserListComponent
+    UserListComponent,
+    HomeComponent,
+    TrainerHomeComponent,
+    BatchListComponent,
+    SingleBatchComponent,
+    DayListComponent,
+    SingleDayComponent,
+    StudentListComponent,
+    SingleStudentComponent
   ],
   imports: [
     BrowserModule,
