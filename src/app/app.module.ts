@@ -24,6 +24,10 @@ import { SingleDayComponent } from './day/single-day/single-day.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { SingleStudentComponent } from './student/single-student/single-student.component';
 import { DayListByBatchComponent } from './day/day-list-by-batch/day-list-by-batch.component';
+import { StudentListByBatchComponent } from './student/student-list-by-batch/student-list-by-batch.component';
+import { StudentListByDayComponent } from './student/student-list-by-day/student-list-by-day.component';
+import { DayListByStudentComponent } from './day/day-list-by-student/day-list-by-student.component';
+import { AddStudentToDayComponent } from './day/add-student-to-day/add-student-to-day.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { DayListByBatchComponent } from './day/day-list-by-batch/day-list-by-bat
     SingleDayComponent,
     StudentListComponent,
     SingleStudentComponent,
-    DayListByBatchComponent
+    DayListByBatchComponent,
+    StudentListByBatchComponent,
+    StudentListByDayComponent,
+    DayListByStudentComponent,
+    AddStudentToDayComponent
   ],
   imports: [
     BrowserModule,

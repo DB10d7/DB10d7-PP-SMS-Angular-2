@@ -9,6 +9,7 @@
             <th scope="col">Description</th>
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
+            <th scope="col">StudentList</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +19,8 @@
               <th>{{day.url}}</th>
               <th>{{day.description}}</th>
               <th>{{day.createdBy}}</th>
-              <th>{{day.BatchName}}</th>
+              <th>{{day.batchName}}</th>
+              <th><button (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
@@ -27,4 +29,4 @@
       </table>
       <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
     </div>
-  </div>
+</div>

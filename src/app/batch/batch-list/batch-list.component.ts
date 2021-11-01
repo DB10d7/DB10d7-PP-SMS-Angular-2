@@ -16,13 +16,19 @@ export class BatchListComponent implements OnInit {
     this.batchService.getBatchList().subscribe((resp)=>{
 
       this.listBatch = resp;
+      console.log(this.listBatch);
       })
   }
   viewBatch(name: String){
     this.router.navigate(['singleBatch/',name]);
   }
-  viewDay(name: String){
-    this.router.navigate(['dayListByBatch',name]);
+  viewDayList(name: String){
+    this.router.navigate(['dayListByBatch/',name]);
+    console.log(name);
+  }
+  viewStudentList(name: String){
+    this.router.navigate(['studentListByBatch/',name]);
+    console.log(name);
   }
 
 }
