@@ -23,7 +23,11 @@ export class DayListByBatchComponent implements OnInit {
     })
   }
   viewStudentList(name: String){
-    this.router.navigate(['studentListByBatch/',name]);
+    this.router.navigate(['studentListByDay/',name]);
+    console.log(name);
+  }
+  viewDayToAddStudent(name: String){
+    this.router.navigate(['addStudentToDay/', name]);
     console.log(name);
   }
 }

@@ -1,12 +1,12 @@
-<div class="container mt-5" *ngIf="singleBatch">
+<div class="container mt-5" *ngIf="singleDay">
     <div class="row my-5">
-        <h1 class="text-center my-5" >{{singleBatch.name}}</h1>
+        <h1 class="text-center my-5" >{{singleDay.dayName}}</h1>
         <div class="row">
             <div class="col-lg-6">
                 <img class="blog-img-body img-fluid" src="../../assets/images/blog display.jpg">
             </div>
             <div class="col-lg-6">
-                <P class="text-start blog-body" >{{singleBatch.description}}</P>
+                <P class="text-start blog-body" >{{singleDay.description}}</P>
             </div>
         </div>
     </div> 
@@ -15,7 +15,8 @@
             
         </div>
         <div class="col-lg-6 text-center">
-            <h3 class="" >CreatedBy : {{singleBatch.createdBy}}</h3>
+            <h3 class="" >CreatedBy : {{singleDay.createdBy}}</h3>
         </div>
+        <button (click)="viewDayToAddStudent(singleDay.dayName)" class="btn btn-primary">Students</button>
     </div>
 </div>

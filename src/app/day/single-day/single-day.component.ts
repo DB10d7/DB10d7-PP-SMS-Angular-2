@@ -21,5 +21,8 @@ export class SingleDayComponent implements OnInit {
       console.log(this.singleDay);
     })
   }
-
+  viewDayToAddStudent(name: String){
+    this.router.navigate(['addStudentToDay/', name]);
+    console.log(name);
+  }
 }

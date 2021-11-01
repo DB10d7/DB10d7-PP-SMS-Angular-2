@@ -21,10 +21,10 @@ export class AddStudentToDayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.viewDay();
+    this.viewDayToAddStudent();
     this.studentList();
   }
-  viewDay(){
+  viewDayToAddStudent(){
     this.dayService.viewDay(this.route.snapshot.params['name']).subscribe((result)=>{
       console.log("data is here",result);
       this.singleDay= result;
@@ -38,9 +38,9 @@ export class AddStudentToDayComponent implements OnInit {
       })
   }
   addStudent(name: String){
-    this.addStudentToDayRequest.studentName=this.singleDay.dayName;
-    this.addStudentToDayRequest.dayName=name;
-    
+    this.addStudentToDayRequest.dayName=this.singleDay.dayName;
+    this.addStudentToDayRequest.studentName=name;
+    console.log(this.addStudentToDayRequest);
     this.dayService.addStudentToDay(this.addStudentToDayRequest )
       .subscribe(data => {
         this.ngOnInit();
@@ -48,5 +48,8 @@ export class AddStudentToDayComponent implements OnInit {
         console.log(error);
       });
   }
-
+  viewStudent(name: String){
+    this.router.navigate(['singleStudent/',name]);
+    console.log(name);
+  }
 }

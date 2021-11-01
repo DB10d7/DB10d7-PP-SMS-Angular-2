@@ -22,4 +22,8 @@ export class StudentListByDayComponent implements OnInit {
       console.log(this.listStudent);
     })
   }
+  viewStudent(name: String){
+    this.router.navigate(['singleStudent/',name]);
+    console.log(name);
+  }
 }

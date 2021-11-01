@@ -1,1 +1,21 @@
-<p>single-student works!</p>
+<div class="container mt-5" *ngIf="singleStudent">
+    <div class="row my-5">
+        <h1 class="text-center my-5" >{{singleStudent.username}}</h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="blog-img-body img-fluid" src="../../assets/images/blog display.jpg">
+            </div>
+            <div class="col-lg-6">
+                <P class="text-start blog-body" >{{singleStudent.name}}</P>
+            </div>
+        </div>
+    </div> 
+    <div class="row my-5">
+        <div class="col-lg-6 text-center">
+            
+        </div>
+        <div class="col-lg-6 text-center">
+            <h3 class="" >Email : {{singleStudent.email}}</h3>
+        </div>
+    </div>
+</div>

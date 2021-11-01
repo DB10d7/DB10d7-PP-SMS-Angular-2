@@ -9,6 +9,11 @@ import { DayListComponent } from './day/day-list/day-list.component';
 import { DayListByBatchComponent } from './day/day-list-by-batch/day-list-by-batch.component';
 import { SingleBatchComponent } from './batch/single-batch/single-batch.component';
 import { SingleDayComponent } from './day/single-day/single-day.component';
+import { StudentListComponent } from './student/student-list/student-list.component';
+import { SingleStudentComponent } from './student/single-student/single-student.component';
+import { StudentListByBatchComponent } from './student/student-list-by-batch/student-list-by-batch.component';
+import { StudentListByDayComponent } from './student/student-list-by-day/student-list-by-day.component';
+import { AddStudentToDayComponent } from './day/add-student-to-day/add-student-to-day.component';
 
 const routes: Routes = [
 
@@ -19,7 +24,13 @@ const routes: Routes = [
   {path: 'singleBatch/:name', component: SingleBatchComponent, canActivate: [AuthGaurdService] },
   {path: 'dayList', component: DayListComponent, canActivate:[AuthGaurdService] },
   {path: 'singleDay/:name', component: SingleDayComponent, canActivate: [AuthGaurdService] },
-  {path: 'dayListByBatch/:name', component: DayListByBatchComponent, canActivate:[AuthGaurdService] }
+  {path: 'dayListByBatch/:name', component: DayListByBatchComponent, canActivate:[AuthGaurdService] },
+  {path: 'studentList', component: StudentListComponent , canActivate:[AuthGaurdService] },
+  {path: 'singleStudent/:name', component: SingleStudentComponent, canActivate:[AuthGaurdService] },
+  {path: 'studentListByBatch/:name', component: StudentListByBatchComponent, canActivate:[AuthGaurdService] },
+  {path: 'studentListByDay/:name', component: StudentListByDayComponent , canActivate:[AuthGaurdService] },
+  {path: 'addStudentToDay/:name', component: AddStudentToDayComponent, canActivate:[AuthGaurdService] },
+
 ];
 
 @NgModule({

@@ -18,8 +18,8 @@ export class DayService {
     return this.httpClient.get<any>('http://localhost:8080/api/days/by-batch/'+ name);
   }
   addStudentToDay(addStudentToDayRequest: AddStudentToDayRequest ): Observable<any>{
-    console.log(this.httpClient.put('http://localhost:8080/api/days/addStudent/', addStudentToDayRequest, { responseType: 'text' } ));
-    return this.httpClient.put('http://localhost:8080/api/days/addStudent/', addStudentToDayRequest, { responseType: 'text' } );
+    console.log(this.httpClient.post('http://localhost:8080/api/days/addStudent', addStudentToDayRequest, { responseType: 'text' } ));
+    return this.httpClient.post('http://localhost:8080/api/days/addStudent', addStudentToDayRequest, { responseType: 'text' } );
   } 
   viewDay(name: String):Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/days/'+name));
