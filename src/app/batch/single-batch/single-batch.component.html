@@ -1,1 +1,21 @@
-<p>single-batch works!</p>
+<div class="container mt-5" *ngIf="singleBatch">
+    <div class="row my-5">
+        <h1 class="text-center my-5" >{{singleBatch.name}}</h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="blog-img-body img-fluid" src="../../assets/images/blog display.jpg">
+            </div>
+            <div class="col-lg-6">
+                <P class="text-start blog-body" >{{singleBatch.description}}</P>
+            </div>
+        </div>
+    </div> 
+    <div class="row my-5">
+        <div class="col-lg-6 text-center">
+            
+        </div>
+        <div class="col-lg-6 text-center">
+            <h3 class="" >CreatedBy : {{singleBatch.CreatedBy}}</h3>
+        </div>
+    </div>
+</div>

@@ -23,6 +23,7 @@ import { DayListComponent } from './day/day-list/day-list.component';
 import { SingleDayComponent } from './day/single-day/single-day.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { SingleStudentComponent } from './student/single-student/single-student.component';
+import { DayListByBatchComponent } from './day/day-list-by-batch/day-list-by-batch.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SingleStudentComponent } from './student/single-student/single-student.
     DayListComponent,
     SingleDayComponent,
     StudentListComponent,
-    SingleStudentComponent
+    SingleStudentComponent,
+    DayListByBatchComponent
   ],
   imports: [
     BrowserModule,

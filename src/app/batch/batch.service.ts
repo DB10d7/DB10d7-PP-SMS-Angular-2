@@ -12,4 +12,8 @@ export class BatchService {
     console.log(this.httpClient.get('http://localhost:8080/api/batch/'));
     return this.httpClient.get<any>('http://localhost:8080/api/batch/');
   }
+  viewBatch(name: String):Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/batch/'+name));
+    return this.httpClient.get<any>('http://localhost:8080/api/batch/'+name);
+  }
 }

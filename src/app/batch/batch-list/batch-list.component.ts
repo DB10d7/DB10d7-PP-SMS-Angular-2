@@ -18,5 +18,11 @@ export class BatchListComponent implements OnInit {
       this.listBatch = resp;
       })
   }
+  viewBatch(name: String){
+    this.router.navigate(['singleBatch/',name]);
+  }
+  viewDay(name: String){
+    this.router.navigate(['dayListByBatch',name]);
+  }
 
 }

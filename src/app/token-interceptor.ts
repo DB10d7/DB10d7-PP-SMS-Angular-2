@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, switchMap, take, filter } from 'rxjs/operators';
-import { SharedService } from './auth/shared/shared.service';
 import { LoginResponse } from './auth/login/login-response.payload';
+import { AuthService } from './auth/shared/auth.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +14,7 @@ export class TokenInterceptor implements HttpInterceptor {
     isTokenRefreshing = false;
     refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject(null);
    
-    constructor(public authService: SharedService) { }
+    constructor(public authService: AuthService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         
