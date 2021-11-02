@@ -6,6 +6,7 @@ import { SignupRequestPayload } from '../signup/signup-request.payload';
 import { LoginResponse } from '../login/login-response.payload';
 import { LoginRequestPayload } from '../login/login-request.payload';
 import { map, tap } from 'rxjs/operators';
+import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class AuthService {
         this.localStorage.store('username', data.username);
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.expiresAt);
-
+        this.localStorage.store('role',data.role);
       /*  this.loggedIn.emit(true);
         this.username.emit(data.username); */
         return true;
@@ -40,6 +41,9 @@ export class AuthService {
   }
   getUserName() {
     return this.localStorage.retrieve('username');
+  }
+  getUserRole(){
+    return this.localStorage.retrieve('role');
   }
   getRefreshToken() {
     return this.localStorage.retrieve('refreshToken');
@@ -63,4 +67,13 @@ export class AuthService {
     console.log(this.httpClient.get('http://localhost:8080/api/auth/'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/');
   }
+  updateUser(name: String, userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/'));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/');
+  }
+  getSingleUser(name : String): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/get' + name));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/get' + name);
+  }
+
 }

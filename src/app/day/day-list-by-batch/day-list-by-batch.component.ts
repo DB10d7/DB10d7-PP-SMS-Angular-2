@@ -9,6 +9,7 @@ import { DayService } from '../day.service';
 })
 export class DayListByBatchComponent implements OnInit {
   listDay:any;
+  batchName:string="";
   constructor(private dayService: DayService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class DayListByBatchComponent implements OnInit {
     this.dayService.getDayListByBatch(this.route.snapshot.params['name']).subscribe((result)=>{
       console.log(this.route.snapshot.params['name']);
       console.log("data is here",result);
+      this.batchName=this.route.snapshot.params['name'];
       this.listDay= result;
       console.log(this.listDay);
     })

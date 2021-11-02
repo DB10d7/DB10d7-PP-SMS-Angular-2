@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
       this.router.navigateByUrl('/register-success');
     }
     this.signupRequestPayload.username = this.signupForm.get('username').value;
-    this.signupRequestPayload.email = this.signupForm.get('name').value;
+    this.signupRequestPayload.name = this.signupForm.get('name').value;
     this.signupRequestPayload.email = this.signupForm.get('email').value;
     this.signupRequestPayload.password = this.signupForm.get('password').value;
     this.signupRequestPayload.confirmPassword = this.signupForm.get('confirmPassword').value;

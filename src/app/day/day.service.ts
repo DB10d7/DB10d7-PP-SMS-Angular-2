@@ -17,6 +17,10 @@ export class DayService {
     console.log(this.httpClient.get('http://localhost:8080/api/days/by-batch/'+ name));
     return this.httpClient.get<any>('http://localhost:8080/api/days/by-batch/'+ name);
   }
+  getDayListByStudent(name: String): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/students/'+ name + '/get/allDays'));
+    return this.httpClient.get<any>('http://localhost:8080/api/students/'+ name + '/get/allDays');
+  }
   addStudentToDay(addStudentToDayRequest: AddStudentToDayRequest ): Observable<any>{
     console.log(this.httpClient.post('http://localhost:8080/api/days/addStudent', addStudentToDayRequest, { responseType: 'text' } ));
     return this.httpClient.post('http://localhost:8080/api/days/addStudent', addStudentToDayRequest, { responseType: 'text' } );

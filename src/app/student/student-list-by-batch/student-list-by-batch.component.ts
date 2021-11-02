@@ -9,6 +9,7 @@ import { StudentService } from '../student.service';
 })
 export class StudentListByBatchComponent implements OnInit {
   listStudent:any;
+  name: string="";
   constructor(private studentService: StudentService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class StudentListByBatchComponent implements OnInit {
     this.studentService.getStudentListByBatch(this.route.snapshot.params['name']).subscribe((result)=>{
       console.log(this.route.snapshot.params['name']);
       console.log("data is here",result);
+      this.name=this.route.snapshot.params['name'];
       this.listStudent= result;
       console.log(this.listStudent);
     })
@@ -25,5 +27,8 @@ export class StudentListByBatchComponent implements OnInit {
   viewStudent(name: String){
     this.router.navigate(['singleStudent/',name]);
     console.log(name);
+  }
+  viewAllDays(name: String){
+    this.router.navigate(['dayListByStudent/',name]);
   }
 }

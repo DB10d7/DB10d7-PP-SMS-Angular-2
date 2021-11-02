@@ -20,5 +20,8 @@ export class StudentListComponent implements OnInit {
   viewStudent(name: String){
     this.router.navigate(['singleStudent/',name]);
   }
+  viewAllDays(name: String){
+    this.router.navigate(['dayListByStudent/',name]);
+  }
 
 }
