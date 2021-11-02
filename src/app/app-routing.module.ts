@@ -18,7 +18,7 @@ import { RoleGaurdGuard } from './auth/shared/role-gaurd.guard';
 import { DayListByStudentComponent } from './day/day-list-by-student/day-list-by-student.component';
 import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { SuperAdminHomePageComponent } from './homePages/super-admin-home-page/super-admin-home-page.component';
-import { AddStudentToDayRequest } from './day/add-student-to-day/addStudentToDay.request.payload';
+
 import { AdminHomePageComponent } from './homePages/admin-home-page/admin-home-page.component';
 import { TrainerHomeComponent } from './display-home/trainer-home/trainer-home.component';
 import { StudentHomePageComponent } from './homePages/student-home-page/student-home-page.component';
