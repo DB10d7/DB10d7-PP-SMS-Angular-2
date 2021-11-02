@@ -28,6 +28,12 @@ import { StudentListByBatchComponent } from './student/student-list-by-batch/stu
 import { StudentListByDayComponent } from './student/student-list-by-day/student-list-by-day.component';
 import { DayListByStudentComponent } from './day/day-list-by-student/day-list-by-student.component';
 import { AddStudentToDayComponent } from './day/add-student-to-day/add-student-to-day.component';
+import { SuperAdminHomePageComponent } from './homePages/super-admin-home-page/super-admin-home-page.component';
+import { AdminHomePageComponent } from './homePages/admin-home-page/admin-home-page.component';
+import { TrainerHomePageComponent } from './homePages/trainer-home-page/trainer-home-page.component';
+import { StudentHomePageComponent } from './homePages/student-home-page/student-home-page.component';
+import { CreateBatchComponent } from './batch/create-batch/create-batch.component';
+import { UpdateBatchComponent } from './batch/update-batch/update-batch.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +56,13 @@ import { AddStudentToDayComponent } from './day/add-student-to-day/add-student-t
     StudentListByBatchComponent,
     StudentListByDayComponent,
     DayListByStudentComponent,
-    AddStudentToDayComponent
+    AddStudentToDayComponent,
+    SuperAdminHomePageComponent,
+    AdminHomePageComponent,
+    TrainerHomePageComponent,
+    StudentHomePageComponent,
+    CreateBatchComponent,
+    UpdateBatchComponent
   ],
   imports: [
     BrowserModule,

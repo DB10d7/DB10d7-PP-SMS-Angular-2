@@ -68,12 +68,19 @@ export class AuthService {
     return this.httpClient.get<any>('http://localhost:8080/api/auth/');
   }
   updateUser(name: String, userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
-    console.log(this.httpClient.get('http://localhost:8080/api/auth/'));
-    return this.httpClient.get<any>('http://localhost:8080/api/auth/');
+    console.log(this.httpClient.put('http://localhost:8080/api/auth/update/'+ name,userUpdateRequestPayload));
+    return this.httpClient.put('http://localhost:8080/api/auth/update/'+ name,userUpdateRequestPayload,{ responseType: 'text' });
   }
   getSingleUser(name : String): Observable<any>{
-    console.log(this.httpClient.get('http://localhost:8080/api/auth/get' + name));
-    return this.httpClient.get<any>('http://localhost:8080/api/auth/get' + name);
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/get/' + name));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/get/' + name);
+  }
+  logout(){
+    this.localStorage.clear('authenticationToken');
+    this.localStorage.clear('username');
+    this.localStorage.clear('refreshToken');
+    this.localStorage.clear('expiresAt');
+    this.localStorage.clear('role');
   }
 
 }

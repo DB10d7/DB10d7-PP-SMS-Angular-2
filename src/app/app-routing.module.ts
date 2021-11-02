@@ -16,12 +16,27 @@ import { StudentListByDayComponent } from './student/student-list-by-day/student
 import { AddStudentToDayComponent } from './day/add-student-to-day/add-student-to-day.component';
 import { RoleGaurdGuard } from './auth/shared/role-gaurd.guard';
 import { DayListByStudentComponent } from './day/day-list-by-student/day-list-by-student.component';
+import { UpdateUserComponent } from './auth/update-user/update-user.component';
+import { SuperAdminHomePageComponent } from './homePages/super-admin-home-page/super-admin-home-page.component';
+import { AddStudentToDayRequest } from './day/add-student-to-day/addStudentToDay.request.payload';
+import { AdminHomePageComponent } from './homePages/admin-home-page/admin-home-page.component';
+import { TrainerHomeComponent } from './display-home/trainer-home/trainer-home.component';
+import { StudentHomePageComponent } from './homePages/student-home-page/student-home-page.component';
+import { CreateBatchComponent } from './batch/create-batch/create-batch.component';
+import { UpdateBatchComponent } from './batch/update-batch/update-batch.component';
 
 const routes: Routes = [
 
   { path: '', component: LoginComponent },
   { path: 'sign-up', component: SignupComponent },
-  { path: 'userList', component: UserListComponent, canActivate: [AuthGaurdService] },
+  {path: 'superAdminHomePage', component: SuperAdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN'] }},
+  {path: 'adminHomePage', component: AdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','ADMIN'] }},
+  {path: 'trainerHomePage', component: TrainerHomeComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'studentHomePage', component: StudentHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
+  
+  {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'updateBatch/:name', component: UpdateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'userList', component: UserListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'batchList', component: BatchListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'singleBatch/:name', component: SingleBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   {path: 'dayList', component: DayListComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
@@ -33,6 +48,7 @@ const routes: Routes = [
   {path: 'studentListByDay/:name', component: StudentListByDayComponent , canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'addStudentToDay/:name', component: AddStudentToDayComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'dayListByStudent/:name', component: DayListByStudentComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
+  {path: 'updateUser/:name', component: UpdateUserComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN'] }},
 ];
 
 @NgModule({

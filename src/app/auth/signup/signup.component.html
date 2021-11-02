@@ -1,75 +1,81 @@
 <div class="container">
-    <div class="row mt-5">
-      <div class="col-md-4 offset-md-4">
-        <div class="card">
-          <div class="card-header text-center">
-            <li class="fa fa-user-circle-o fa-2x"></li>
-            <h5>Registration Page</h5>
-          </div>
-          <div class="card-body text-center">
-            <form class="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
-              <div class="mb-4">
-                  <label for="exampleInputEmail1" class="form-label"
-                    > Enter Your UserName</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputUserName"
-                    [formControlName]="'username'"
-                    required="required"
-                  />
-                </div>
-                <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label"
-                      > Enter Your Name</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputUserName"
-                      [formControlName]="'name'"
-                      required="required"
-                    />
-                  </div>
-              <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label"
-                  > Enter Your Email address</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  [formControlName]="'email'"
-                  required="required"
-                />
-              </div>
-              <div class="mb-4">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Enter Your Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  [formControlName]="'password'"
-                  required="required"
-                />
-              </div>
-              <div class="mb-4">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Enter Your Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  [formControlName]="'confirmPassword'"
-                  required="required"
-                />
-              </div>
-              <button type="submit" class="btn btn-success btn-block">Signup</button>
-            </form>
-          </div>
+  <div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-header text-center">
+          <li class="fa fa-user-circle-o fa-2x"></li>
+          <h5>Registration Page</h5>
+        </div>
+        <div class="card-body text-center">
+          <form
+            class="signupForm"
+            [formGroup]="signupForm"
+            (ngSubmit)="onSubmit()"
+          >
+            <div class="mb-4">
+              <label for="exampleInputEmail1" class="form-label">
+                Enter Your UserName</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputUserName"
+                [formControlName]="'username'"
+                required="required"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputEmail1" class="form-label">
+                Enter Your Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputUserName"
+                [formControlName]="'name'"
+                required="required"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputEmail1" class="form-label">
+                Enter Your Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                [formControlName]="'email'"
+                required="required"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label"
+                >Enter Your Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                [formControlName]="'password'"
+                required="required"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label"
+                >Enter Your Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                [formControlName]="'confirmPassword'"
+                required="required"
+              />
+            </div>
+            <button type="submit" class="btn btn-success btn-block">
+              Signup
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

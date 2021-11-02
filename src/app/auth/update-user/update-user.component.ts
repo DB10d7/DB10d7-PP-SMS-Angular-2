@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserUpdateRequestPayload } from './update-user-request.payload';
-import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -11,10 +10,12 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
+  
 
-  userUpdateRequestPayload : UserUpdateRequestPayload;
-  userUpdateForm : any= FormGroup; 
-  constructor(private authService:AuthService, private router:Router,private route: ActivatedRoute,private toastr: ToastrService) {
+  userUpdateRequestPayload : any= UserUpdateRequestPayload;
+  userUpdateForm : any= FormGroup;
+
+  constructor(private authService:AuthService, private router:Router,private route: ActivatedRoute) {
     
     this.userUpdateRequestPayload = {
       username: '',
@@ -23,23 +24,24 @@ export class UpdateUserComponent implements OnInit {
       email: '',
       batch: '',
       role: ''
-    }
+    } 
   }
 
   ngOnInit(): void {
-    this.authService.getSingleUser(this.route.snapshot.params['name']).subscribe((result)=>{
-      this.userUpdateForm.patchValue({
-        username: result['username'], 
-        name: result['name'], 
-        password: result['password'],
-        email: result['email'], 
-        batch: result['batch'], 
-        role: result['role'],  
+    this.authService.getSingleUser(this.route.snapshot.params['name']).subscribe((result:any)=>{
+      console.log(result);
+      this.userUpdateForm = new FormGroup ({
+        username: new FormControl(result['username']),
+        name: new FormControl(result['name']),
+        password: new FormControl(result['password']),
+        email: new FormControl(result['email']),
+        batch: new FormControl(result['batch']),
+        role: new FormControl(result['role']) 
        });
    });
+   
   }
-  updateUser(){
-    
+  onSubmit(){
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;
     this.userUpdateRequestPayload.name = this.userUpdateForm.get('name').value;
     this.userUpdateRequestPayload.email = this.userUpdateForm.get('email').value;
@@ -48,9 +50,9 @@ export class UpdateUserComponent implements OnInit {
     this.userUpdateRequestPayload.role = this.userUpdateForm.get('role').value;
 
 
-    console.warn(this.userUpdateRequestPayload)
-    this.authService.updateUser(this.route.snapshot.params['name'],this.userUpdateRequestPayload).subscribe((result)=>{
-      console.warn("data is here",result);
+    console.warn(this.userUpdateRequestPayload);
+    this.authService.updateUser(this.route.snapshot.params['name'],this.userUpdateRequestPayload).subscribe((data)=>{
+      console.warn("data is here",data);
       alert("User Updated Successfully");
       this.router.navigate(['batchList']);
     })

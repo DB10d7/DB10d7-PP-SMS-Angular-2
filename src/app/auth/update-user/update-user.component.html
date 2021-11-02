@@ -1,1 +1,70 @@
-<p>update-user works!</p>
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4 offset-md-4">
+        <div class="card">
+          <div class="card-header text-center">
+            <li class="fa fa-user-circle-o fa-2x"></li>
+            <h5>Registration Page</h5>
+          </div>
+          <div class="card-body text-center">
+            <form class="userUpdateForm" [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()" >
+                <div class="mb-4">
+                    <label for="exampleInputEmail1" class="form-label"
+                      > Enter Your Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputUserName"
+                      [formControlName]="'name'"
+                      required="required"
+                    />
+                  </div>
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label"
+                  > Enter Your Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  [formControlName]="'email'"
+                  required="required"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label"
+                  > Enter Your Batch</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputUserBatchName"
+                  [formControlName]="'batch'"
+                  required="required"
+                />
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Role
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">ADMIN</a></li>
+                    <li><a class="dropdown-item" href="#">TRAINER</a></li>
+                    <li><a class="dropdown-item" href="#">STUDENT</a></li>
+                </ul>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputUserRoleName"
+                  [formControlName]="'role'"
+                  required="required"
+                />
+              </div>
+              <button type="submit" class="btn btn-success btn-block">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

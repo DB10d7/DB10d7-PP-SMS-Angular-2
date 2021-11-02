@@ -61,8 +61,19 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginRequestPayload).subscribe(data => {
       this.isError = false;
-      this.router.navigateByUrl('');
-      this.toastr.success('Login Successful');
+      
+      if(this.authService.getUserRole() === 'SUPER-ADMIN'){
+        this.router.navigateByUrl('superAdminHomePage');
+      }else if(this.authService.getUserRole() === 'TRAINER'){
+        this.router.navigateByUrl('trainerHomePage');
+      }else if(this.authService.getUserRole() === 'ADMIN'){
+        this.router.navigateByUrl('adminHomePage');
+      }else if(this.authService.getUserRole() === 'STUDENT'){
+        this.router.navigateByUrl('studentHomePage');
+      }else{
+        this.router.navigateByUrl('defaultPage');
+      }
+      
     }, error => {
       this.isError = true;
       throwError(error);

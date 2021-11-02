@@ -18,5 +18,7 @@ export class UserListComponent implements OnInit {
       this.listUser = resp;
       })
   }
-
+  updateUser(name: String){
+    this.router.navigate(['updateUser/',name]);
+  }
 }
