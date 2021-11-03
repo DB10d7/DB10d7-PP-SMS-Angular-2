@@ -8,7 +8,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { TokenInterceptor } from './token-interceptor';
 import { SignupComponent } from './auth/signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './auth/user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
-import { TrainerHomeComponent } from './display-home/trainer-home/trainer-home.component';
+
 import { BatchListComponent } from './batch/batch-list/batch-list.component';
 import { SingleBatchComponent } from './batch/single-batch/single-batch.component';
 import { DayListComponent } from './day/day-list/day-list.component';
@@ -34,6 +34,8 @@ import { TrainerHomePageComponent } from './homePages/trainer-home-page/trainer-
 import { StudentHomePageComponent } from './homePages/student-home-page/student-home-page.component';
 import { CreateBatchComponent } from './batch/create-batch/create-batch.component';
 import { UpdateBatchComponent } from './batch/update-batch/update-batch.component';
+import { CreateDayComponent } from './day/create-day/create-day.component';
+import { UpdateDayComponent } from './day/update-day/update-day.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,6 @@ import { UpdateBatchComponent } from './batch/update-batch/update-batch.componen
     HeaderComponent,
     UserListComponent,
     HomeComponent,
-    TrainerHomeComponent,
     BatchListComponent,
     SingleBatchComponent,
     DayListComponent,
@@ -62,11 +63,14 @@ import { UpdateBatchComponent } from './batch/update-batch/update-batch.componen
     TrainerHomePageComponent,
     StudentHomePageComponent,
     CreateBatchComponent,
-    UpdateBatchComponent
+    UpdateBatchComponent,
+    CreateDayComponent,
+    UpdateDayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxWebstorageModule.forRoot(),

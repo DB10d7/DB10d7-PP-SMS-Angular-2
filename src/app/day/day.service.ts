@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AddStudentToDayRequest } from './add-student-to-day/addStudentToDay.request.payload';
+import { CreateDayRequestPayload } from './create-day/create-day-request.payload';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class DayService {
   viewDay(name: String):Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/days/'+name));
     return this.httpClient.get<any>('http://localhost:8080/api/days/'+name);
+  }
+  createDay(createDayRequestPayload: CreateDayRequestPayload):Observable<any>{
+    console.log(this.httpClient.post('http://localhost:8080/api/days/', createDayRequestPayload ));
+    return this.httpClient.post<any>('http://localhost:8080/api/days/', createDayRequestPayload);
+  }
+  updateDay(name : String, updateDayRequestPayload: CreateDayRequestPayload):Observable<any>{
+    console.log(this.httpClient.put('http://localhost:8080/api/days/update'+ name, updateDayRequestPayload ));
+    return this.httpClient.put<any>('http://localhost:8080/api/days/update'+ name, updateDayRequestPayload);
   }
 }

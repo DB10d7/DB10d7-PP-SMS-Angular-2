@@ -12,7 +12,7 @@ import { CreateBatchRequestPayload } from './create-batch-request.payload';
 export class CreateBatchComponent implements OnInit {
   
   createBatchRequestPayload: any= CreateBatchRequestPayload;
-  createBatchForm: any;
+  createBatchForm: any=FormGroup;
 
   constructor(private router:Router,private batchService: BatchService) {
     this.createBatchRequestPayload = {
@@ -20,10 +20,10 @@ export class CreateBatchComponent implements OnInit {
       description:'',
       createdBy:''
     }
-    this.createBatchRequestPayload ={
-      name:'',
-      description:'',
-      createdBy:''
+    this.createBatchForm = {
+      name: '',
+      description: '', 
+      createdBy: ''
     }
    }
 
@@ -39,9 +39,11 @@ export class CreateBatchComponent implements OnInit {
     this.createBatchRequestPayload.name= this.createBatchForm.get('name').value;
     this.createBatchRequestPayload.description= this.createBatchForm.get('description').value;
     this.createBatchRequestPayload.createdBy= this.createBatchForm.get('craetedBy').value;
-
-    this.batchService.createBatch(this.createBatchRequestPayload)
-      .subscribe(data => {
+    console.log('hello1')
+    console.log(this.createBatchForm);
+    this.batchService.createBatch(this.createBatchRequestPayload).subscribe(data => {
+        console.log(this.createBatchRequestPayload);
+        console.log('hello2')
         this.router.navigate(['batchList']),
         console.log(data);
       }, error => {

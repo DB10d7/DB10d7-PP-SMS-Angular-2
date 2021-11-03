@@ -32,4 +32,7 @@ export class DayListByBatchComponent implements OnInit {
     this.router.navigate(['addStudentToDay/', name]);
     console.log(name);
   }
+  updateDay(name: String){
+    this.router.navigate(['updateDay/', name]);
+  }
 }

@@ -4,23 +4,23 @@
         <div class="card">
           <div class="card-header text-center">
             <li class="fa fa-user-circle-o fa-2x"></li>
-            <h5>Create New Batch</h5>
+            <h5>Create New Day</h5>
           </div>
           <div class="card-body text-center">
             <form
-              class="createBatchForm"
-              [formGroup]="createBatchForm"
+              class="createDayForm"
+              [formGroup]="createDayForm"
               (ngSubmit)="onSubmit()"
             >
               <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label">
-                  Enter BatchName</label
+                  Enter DayName</label
                 >
                 <input
                   type="text"
                   class="form-control"
                   id="inputUserName"
-                  formControlName="name"
+                  [formControlName]="'dayName'"
                   required="required"
                 />
               </div>
@@ -32,7 +32,19 @@
                   type="text"
                   class="form-control"
                   id="inputUserName"
-                  formControlName="description"
+                  [formControlName]="'description'"
+                  required="required"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label">
+                  Enter URL</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputUserName"
+                  [formControlName]="'url'"
                   required="required"
                 />
               </div>
@@ -44,12 +56,12 @@
                   type="text"
                   class="form-control"
                   id="exampleInputEmail1"
-                  formControlName="createdBy"
+                  [formControlName]="'createdBy'"
                   required="required"
                 />
               </div>
               <button type="submit" class="btn btn-success btn-block">
-                Create Batch
+                Create Day
               </button>
             </form>
           </div>

@@ -18,12 +18,13 @@ import { RoleGaurdGuard } from './auth/shared/role-gaurd.guard';
 import { DayListByStudentComponent } from './day/day-list-by-student/day-list-by-student.component';
 import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { SuperAdminHomePageComponent } from './homePages/super-admin-home-page/super-admin-home-page.component';
-
+import { TrainerHomePageComponent } from './homePages/trainer-home-page/trainer-home-page.component';
 import { AdminHomePageComponent } from './homePages/admin-home-page/admin-home-page.component';
-import { TrainerHomeComponent } from './display-home/trainer-home/trainer-home.component';
 import { StudentHomePageComponent } from './homePages/student-home-page/student-home-page.component';
 import { CreateBatchComponent } from './batch/create-batch/create-batch.component';
 import { UpdateBatchComponent } from './batch/update-batch/update-batch.component';
+import { CreateDayComponent } from './day/create-day/create-day.component';
+import { UpdateDayComponent } from './day/update-day/update-day.component';
 
 const routes: Routes = [
 
@@ -31,11 +32,13 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupComponent },
   {path: 'superAdminHomePage', component: SuperAdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'adminHomePage', component: AdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','ADMIN'] }},
-  {path: 'trainerHomePage', component: TrainerHomeComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'trainerHomePage', component: TrainerHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'studentHomePage', component: StudentHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   
   {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'updateBatch/:name', component: UpdateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'createDay', component: CreateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'updateDay/:name', component: UpdateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'userList', component: UserListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'batchList', component: BatchListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'singleBatch/:name', component: SingleBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},

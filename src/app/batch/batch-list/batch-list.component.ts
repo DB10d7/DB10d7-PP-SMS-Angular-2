@@ -30,5 +30,10 @@ export class BatchListComponent implements OnInit {
     this.router.navigate(['studentListByBatch/',name]);
     console.log(name);
   }
-
+  updateBatch(name: String){
+    this.router.navigate(['updateBatch/',name]);
+  }
+  createBatch(){
+    this.router.navigate(['createBatch']);
+  }
 }
