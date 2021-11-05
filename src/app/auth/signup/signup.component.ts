@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(this.signupRequestPayload)
       .subscribe(data => {
-        this.router.navigate(['/login'],
+        this.router.navigate([''],
           { queryParams: { registered: 'true' } });
       }, error => {
         console.log(error);

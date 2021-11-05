@@ -11,12 +11,17 @@ import { UpdateBatchRequest } from './updateBatchRequest.payload';
 })
 export class UpdateBatchComponent implements OnInit {
 
-  updateBatchRequest :any= UpdateBatchRequest;
+  updateBatchRequest : UpdateBatchRequest;
   updateBatchForm : any=FormGroup;
 
   constructor(private router:Router,private route: ActivatedRoute,private batchService: BatchService) {
 
     this.updateBatchRequest = {
+      name:'',
+      description:'',
+      createdBy:'',
+    }
+    this.updateBatchForm = {
       name:'',
       description:'',
       createdBy:'',
@@ -44,6 +49,9 @@ export class UpdateBatchComponent implements OnInit {
       console.warn("data is here",data);
       alert("Batch Updated Successfully");
       this.router.navigate(['batchList']);
+    }, error => {
+      console.log(error);
+      console.log('hello3');
     })
   }
 

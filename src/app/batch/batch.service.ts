@@ -18,12 +18,12 @@ export class BatchService {
     console.log(this.httpClient.get('http://localhost:8080/api/batch/'+name));
     return this.httpClient.get<any>('http://localhost:8080/api/batch/'+name);
   }
-  createBatch(createBatchRequestPayload: CreateBatchRequestPayload): Observable<String>{
+  createBatch(createBatchRequestPayload: CreateBatchRequestPayload): Observable<any>{
     console.log(this.httpClient.post('http://localhost:8080/api/batch/create',createBatchRequestPayload));
-    return this.httpClient.post<String>('http://localhost:8080/api/batch/create', createBatchRequestPayload);
+    return this.httpClient.post<any>('http://localhost:8080/api/batch/create', createBatchRequestPayload);
   }
-  updateBatch(name: String, updateBatchRequest:UpdateBatchRequest){
+  updateBatch(name: String, updateBatchRequest:UpdateBatchRequest):Observable<any>{
     console.log(this.httpClient.put('http://localhost:8080/api/batch/update/' + name ,updateBatchRequest));
-    return this.httpClient.put<String>('http://localhost:8080/api/batch/update/' + name , updateBatchRequest);
+    return this.httpClient.put<any>('http://localhost:8080/api/batch/update/' + name , updateBatchRequest);
   }
 }

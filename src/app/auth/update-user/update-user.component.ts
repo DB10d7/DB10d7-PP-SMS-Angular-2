@@ -12,7 +12,7 @@ import { AuthService } from '../shared/auth.service';
 export class UpdateUserComponent implements OnInit {
   
 
-  userUpdateRequestPayload : any= UserUpdateRequestPayload;
+  userUpdateRequestPayload : UserUpdateRequestPayload;
   userUpdateForm : any= FormGroup;
 
   constructor(private authService:AuthService, private router:Router,private route: ActivatedRoute) {

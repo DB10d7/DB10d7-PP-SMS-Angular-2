@@ -11,7 +11,7 @@ import { CreateBatchRequestPayload } from './create-batch-request.payload';
 })
 export class CreateBatchComponent implements OnInit {
   
-  createBatchRequestPayload: any= CreateBatchRequestPayload;
+  createBatchRequestPayload: CreateBatchRequestPayload;
   createBatchForm: any=FormGroup;
 
   constructor(private router:Router,private batchService: BatchService) {
@@ -19,12 +19,12 @@ export class CreateBatchComponent implements OnInit {
       name:'',
       description:'',
       createdBy:''
-    }
+    };
     this.createBatchForm = {
       name: '',
       description: '', 
       createdBy: ''
-    }
+    };
    }
 
   ngOnInit(): void {
@@ -36,19 +36,20 @@ export class CreateBatchComponent implements OnInit {
   }
   
   onSubmit(){
-    this.createBatchRequestPayload.name= this.createBatchForm.get('name').value;
-    this.createBatchRequestPayload.description= this.createBatchForm.get('description').value;
-    this.createBatchRequestPayload.createdBy= this.createBatchForm.get('craetedBy').value;
-    console.log('hello1')
+
+    this.createBatchRequestPayload.name = this.createBatchForm.get('name').value;
+    this.createBatchRequestPayload.description = this.createBatchForm.get('description').value;
+    this.createBatchRequestPayload.createdBy = this.createBatchForm.get('createdBy').value;
+    console.log('hello1');
     console.log(this.createBatchForm);
     this.batchService.createBatch(this.createBatchRequestPayload).subscribe(data => {
         console.log(this.createBatchRequestPayload);
-        console.log('hello2')
-        this.router.navigate(['batchList']),
+        console.log('hello2');
+        this.router.navigate(['/batchList']),
         console.log(data);
       }, error => {
         console.log(error);
-        
+        console.log('hello3');
       });
   }
 

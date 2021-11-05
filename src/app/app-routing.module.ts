@@ -28,8 +28,9 @@ import { UpdateDayComponent } from './day/update-day/update-day.component';
 
 const routes: Routes = [
 
-  { path: '', component: LoginComponent },
-  { path: 'sign-up', component: SignupComponent },
+  {path: 'sign-up', component: SignupComponent },
+  {path: '', component: LoginComponent },
+  
   {path: 'superAdminHomePage', component: SuperAdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'adminHomePage', component: AdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','ADMIN'] }},
   {path: 'trainerHomePage', component: TrainerHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
