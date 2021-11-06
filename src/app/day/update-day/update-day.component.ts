@@ -47,6 +47,9 @@ export class UpdateDayComponent implements OnInit {
     console.warn("data is here",data);
     alert("Day Updated Successfully");
     this.router.navigate(['dayListByBatch/',this.updateDayRequest.batchName]);
+  }, error => {
+    console.log(error);
+    
   })
  }
 }

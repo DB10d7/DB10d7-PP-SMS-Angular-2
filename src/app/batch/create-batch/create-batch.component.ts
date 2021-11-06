@@ -49,6 +49,7 @@ export class CreateBatchComponent implements OnInit {
         console.log(data);
       }, error => {
         console.log(error);
+        this.router.navigate(['/batchList']),
         console.log('hello3');
       });
   }

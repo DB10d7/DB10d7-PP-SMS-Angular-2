@@ -38,7 +38,7 @@ const routes: Routes = [
   
   {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'updateBatch/:name', component: UpdateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
-  {path: 'createDay', component: CreateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'createDay/:name', component: CreateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'updateDay/:name', component: UpdateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'userList', component: UserListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'batchList', component: BatchListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},

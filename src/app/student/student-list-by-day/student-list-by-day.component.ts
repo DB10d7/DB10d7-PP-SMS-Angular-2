@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DayService } from 'src/app/day/day.service';
 import { StudentService } from '../student.service';
+import { RemoveStudentRequest } from './removeStudentFromDayRequest.payload';
 
 @Component({
   selector: 'app-student-list-by-day',
@@ -9,7 +11,13 @@ import { StudentService } from '../student.service';
 })
 export class StudentListByDayComponent implements OnInit {
   listStudent:any;
-  constructor(private studentService: StudentService, private router:Router, private route: ActivatedRoute) { }
+  removeStudentRequest : RemoveStudentRequest;
+  constructor(private studentService: StudentService, private dayService: DayService , private router:Router, private route: ActivatedRoute) {
+    this.removeStudentRequest = {
+      studentName : '',
+      dayName:'',
+    };
+   }
 
   ngOnInit(): void {
     this.viewStudentList();
@@ -28,5 +36,15 @@ export class StudentListByDayComponent implements OnInit {
   }
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
+  }
+  removeStudent(studentName : String){
+    this.removeStudentRequest.studentName = studentName;
+    this.removeStudentRequest.dayName = this.route.snapshot.params['name'];
+    this.dayService.removeStudentFromDay(this.removeStudentRequest )
+      .subscribe((data: any) => {
+        this.ngOnInit();
+      }, (error : any) => {
+        console.log(error);
+      });
   }
 }

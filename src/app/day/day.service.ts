@@ -3,6 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AddStudentToDayRequest } from './add-student-to-day/addStudentToDay.request.payload';
 import { CreateDayRequestPayload } from './create-day/create-day-request.payload';
+import { RemoveStudentRequest } from '../student/student-list-by-day/removeStudentFromDayRequest.payload';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,11 @@ export class DayService {
     return this.httpClient.post<any>('http://localhost:8080/api/days/', createDayRequestPayload);
   }
   updateDay(name : String, updateDayRequestPayload: CreateDayRequestPayload):Observable<any>{
-    console.log(this.httpClient.put('http://localhost:8080/api/days/update'+ name, updateDayRequestPayload ));
-    return this.httpClient.put<any>('http://localhost:8080/api/days/update'+ name, updateDayRequestPayload);
+    console.log(this.httpClient.put('http://localhost:8080/api/days/update/'+ name, updateDayRequestPayload ));
+    return this.httpClient.put<any>('http://localhost:8080/api/days/update/'+ name, updateDayRequestPayload);
+  }
+  removeStudentFromDay(removeStudentRequest : RemoveStudentRequest): Observable<any>{
+    console.log(this.httpClient.post('http://localhost:8080/api/days/removeStudent', removeStudentRequest, { responseType: 'text' } ));
+    return this.httpClient.post('http://localhost:8080/api/days/removeStudent', removeStudentRequest, { responseType: 'text' } );
   }
 }

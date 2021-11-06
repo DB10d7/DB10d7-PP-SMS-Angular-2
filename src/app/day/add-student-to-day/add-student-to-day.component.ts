@@ -11,28 +11,31 @@ import { AddStudentToDayRequest } from './addStudentToDay.request.payload';
 })
 export class AddStudentToDayComponent implements OnInit {
   singleDay:any;
+  batchName: String="";
   listStudent:any;
   addStudentToDayRequest:any= AddStudentToDayRequest;
   constructor(private dayService: DayService,private studentService: StudentService,private route: ActivatedRoute, private router: Router) { 
     this.addStudentToDayRequest = {
-      studentName : "",
-      dayName:""
+      studentName : '',
+      dayName:'',
     };
   }
 
   ngOnInit(): void {
     this.viewDayToAddStudent();
-    this.studentList();
+    
+    
   }
   viewDayToAddStudent(){
     this.dayService.viewDay(this.route.snapshot.params['name']).subscribe((result)=>{
       console.log("data is here",result);
       this.singleDay= result;
       console.log(this.singleDay);
+      this.studentListByBatch();
     })
   }
-  studentList(){
-    this.studentService.getStudentList().subscribe((resp)=>{
+  studentListByBatch(){
+    this.studentService.getStudentListByBatch(this.singleDay.batchName).subscribe((resp)=>{
 
       this.listStudent = resp;
       })

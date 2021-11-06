@@ -51,6 +51,7 @@ export class UpdateBatchComponent implements OnInit {
       this.router.navigate(['batchList']);
     }, error => {
       console.log(error);
+      this.router.navigate(['batchList']);
       console.log('hello3');
     })
   }

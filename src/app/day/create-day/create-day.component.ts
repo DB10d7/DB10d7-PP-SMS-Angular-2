@@ -45,6 +45,7 @@ export class CreateDayComponent implements OnInit {
 
     this.dayService.createDay(this.createDayRequest)
       .subscribe(data => {
+        alert("Day Created Successfully");
         this.router.navigate(['dayListByBatch/',this.route.snapshot.params['name']]),
         console.log(data);
       }, error => {
