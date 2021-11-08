@@ -45,13 +45,19 @@ export class CreateBatchComponent implements OnInit {
     this.batchService.createBatch(this.createBatchRequestPayload).subscribe(data => {
         console.log(this.createBatchRequestPayload);
         console.log('hello2');
-        this.router.navigate(['/batchList']),
-        console.log(data);
-      }, error => {
+        this.ngOnInit();
+        if(data == "Batch Successfully Created"){
+          alert(data);
+          this.router.navigate(['/batchList']),
+          console.log(data);
+        }else{
+          alert(data);
+          this.ngOnInit();
+        }
+        
+    }, error => {
         console.log(error);
-        this.router.navigate(['/batchList']),
-        console.log('hello3');
-      });
+    });
   }
 
 }

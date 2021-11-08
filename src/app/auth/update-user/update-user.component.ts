@@ -54,7 +54,7 @@ export class UpdateUserComponent implements OnInit {
     this.authService.updateUser(this.route.snapshot.params['name'],this.userUpdateRequestPayload).subscribe((data)=>{
       console.warn("data is here",data);
       alert("User Updated Successfully");
-      this.router.navigate(['batchList']);
+      this.router.navigate(['userList']);
     })
   }
 }

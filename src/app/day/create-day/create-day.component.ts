@@ -44,9 +44,19 @@ export class CreateDayComponent implements OnInit {
     this.createDayRequest.createdBy= this.createDayForm.get('createdBy').value;
 
     this.dayService.createDay(this.createDayRequest)
-      .subscribe(data => {
-        alert("Day Created Successfully");
-        this.router.navigate(['dayListByBatch/',this.route.snapshot.params['name']]),
+      .subscribe((data: String) => {
+        this.ngOnInit();
+        if(data === "Day Successfully Created"){
+          alert(data);
+       //   this.router.navigate(['dayListByBatch/',this.route.snapshot.params['name']]);
+          this.router.navigate(['dayListByBatch/',this.route.snapshot.params['name']],
+         { queryParams: { registered: 'true' } });
+        }else{
+          alert(data);
+          this.ngOnInit();
+          console.log(data);
+        }
+        
         console.log(data);
       }, error => {
         console.log(error);

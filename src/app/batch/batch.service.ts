@@ -20,7 +20,7 @@ export class BatchService {
   }
   createBatch(createBatchRequestPayload: CreateBatchRequestPayload): Observable<any>{
     console.log(this.httpClient.post('http://localhost:8080/api/batch/create',createBatchRequestPayload));
-    return this.httpClient.post<any>('http://localhost:8080/api/batch/create', createBatchRequestPayload);
+    return this.httpClient.post('http://localhost:8080/api/batch/create', createBatchRequestPayload,{ responseType: 'text' });
   }
   updateBatch(name: String, updateBatchRequest:UpdateBatchRequest):Observable<any>{
     console.log(this.httpClient.put('http://localhost:8080/api/batch/update/' + name ,updateBatchRequest));

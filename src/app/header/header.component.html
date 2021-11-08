@@ -5,20 +5,42 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn()">
+      <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'">
         <li class="nav-item">
-          <a class="nav-link" href="/add-student"></a>
+          <a class="nav-link" href="/userList">User-List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/batchList">Batch-List</a>
         </li>
-      <!-- <li class="nav-item">
+         <li class="nav-item">
           <a class=" btn nav-link" (click)="logout()">Logout</a>
-        </li>--> 
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'">
+        <li class="nav-item">
+          <a class="nav-link" href="/userList"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/batchList">Batch-List</a>
+        </li>
+         <li class="nav-item">
+          <a class=" btn nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul> 
+      <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'">
+        <li class="nav-item">
+          <a class="nav-link" href="/userList"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/batchList">Batch-List</a>
+        </li>
+         <li class="nav-item">
+          <a class=" btn nav-link" (click)="logout()">Logout</a>
+        </li>
       </ul> 
       <ul class="navbar-nav ms-auto" *ngIf="!authService.isLoggedIn()">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/login">Login</a>
+          <a class="nav-link" aria-current="page" href="">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/sign-up">Register</a>

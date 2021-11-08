@@ -33,7 +33,7 @@ export class DayService {
   }
   createDay(createDayRequestPayload: CreateDayRequestPayload):Observable<any>{
     console.log(this.httpClient.post('http://localhost:8080/api/days/', createDayRequestPayload ));
-    return this.httpClient.post<any>('http://localhost:8080/api/days/', createDayRequestPayload);
+    return this.httpClient.post('http://localhost:8080/api/days/', createDayRequestPayload, { responseType: 'text' });
   }
   updateDay(name : String, updateDayRequestPayload: CreateDayRequestPayload):Observable<any>{
     console.log(this.httpClient.put('http://localhost:8080/api/days/update/'+ name, updateDayRequestPayload ));
@@ -42,5 +42,10 @@ export class DayService {
   removeStudentFromDay(removeStudentRequest : RemoveStudentRequest): Observable<any>{
     console.log(this.httpClient.post('http://localhost:8080/api/days/removeStudent', removeStudentRequest, { responseType: 'text' } ));
     return this.httpClient.post('http://localhost:8080/api/days/removeStudent', removeStudentRequest, { responseType: 'text' } );
+  }
+  studentListByBatchNotPresent(batchDayRequest : any): Observable<any>{
+    console.log(batchDayRequest);
+    console.log(this.httpClient.post('http://localhost:8080/api/days/studentsNotPresent', batchDayRequest));
+    return this.httpClient.post<any>('http://localhost:8080/api/days/studentsNotPresent', batchDayRequest);
   }
 }

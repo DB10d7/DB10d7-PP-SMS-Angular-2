@@ -55,8 +55,16 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(this.signupRequestPayload)
       .subscribe(data => {
-        this.router.navigate([''],
-          { queryParams: { registered: 'true' } });
+        this.ngOnInit();
+        if(data === "User Registered Successfully"){
+          alert(data);
+          this.router.navigate([''],
+         { queryParams: { registered: 'true' } });
+        }else{
+          alert(data);
+          this.ngOnInit();
+        }
+        
       }, error => {
         console.log(error);
         this.toastr.error('Registration Failed! Please try again');
