@@ -75,6 +75,10 @@ export class AuthService {
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/' + name));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/' + name);
   }
+  getDefaultRoleUserList(): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/get/defaultRoleUsers'));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/get/defaultRoleUsers');
+  }
   logout(){
     this.localStorage.clear('authenticationToken');
     this.localStorage.clear('username');

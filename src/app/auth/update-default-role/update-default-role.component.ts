@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserUpdateRequestPayload } from './update-user-request.payload';
 import { AuthService } from '../shared/auth.service';
+import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
 
 @Component({
-  selector: 'app-update-user',
-  templateUrl: './update-user.component.html',
-  styleUrls: ['./update-user.component.css']
+  selector: 'app-update-default-role',
+  templateUrl: './update-default-role.component.html',
+  styleUrls: ['./update-default-role.component.css']
 })
-export class UpdateUserComponent implements OnInit {
-  
-
+export class UpdateDefaultRoleComponent implements OnInit {
   userUpdateRequestPayload : UserUpdateRequestPayload;
   userUpdateForm : any= FormGroup;
-
   constructor(private authService:AuthService, private router:Router,private route: ActivatedRoute) {
-    
     this.userUpdateRequestPayload = {
       username: '',
       name: '',
@@ -25,7 +21,7 @@ export class UpdateUserComponent implements OnInit {
       batch: '',
       role: ''
     } 
-  }
+   }
 
   ngOnInit(): void {
     this.authService.getSingleUser(this.route.snapshot.params['name']).subscribe((result:any)=>{
@@ -39,7 +35,6 @@ export class UpdateUserComponent implements OnInit {
         role: new FormControl(result['role']) 
        });
     });
-   
   }
   onSubmit(){
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;

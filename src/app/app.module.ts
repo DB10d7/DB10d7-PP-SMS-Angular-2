@@ -36,6 +36,8 @@ import { CreateBatchComponent } from './batch/create-batch/create-batch.componen
 import { UpdateBatchComponent } from './batch/update-batch/update-batch.component';
 import { CreateDayComponent } from './day/create-day/create-day.component';
 import { UpdateDayComponent } from './day/update-day/update-day.component';
+import { UpdateDefaultRoleComponent } from './auth/update-default-role/update-default-role.component';
+import { DefaultUserListComponent } from './auth/default-user-list/default-user-list.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { UpdateDayComponent } from './day/update-day/update-day.component';
     CreateBatchComponent,
     UpdateBatchComponent,
     CreateDayComponent,
-    UpdateDayComponent
+    UpdateDayComponent,
+    UpdateDefaultRoleComponent,
+    DefaultUserListComponent
   ],
   imports: [
     BrowserModule,
