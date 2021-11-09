@@ -43,23 +43,20 @@
                   [formControlName]="'batch'"
                   required="required"
                 />
-              </div>
-              <div class="btn-group">
-                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Role
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">ADMIN</a></li>
-                    <li><a class="dropdown-item" href="#">TRAINER</a></li>
-                    <li><a class="dropdown-item" href="#">STUDENT</a></li>
-                </ul>
+                <!-- <label>Role</label>
                 <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserRoleName"
-                  [formControlName]="'role'"
-                  required="required"
-                />
+                type=""
+                class="form-control"
+                id="inputUserRoleName"
+                [formControlName]="'role'"
+                required="required"
+              /> -->
+              <label for="" class="my-3">Role</label>
+              <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                <option value="ADMIN" data-select2-id="12">ADMIN</option>
+                <option value="TRAINER" data-select2-id="26">TRAINER</option>
+                <option value="STUDENT" data-select2-id="27">STUDENT</option>
+              </select>
               </div>
               <button type="submit" class="btn btn-success btn-block">Update</button>
             </form>

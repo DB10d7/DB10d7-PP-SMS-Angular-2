@@ -10,6 +10,9 @@
           <a class="nav-link" href="/userList">User-List</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="defaultRoleUserList">Default-User-List</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/batchList">Batch-List</a>
         </li>
          <li class="nav-item">
@@ -18,7 +21,7 @@
       </ul>
       <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'">
         <li class="nav-item">
-          <a class="nav-link" href="/userList"></a>
+          <a class="nav-link" href="defaultRoleUserListt"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/batchList">Batch-List</a>
@@ -29,7 +32,7 @@
       </ul> 
       <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'">
         <li class="nav-item">
-          <a class="nav-link" href="/userList"></a>
+          <a class="nav-link" href="defaultRoleUserList">Default-User-List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/batchList">Batch-List</a>

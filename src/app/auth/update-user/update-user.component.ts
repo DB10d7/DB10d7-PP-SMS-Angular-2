@@ -15,7 +15,7 @@ export class UpdateUserComponent implements OnInit {
   userUpdateRequestPayload : UserUpdateRequestPayload;
   userUpdateForm : any= FormGroup;
 
-  constructor(private authService:AuthService, private router:Router,private route: ActivatedRoute) {
+  constructor(public authService:AuthService, private router:Router,private route: ActivatedRoute) {
     
     this.userUpdateRequestPayload = {
       username: '',

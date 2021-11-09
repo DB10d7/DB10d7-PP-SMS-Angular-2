@@ -12,7 +12,7 @@ import { UserUpdateRequestPayload } from '../update-user/update-user-request.pay
 export class UpdateDefaultRoleComponent implements OnInit {
   userUpdateRequestPayload : UserUpdateRequestPayload;
   userUpdateForm : any= FormGroup;
-  constructor(private authService:AuthService, private router:Router,private route: ActivatedRoute) {
+  constructor(public authService:AuthService, private router:Router,private route: ActivatedRoute) {
     this.userUpdateRequestPayload = {
       username: '',
       name: '',
@@ -48,8 +48,8 @@ export class UpdateDefaultRoleComponent implements OnInit {
     console.warn(this.userUpdateRequestPayload);
     this.authService.updateUser(this.route.snapshot.params['name'],this.userUpdateRequestPayload).subscribe((data)=>{
       console.warn("data is here",data);
-      alert("User Updated Successfully");
-      this.router.navigate(['userList']);
+      alert("Default Role Updated Successfully");
+      this.router.navigate(['defaultRoleUserList']);
     })
   }
 }
