@@ -38,6 +38,7 @@ import { CreateDayComponent } from './day/create-day/create-day.component';
 import { UpdateDayComponent } from './day/update-day/update-day.component';
 import { UpdateDefaultRoleComponent } from './auth/update-default-role/update-default-role.component';
 import { DefaultUserListComponent } from './auth/default-user-list/default-user-list.component';
+import { DayListByTopicComponent } from './day/day-list-by-topic/day-list-by-topic.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { DefaultUserListComponent } from './auth/default-user-list/default-user-
     CreateDayComponent,
     UpdateDayComponent,
     UpdateDefaultRoleComponent,
-    DefaultUserListComponent
+    DefaultUserListComponent,
+    DayListByTopicComponent
   ],
   imports: [
     BrowserModule,

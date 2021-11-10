@@ -1,1 +1,50 @@
-<p>student-home-page works!</p>
+<div class="container">
+    <div class="row m-5 justify-content-center align-item-center text-center ">
+        <div class="col-md-6 ">
+            <h1>PacketPrep Batch-18</h1>
+        </div>
+    </div>
+      <div class="row m-5">
+          <div class="col-md-6">
+              <h2>Hello {{studentName}}</h2>
+          </div>
+      </div>
+      <div class="row m-5">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Backend Java</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" (click)="viewTopic('Angular')" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Frontend</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" (click)="viewTopic('Aptitute')" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Aptitude</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" (click)="viewTopic('Softskills')" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Softskills</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

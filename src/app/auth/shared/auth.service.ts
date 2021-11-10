@@ -75,6 +75,10 @@ export class AuthService {
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/' + name));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/' + name);
   }
+  getCurrentUser(): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/get/currentUser'));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/get/currentUser');
+  }
   getDefaultRoleUserList(): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/defaultRoleUsers'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/defaultRoleUsers');
