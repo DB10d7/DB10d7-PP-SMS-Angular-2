@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { DayService } from '../day.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { DayService } from '../day.service';
 export class DayListByBatchComponent implements OnInit {
   listDay:any;
   batchName:string="";
-  constructor(private dayService: DayService,private route: ActivatedRoute, private router: Router) { }
+  constructor(private dayService: DayService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.viewDayList();

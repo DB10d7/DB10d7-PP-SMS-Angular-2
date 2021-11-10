@@ -13,6 +13,8 @@
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
             <th scope="col">StudentList</th>
+            <th scope="col">Add-Student</th>
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'" scope="col">Update</th>
           </tr>
         </thead>
         <tbody>
@@ -24,14 +26,14 @@
               <th>{{day.createdBy}}</th>
               <th>{{day.batchName}}</th>
               <th><button (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
-              <th><button (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button>
-                <button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
+              <th><button (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button></th>
+              <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'"><button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
           </tr>        
         </tbody>
       </table>
-      <th><button (click)="createDay(batchName)" class="btn btn-success">Add Day</button></th>
+      <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'" ><button (click)="createDay(batchName)" class="btn btn-success">Add Day</button></th>
     </div>
 </div>

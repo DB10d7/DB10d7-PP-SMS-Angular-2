@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { BatchService } from '../batch.service';
 
 
@@ -10,7 +11,7 @@ import { BatchService } from '../batch.service';
 })
 export class BatchListComponent implements OnInit {
 
-  constructor(private batchService: BatchService,private route: ActivatedRoute, private router: Router) { }
+  constructor(private batchService: BatchService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
   listBatch:any;
   ngOnInit(): void {
     this.batchService.getBatchList().subscribe((resp)=>{
