@@ -13,6 +13,7 @@ export class DayListByTopicComponent implements OnInit {
   batchName:string="";
   topicName: String;
   singleUser:any;
+  listDayByStudent: Set<string> = new Set<string>() ;
   constructor(private dayService: DayService,private authService: AuthService,private route: ActivatedRoute, private router: Router) {
     this.topicName = ''
    }
@@ -27,10 +28,31 @@ export class DayListByTopicComponent implements OnInit {
       console.log(this.route.snapshot.params['name']);
       console.log("data is here",result);
       this.batchName=this.singleUser.batch;
+      
       this.listDay= result;
       console.log(this.listDay);
+      //console.log(this.listDayByStudent);
+    })  
+  }
+  viewDayListByStudent(){
+    this.dayService.getDayListByStudent(this.singleUser.username).subscribe((result)=>{
+      console.log(this.singleUser.username);
+      console.log("data is here",result);
+     // this.listDayByStudent= result;
+     for (var i = 0; i < result.length; i++){
+      // console.log("<br><br>array index: " + i);
+      var obj = result[i];
+      for (var key in obj){
+        if(key==='dayName'){
+          this.listDayByStudent.add(obj[key]);
+        }
+        // console.log("<br> - " + key + ": " + obj[key]);
+        
+      }
+    }
+      console.log('hello');
+      console.log(this.listDayByStudent);
     })
-    
   }
   getSingleUser(){
     this.authService.getCurrentUser().subscribe((result)=>{
@@ -38,6 +60,7 @@ export class DayListByTopicComponent implements OnInit {
       this.singleUser= result;
       console.log(this.singleUser);
       this.viewDayList();
+      this.viewDayListByStudent();
     })
   }
 }

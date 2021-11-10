@@ -53,6 +53,7 @@
               /> -->
               <label for="" class="my-3">Role</label>
               <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                <option value="SUPER-ADMIN" data-select2-id="12">SUPER-ADMIN</option>
                 <option value="ADMIN" data-select2-id="12">ADMIN</option>
                 <option value="TRAINER" data-select2-id="26">TRAINER</option>
                 <option value="STUDENT" data-select2-id="27">STUDENT</option>

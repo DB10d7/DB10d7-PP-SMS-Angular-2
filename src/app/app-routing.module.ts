@@ -28,11 +28,13 @@ import { UpdateDayComponent } from './day/update-day/update-day.component';
 import { UpdateDefaultRoleComponent } from './auth/update-default-role/update-default-role.component';
 import { DefaultUserListComponent } from './auth/default-user-list/default-user-list.component';
 import { DayListByTopicComponent } from './day/day-list-by-topic/day-list-by-topic.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
   {path: 'sign-up', component: SignupComponent },
   {path: '', component: LoginComponent },
+  {path: 'homePage', component: HomeComponent },
   
   {path: 'superAdminHomePage', component: SuperAdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'adminHomePage', component: AdminHomePageComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','ADMIN'] }},

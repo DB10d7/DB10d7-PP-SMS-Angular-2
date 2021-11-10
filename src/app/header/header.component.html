@@ -7,6 +7,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'">
         <li class="nav-item">
+          <a class="nav-link" href="/homePage">Home</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/userList">User-List</a>
         </li>
         <li class="nav-item">
@@ -21,7 +24,10 @@
       </ul>
       <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'">
         <li class="nav-item">
-          <a class="nav-link" href="defaultRoleUserListt"></a>
+          <a class="nav-link" href="/homePage">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="defaultRoleUserListt">Default-User-List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/batchList">Batch-List</a>
@@ -31,6 +37,9 @@
         </li>
       </ul> 
       <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'">
+        <li class="nav-item">
+          <a class="nav-link" href="/homePage">Home</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="defaultRoleUserList">Default-User-List</a>
         </li>
@@ -42,7 +51,10 @@
         </li>
       </ul> 
       <ul class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='STUDENT'">
-         <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link" href="/homePage">Home</a>
+        </li>
+        <li class="nav-item">
           <a class=" btn nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>

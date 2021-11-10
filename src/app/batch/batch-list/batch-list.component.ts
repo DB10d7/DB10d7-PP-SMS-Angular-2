@@ -10,9 +10,9 @@ import { BatchService } from '../batch.service';
   styleUrls: ['./batch-list.component.css']
 })
 export class BatchListComponent implements OnInit {
-
-  constructor(private batchService: BatchService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
   listBatch:any;
+  constructor(private batchService: BatchService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
+  
   ngOnInit(): void {
     this.batchService.getBatchList().subscribe((resp)=>{
 

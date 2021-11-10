@@ -12,7 +12,7 @@
             <th scope="col">Description</th>
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
-            <!-- <th scope="col">StudentList</th> -->
+            <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +23,8 @@
               <th *ngIf="day.description === topicName">{{day.description}}</th>
               <th *ngIf="day.description === topicName">{{day.createdBy}}</th>
               <th *ngIf="day.description === topicName">{{day.batchName}}</th>
+              <th *ngIf="day.description === topicName && (listDayByStudent.has(day.dayName))">Present</th>
+              <th *ngIf="day.description === topicName && (!listDayByStudent.has(day.dayName))">Absent</th>
             <!--   <th><button (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
               <th><button (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button>
                 <button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
