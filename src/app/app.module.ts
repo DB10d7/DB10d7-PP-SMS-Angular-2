@@ -28,10 +28,7 @@ import { StudentListByBatchComponent } from './student/student-list-by-batch/stu
 import { StudentListByDayComponent } from './student/student-list-by-day/student-list-by-day.component';
 import { DayListByStudentComponent } from './day/day-list-by-student/day-list-by-student.component';
 import { AddStudentToDayComponent } from './day/add-student-to-day/add-student-to-day.component';
-import { SuperAdminHomePageComponent } from './homePages/super-admin-home-page/super-admin-home-page.component';
-import { AdminHomePageComponent } from './homePages/admin-home-page/admin-home-page.component';
-import { TrainerHomePageComponent } from './homePages/trainer-home-page/trainer-home-page.component';
-import { StudentHomePageComponent } from './homePages/student-home-page/student-home-page.component';
+
 import { CreateBatchComponent } from './batch/create-batch/create-batch.component';
 import { UpdateBatchComponent } from './batch/update-batch/update-batch.component';
 import { CreateDayComponent } from './day/create-day/create-day.component';
@@ -39,6 +36,8 @@ import { UpdateDayComponent } from './day/update-day/update-day.component';
 import { UpdateDefaultRoleComponent } from './auth/update-default-role/update-default-role.component';
 import { DefaultUserListComponent } from './auth/default-user-list/default-user-list.component';
 import { DayListByTopicComponent } from './day/day-list-by-topic/day-list-by-topic.component';
+import { NotAuthorizedComponent } from './auth/not-authorized/not-authorized.component';
+import { EmployeeListComponent } from './auth/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -61,17 +60,15 @@ import { DayListByTopicComponent } from './day/day-list-by-topic/day-list-by-top
     StudentListByDayComponent,
     DayListByStudentComponent,
     AddStudentToDayComponent,
-    SuperAdminHomePageComponent,
-    AdminHomePageComponent,
-    TrainerHomePageComponent,
-    StudentHomePageComponent,
     CreateBatchComponent,
     UpdateBatchComponent,
     CreateDayComponent,
     UpdateDayComponent,
     UpdateDefaultRoleComponent,
     DefaultUserListComponent,
-    DayListByTopicComponent
+    DayListByTopicComponent,
+    NotAuthorizedComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,

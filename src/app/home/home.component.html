@@ -4,13 +4,13 @@
             <h1>PacketPrep SUPER-ADMIN</h1>
         </div>
     </div>
-      <div class="row m-5">
+    <div class="row m-5">
           <div class="col-md-6">
               <h2>Hello {{userName}}</h2>
           </div>
-      </div>
-      <div class="row m-5">
-        <div class="col-md-4">
+    </div>
+    <div class="row m-5">
+        <div class="col-md-3">
             <div class="card" (click)="viewUserList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">User-List</h5>
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card" (click)="viewDefaultRoleUserList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Default-Role-User-List</h5>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card" (click)="viewBatchList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Batch-List</h5>
@@ -37,15 +37,26 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="col-md-3">
-            <div class="card" (click)="viewTopic('Softskills')" style="width: 18rem;">
+        <div class="col-md-3">
+            <div class="card" (click)="viewStudentList()" style="width: 18rem;">
                 <div class="card-body text-center">
-                  <h5 class="card-title">Softskills</h5>
+                  <h5 class="card-title">Student-List</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
             </div>
-        </div> -->
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col-md-12 ">
+            <div class="card" (click)="viewEmployeeList()" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Employee-List</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'">
@@ -69,7 +80,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card" (click)="viewDefaultRoleUserList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Default-Role-User-List</h5>
@@ -78,10 +89,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card" (click)="viewBatchList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Batch-List</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" (click)="viewStudentList()" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Student-List</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
@@ -119,7 +139,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card" (click)="viewDefaultRoleUserList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Default-Role-User-List</h5>
@@ -128,10 +148,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card" (click)="viewBatchList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Batch-List</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" (click)="viewStudentList()" style="width: 18rem;">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Student-List</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
@@ -215,6 +244,22 @@
                   
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='DEFAULT'">
+    <div class="row m-5 justify-content-center align-item-center text-center ">
+        <div class="col-md-6 ">
+            <h1>You Are Having A Default User Role</h1>
+            <h4>Srry, Your Account Is Not Updated By Our Team</h4>
+            <h4>We Will Shortly Update It To Student Account</h4>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="!authService.isLoggedIn()">
+    <div class="row m-5 justify-content-center align-item-center text-center ">
+        <div class="col-md-6 ">
+            <h1>Hello Please Login</h1>
         </div>
     </div>
 </div>

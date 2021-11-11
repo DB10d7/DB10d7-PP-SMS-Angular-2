@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginRequestPayload).subscribe(data => {
       this.isError = false;
-      this.router.navigateByUrl('homePage');
+      this.router.navigateByUrl('');
       // if(this.authService.getUserRole() === 'SUPER-ADMIN'){
       //   this.router.navigateByUrl('superAdminHomePage');
       // }else if(this.authService.getUserRole() === 'TRAINER'){

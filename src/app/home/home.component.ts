@@ -32,4 +32,10 @@ export class HomeComponent implements OnInit {
   viewBatchList(){
     this.router.navigate(['batchList']);
   }
+  viewStudentList(){
+    this.router.navigate(['studentList']);
+  }
+  viewEmployeeList(){
+    this.router.navigate(['employeeList']);
+  }
 }

@@ -15,7 +15,13 @@ export class RoleGaurdGuard implements CanActivate {
     } else {
       this.router.navigateByUrl('/login');
     } */
-    return this.isAuthorized(route);
+   // return (this.isAuthorized(route));
+    if (this.isAuthorized(route)) {
+      return true;
+    } else {
+      this.router.navigateByUrl('not-Authorized');
+    }
+    return true;
   }
   private isAuthorized(route: ActivatedRouteSnapshot): boolean {
     const userRole = this.authService.getUserRole();    // ['SUPER-ADMIN','ADMIN','TRAINER','STUDENT','DEFAULT'];

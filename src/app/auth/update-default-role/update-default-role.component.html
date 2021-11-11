@@ -46,33 +46,24 @@
               </div> -->
               <div class="mb-4">
                 <label for="" class="my-3">Batch</label>
-                <select *ngFor="let batch of listBatch" name="batch" [formControlName]="'batch'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="batch.name" data-select2-id="12">{{batch.name}}</option>
+                <select  name="batch" [formControlName]="'batch'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                  <option *ngFor="let batch of listBatch" value={{batch.name}} data-select2-id="26">{{batch.name}}</option>
                 </select>
-                  <!-- <option value="TRAINER" data-select2-id="26">TRAINER</option>
-                  <option value="STUDENT" data-select2-id="27">STUDENT</option> -->
-                
-                <!-- <select *ngFor="let batch of listBatch" || *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="batch.name" data-select2-id="12">{{batch.name}}</option>
-                  <!-- <option value="DEFAULT" data-select2-id="27">DEFAULT</option> -->
-                <!-- </select>
-                <select *ngFor="let batch of listBatch" || *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="batch.name" data-select2-id="12">{{batch.name}}</option>
-                  <!-- <option value="DEFAULT" data-select2-id="27">DEFAULT</option> -->
-                <!-- </select> --> --> 
               </div>
               <div class="mb-4">
-                <label for="" class="my-3">Role</label>
+                <label for="" >Role</label>
                 <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="ADMIN" data-select2-id="12">ADMIN</option>
+                  <option value="SUPER-ADMIN" data-select2-id="26">SUPER-ADMIN</option>
+                  <option value="ADMIN" data-select2-id="26">ADMIN</option>
                   <option value="TRAINER" data-select2-id="26">TRAINER</option>
-                  <option value="STUDENT" data-select2-id="27">STUDENT</option>
+                  <option value="STUDENT" data-select2-id="26">STUDENT</option>
+                  <option value="DEFAULT" data-select2-id="26">DEFAULT</option>
                 </select>
-                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'" name="role" [formControlName]="'role'" class="form-control dropdown-menu select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                   <option value="STUDENT" data-select2-id="27">STUDENT</option>
-                  <option value="DEFAULT">DEFAULT</option>
+                  <option value="DEFAULT" data-select2-id="26">DEFAULT</option>
                 </select>
-                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'" name="role" [formControlName]="'role'" class="form-control dropdown-menu select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                   <option value="STUDENT" data-select2-id="27">STUDENT</option>
                   <option value="DEFAULT" data-select2-id="27">DEFAULT</option>
                 </select>

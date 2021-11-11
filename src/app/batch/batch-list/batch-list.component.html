@@ -15,14 +15,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let batch of listBatch">
-              <th>{{batch.id}}</th>
-              <th>{{batch.name}}</th>
-              <th>{{batch.description}}</th>
-              <th>{{batch.createdBy}}</th>
-             <th><button (click)="viewBatch(batch.name)" class="btn btn-primary">View</button></th>
-             <th><button (click)="viewDayList(batch.name)" class="btn btn-primary">Days</button></th>
-             <th><button (click)="viewStudentList(batch.name)" class="btn btn-primary">Students</button></th>
-             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'"><button (click)="updateBatch(batch.name)" class="btn btn-primary">Update</button></th>
+              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.id}}</th>
+              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.name}}</th>
+              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.description}}</th>
+              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.createdBy}}</th>
+             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewBatch(batch.name)" class="btn btn-primary">View</button></th>
+             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-primary">Days</button></th>
+             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewStudentList(batch.name)" class="btn btn-primary">Students</button></th>
+             <th *ngIf="(authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER') && (batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') "><button (click)="updateBatch(batch.name)" class="btn btn-primary">Update</button></th>
             <!--   <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
           </tr>        

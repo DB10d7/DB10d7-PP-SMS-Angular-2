@@ -3,6 +3,7 @@ import { FormGroup, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserUpdateRequestPayload } from './update-user-request.payload';
 import { AuthService } from '../shared/auth.service';
+import { BatchService } from 'src/app/batch/batch.service';
 
 @Component({
   selector: 'app-update-user',
@@ -14,8 +15,8 @@ export class UpdateUserComponent implements OnInit {
 
   userUpdateRequestPayload : UserUpdateRequestPayload;
   userUpdateForm : any= FormGroup;
-
-  constructor(public authService:AuthService, private router:Router,private route: ActivatedRoute) {
+  listBatch:any;
+  constructor(public authService:AuthService,private batchService: BatchService, private router:Router,private route: ActivatedRoute) {
     
     this.userUpdateRequestPayload = {
       username: '',
@@ -38,8 +39,16 @@ export class UpdateUserComponent implements OnInit {
         batch: new FormControl(result['batch']),
         role: new FormControl(result['role']) 
        });
+       this.viewBatchList();
     });
    
+  }
+  viewBatchList(){
+    this.batchService.getBatchList().subscribe((resp)=>{
+
+      this.listBatch = resp;
+      console.log(this.listBatch);
+      })
   }
   onSubmit(){
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;
