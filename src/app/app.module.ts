@@ -38,6 +38,7 @@ import { DefaultUserListComponent } from './auth/default-user-list/default-user-
 import { DayListByTopicComponent } from './day/day-list-by-topic/day-list-by-topic.component';
 import { NotAuthorizedComponent } from './auth/not-authorized/not-authorized.component';
 import { EmployeeListComponent } from './auth/employee-list/employee-list.component';
+import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { EmployeeListComponent } from './auth/employee-list/employee-list.compon
     DefaultUserListComponent,
     DayListByTopicComponent,
     NotAuthorizedComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,

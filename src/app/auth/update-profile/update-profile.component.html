@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4 offset-md-4">
+        <div class="card">
+          <div class="card-header text-center">
+            <li class="fa fa-user-circle-o fa-2x"></li>
+            <h5>Profile Update Page</h5>
+          </div>
+          <div class="card-body text-center">
+            <form class="userUpdateForm" [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()" >
+                <div class="mb-4">
+                    <label for="exampleInputEmail1" class="form-label"
+                      > Enter Your Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputUserName"
+                      [formControlName]="'name'"
+                      required="required"
+                    />
+                  </div>
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label"
+                  > Enter Your Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  [formControlName]="'email'"
+                  required="required"
+                />
+              </div>
+              <div *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" class="mb-4">
+                <label for="" class="my-3">Batch</label>
+                <select  name="batch" [formControlName]="'batch'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                  <option *ngFor="let batch of listBatch" value={{batch.name}} data-select2-id="26">{{batch.name}}</option>
+                </select>
+                <!-- <label for="exampleInputEmail1" class="form-label"
+                  > Enter Your Batch</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputUserBatchName"
+                  [formControlName]="'batch'"
+                  required="required"
+                />
+                <label>Role</label>
+                <input
+                type=""
+                class="form-control"
+                id="inputUserRoleName"
+                [formControlName]="'role'"
+                required="required"
+                 /> -->
+              </div>
+              <div *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" class="mb-4">
+                <label for="" >Role</label>
+                <select   name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                  <option value="SUPER-ADMIN" data-select2-id="12">SUPER-ADMIN</option>
+                  <option value="ADMIN" data-select2-id="12">ADMIN</option>
+                  <option value="TRAINER" data-select2-id="26">TRAINER</option>
+                  <option value="STUDENT" data-select2-id="27">STUDENT</option>
+                  <option value="DEFAULT" data-select2-id="27">DEFAULT</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-success btn-block">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="main-body m-5">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <div class="mt-3">
+                    <h4>{{singleUser.username}}</h4>
+                    <p class="text-secondary mb-1">{{singleUser.batch}}</p>
+                    <p class="text-muted font-size-sm">{{singleUser.role}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Full Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.name}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.email}}
+                  </div>
+                </div>
+                <hr>
+                <div *ngIf="singleUser.batch === 'PacketPrep-Team'" class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Company</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.batch}}
+                  </div>
+                </div>
+                <div *ngIf="singleUser.role === 'STUDENT'" class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Batch</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{singleUser.batch}}
+                    </div>
+                  </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Role</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.role}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Username</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.username}}
+                  </div>
+                </div>
+                <hr *ngIf="singleUser.role === 'STUDENT'" >
+                <div *ngIf="singleUser.role === 'STUDENT'" class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Attendance</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{userAttendance}}%
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Update-Profile</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <button (click)="updateProfile()" class="btn btn-primary">update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  </div>
+</div>

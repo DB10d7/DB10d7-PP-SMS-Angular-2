@@ -28,6 +28,7 @@ import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { NotAuthorizedComponent } from './auth/not-authorized/not-authorized.component';
 import { EmployeeListComponent } from './auth/employee-list/employee-list.component';
+import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
 
 const routes: Routes = [
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: '', component: HomeComponent },
   {path: 'not-Authorized', component: NotAuthorizedComponent },
+  {path: 'updateProfile', component: UpdateProfileComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   
   {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
   {path: 'updateBatch/:name', component: UpdateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
