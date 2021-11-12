@@ -33,6 +33,9 @@ export class HomeComponent implements OnInit {
   viewUserList(){
     this.router.navigate(['userList']);
   }
+  viewDayList(){
+    this.router.navigate(['dayList']);
+  }
   viewBatchList(){
     this.router.navigate(['batchList']);
   }

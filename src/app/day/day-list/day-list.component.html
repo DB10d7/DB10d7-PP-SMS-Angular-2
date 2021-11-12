@@ -20,13 +20,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let day of listDay | searchFilter: searchText">
+          <tr *ngFor="let day of listDay | searchFilterDay: searchText">
               <th>{{day.id}}</th>
               <th>{{day.dayName}}</th>
               <th>{{day.url}}</th>
               <th>{{day.description}}</th>
               <th>{{day.createdBy}}</th>
-              <th>{{day.BatchName}}</th>
+              <th>{{day.batchName}}</th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->

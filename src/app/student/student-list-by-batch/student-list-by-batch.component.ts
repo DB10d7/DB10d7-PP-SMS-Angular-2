@@ -10,6 +10,7 @@ import { StudentService } from '../student.service';
 export class StudentListByBatchComponent implements OnInit {
   listStudent:any;
   name: string="";
+  searchText: string="";
   constructor(private studentService: StudentService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

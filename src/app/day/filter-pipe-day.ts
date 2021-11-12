@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'searchFilter' })
+@Pipe({ name: 'searchFilterDay' })
 export class FilterPipeDay implements PipeTransform {
   // /**
   //  * Pipe filters the list of elements based on the search text provided

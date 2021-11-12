@@ -11,6 +11,7 @@ import { DayService } from '../day.service';
 export class DayListByBatchComponent implements OnInit {
   listDay:any;
   batchName:string="";
+  searchText: string="";
   constructor(private dayService: DayService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
