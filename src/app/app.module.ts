@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -39,10 +40,21 @@ import { DayListByTopicComponent } from './day/day-list-by-topic/day-list-by-top
 import { NotAuthorizedComponent } from './auth/not-authorized/not-authorized.component';
 import { EmployeeListComponent } from './auth/employee-list/employee-list.component';
 import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
+
+import { FilterPipeStudent } from './student/filter-pipes-student';
+import { FilterPipeDay } from './day/filter-pipe-day';
+import { FilterPipeUser } from './auth/shared/filter-pipe-user';
+import { FilterPipeBatch } from './batch/filter-pipes-batch';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    FilterPipeStudent,
+    FilterPipeDay,
+    FilterPipeUser,
+    FilterPipeBatch,
     LoginComponent,
     UserProfileComponent,
     SignupComponent,
@@ -70,7 +82,8 @@ import { UpdateProfileComponent } from './auth/update-profile/update-profile.com
     DayListByTopicComponent,
     NotAuthorizedComponent,
     EmployeeListComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    StudentHomeComponent
   ],
   imports: [
     BrowserModule,

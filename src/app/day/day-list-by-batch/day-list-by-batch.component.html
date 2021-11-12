@@ -12,8 +12,8 @@
             <th scope="col">Description</th>
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
-            <th scope="col">StudentList</th>
-            <th scope="col">Add-Student</th>
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">StudentList</th>
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">Add-Student</th>
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'" scope="col">Update</th>
           </tr>
         </thead>
@@ -25,8 +25,8 @@
               <th>{{day.description}}</th>
               <th>{{day.createdBy}}</th>
               <th>{{day.batchName}}</th>
-              <th><button (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
-              <th><button (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button></th>
+              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
+              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button></th>
               <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'"><button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>

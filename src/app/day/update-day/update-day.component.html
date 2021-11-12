@@ -24,7 +24,7 @@
                   required="required"
                 />
               </div>
-              <div class="mb-4">
+              <!-- <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label">
                   Enter Description</label
                 >
@@ -35,6 +35,16 @@
                   [formControlName]="'description'"
                   required="required"
                 />
+              </div> -->
+              <div class="mb-4">
+                <label class="mb-1" for="" >Description</label>
+                <select name="description" [formControlName]="'description'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                  <option value="Advanced Java" data-select2-id="26">Advanced Java</option>
+                  <option value="Core Java" data-select2-id="26">Core Java</option>
+                  <option value="Angular" data-select2-id="26">Angular</option>
+                  <option value="Aptitute" data-select2-id="26">Aptitute</option>
+                  <option value="Softskills" data-select2-id="26">Softskills</option>
+                </select>
               </div>
               <button type="submit" class="btn btn-success btn-block">
                 Update Day

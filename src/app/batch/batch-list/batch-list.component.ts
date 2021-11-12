@@ -11,6 +11,7 @@ import { BatchService } from '../batch.service';
 })
 export class BatchListComponent implements OnInit {
   listBatch:any;
+  searchText: string="";
   constructor(private batchService: BatchService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
   
   ngOnInit(): void {

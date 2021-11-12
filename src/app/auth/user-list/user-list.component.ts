@@ -8,7 +8,7 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+  searchText: string="";
   listUser:any;
   constructor(private authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 

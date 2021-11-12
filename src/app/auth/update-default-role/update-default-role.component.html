@@ -4,7 +4,7 @@
         <div class="card">
           <div class="card-header text-center">
             <li class="fa fa-user-circle-o fa-2x"></li>
-            <h5>User Update Page</h5>
+            <h5>Default Role User Update Page</h5>
           </div>
           <div class="card-body text-center">
             <form class="userUpdateForm" [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()" >
@@ -52,20 +52,12 @@
               </div>
               <div class="mb-4">
                 <label for="" >Role</label>
-                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="SUPER-ADMIN" data-select2-id="26">SUPER-ADMIN</option>
-                  <option value="ADMIN" data-select2-id="26">ADMIN</option>
-                  <option value="TRAINER" data-select2-id="26">TRAINER</option>
+                <select name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                  <option *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" value="SUPER-ADMIN" data-select2-id="26">SUPER-ADMIN</option>
+                  <option *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" value="ADMIN" data-select2-id="26">ADMIN</option>
+                  <option *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" value="TRAINER" data-select2-id="26">TRAINER</option>
                   <option value="STUDENT" data-select2-id="26">STUDENT</option>
                   <option value="DEFAULT" data-select2-id="26">DEFAULT</option>
-                </select>
-                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'" name="role" [formControlName]="'role'" class="form-control dropdown-menu select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="STUDENT" data-select2-id="27">STUDENT</option>
-                  <option value="DEFAULT" data-select2-id="26">DEFAULT</option>
-                </select>
-                <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'" name="role" [formControlName]="'role'" class="form-control dropdown-menu select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="STUDENT" data-select2-id="27">STUDENT</option>
-                  <option value="DEFAULT" data-select2-id="27">DEFAULT</option>
                 </select>
               </div>
               <button type="submit" class="btn btn-success btn-block">Update</button>

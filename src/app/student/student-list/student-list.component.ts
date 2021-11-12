@@ -9,6 +9,7 @@ import { StudentService } from '../student.service';
 })
 export class StudentListComponent implements OnInit {
   listStudent:any;
+  searchText = '';
   constructor(private studentService: StudentService ,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,5 +24,5 @@ export class StudentListComponent implements OnInit {
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
   }
-
+  
 }

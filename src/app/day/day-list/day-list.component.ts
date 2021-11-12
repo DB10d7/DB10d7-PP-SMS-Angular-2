@@ -8,7 +8,7 @@ import { DayService } from '../day.service';
   styleUrls: ['./day-list.component.css']
 })
 export class DayListComponent implements OnInit {
-
+  searchText: string="";
   listDay:any;
   constructor(private dayService: DayService,private route: ActivatedRoute, private router: Router) { }
 

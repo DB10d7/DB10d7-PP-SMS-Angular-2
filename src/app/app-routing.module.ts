@@ -29,6 +29,7 @@ import { UserProfileComponent } from './auth/user-profile/user-profile.component
 import { NotAuthorizedComponent } from './auth/not-authorized/not-authorized.component';
 import { EmployeeListComponent } from './auth/employee-list/employee-list.component';
 import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
 
 const routes: Routes = [
 
@@ -63,7 +64,7 @@ const routes: Routes = [
   {path: 'studentListByBatch/:name', component: StudentListByBatchComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'studentListByDay/:name', component: StudentListByDayComponent , canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'addStudentToDay/:name', component: AddStudentToDayComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
-   
+  {path: 'studentHome', component: StudentHomeComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
 ];
 
 @NgModule({

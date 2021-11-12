@@ -9,6 +9,7 @@ import { AuthService } from '../shared/auth.service';
 })
 export class DefaultUserListComponent implements OnInit {
   listDefaultUsers:any;
+  searchText: string="";
   constructor(private authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

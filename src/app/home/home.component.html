@@ -10,7 +10,7 @@
           </div>
     </div>
     <div class="row m-5">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card" (click)="viewUserList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">User-List</h5>
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card" (click)="viewDefaultRoleUserList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Default-Role-User-List</h5>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card" (click)="viewBatchList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Batch-List</h5>
@@ -37,7 +37,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+    </div>
+    <div class="row m-5 justify-content-center align-item-center text-center">
+        <div class="col-md-4">
             <div class="card" (click)="viewStudentList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Student-List</h5>
@@ -46,9 +48,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row m-5">
-        <div class="col-md-12 ">
+        <div class="col-md-4">
             <div class="card" (click)="viewEmployeeList()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Employee-List</h5>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <!-- <div class="col-md-6">
-            <div class="card" (click)="viewTopic('Softskills')" style="width: 18rem;">
+            <div class="card" (click)="viewDayListByTopic('Softskills')" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Softskills</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -189,8 +189,8 @@
           </div>
       </div>
       <div class="row m-5">
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-4">
+            <div class="card" (click)="viewStudentPage()" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Backend Java</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -198,8 +198,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" (click)="viewTopic('Angular')" style="width: 18rem;">
+        <div class="col-md-4">
+            <div class="card" (click)="viewDayListByTopic('Angular')" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Frontend</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -207,39 +207,39 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" (click)="viewTopic('Aptitute')" style="width: 18rem;">
+        <div class="col-md-4">
+            <div class="card" (click)="viewDayListByTopic('Aptitute')" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Aptitude</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" (click)="viewTopic('Softskills')" style="width: 18rem;">
+        </div>  
+    </div>
+    <div class="row m-5 justify-content-center align-item-center text-center">
+        <div class="col-md-4">
+            <div class="card" (click)="viewDayListByTopic('Softskills')" style="width: 18rem;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Softskills</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
             </div>
-        </div>  
-    </div>
-    <div class="row m-5">
+        </div>
         <div class="col-md-4">
             <div class="card" (click)="viewDayListByStudent(authService.getUserName())" style="width: 18rem;">
                 <div class="card-body text-center">
-                  <h5 class="card-title">DayList</h5>
+                  <h5 class="card-title">Day's Attended</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card" (click)="viewTopic('Softskills')" style="width: 18rem;">
+            <div class="card" (click)="viewDayListByBatch(singleUser.batch)" style="width: 18rem;">
                 <div class="card-body text-center">
-                  <h5 class="card-title">Softskills</h5>
+                  <h5 class="card-title">DayList</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   
                 </div>
@@ -259,7 +259,12 @@
 <div class="container" *ngIf="!authService.isLoggedIn()">
     <div class="row m-5 justify-content-center align-item-center text-center ">
         <div class="col-md-6 ">
-            <h1>Hello Please Login</h1>
+            <h1>Welcome To Packet-Prep</h1>
+        </div>
+    </div>
+    <div class="row m-5 justify-content-center align-item-center text-center ">
+        <div class="col-md-6 ">
+            <h1>Please Login</h1>
         </div>
     </div>
 </div>

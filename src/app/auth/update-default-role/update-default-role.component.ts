@@ -42,10 +42,18 @@ export class UpdateDefaultRoleComponent implements OnInit {
   }
   viewBatchList(){
     this.batchService.getBatchList().subscribe((resp)=>{
-
       this.listBatch = resp;
       console.log(this.listBatch);
-      })
+      if(this.authService.getUserRole() !== 'SUPER-ADMIN'){
+        for(let batch of this.listBatch){
+          if(batch.name === 'PacketPrep-Team'){
+            const index: number = this.listBatch.indexOf(batch);
+            this.listBatch.splice(index, 1);
+          }
+        }
+      }
+      
+    })
   }
   onSubmit(){
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;

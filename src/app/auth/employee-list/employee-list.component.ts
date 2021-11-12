@@ -9,6 +9,7 @@ import { AuthService } from '../shared/auth.service';
 })
 export class EmployeeListComponent implements OnInit {
   listEmployee:any;
+  searchText: string="";
   constructor(private authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

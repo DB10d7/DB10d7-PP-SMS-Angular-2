@@ -8,15 +8,19 @@ import { AuthService } from 'src/app/auth/shared/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  singleUser: any;
   userName: String;
   constructor(public authService:AuthService ,private route: ActivatedRoute, private router: Router) {
-    this.userName=''
+    this.userName = this.authService.getUserName();
   }
 
   ngOnInit(): void {
-    this.userName= this.authService.getUserName();
+    this.authService.getCurrentUser().subscribe( result => {
+        this.singleUser= result;
+        console.log(this.singleUser);
+    });
   }
-  viewTopic(name: String){
+  viewDayListByTopic(name: String){
     console.log(name);
     this.router.navigate(['dayListByTopic/', name]);
   }
@@ -37,5 +41,11 @@ export class HomeComponent implements OnInit {
   }
   viewEmployeeList(){
     this.router.navigate(['employeeList']);
+  }
+  viewStudentPage(){
+    this.router.navigate(['studentHome'])
+  }
+  viewDayListByBatch(name: String){
+    this.router.navigate(['dayListByBatch/', name]);
   }
 }
