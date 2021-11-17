@@ -18,7 +18,9 @@
                     id="inputUserName"
                     [formControlName]="'username'"
                     required="required"
-                  />
+                  /><small class="err-text" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                    Please provide a valid User-Name
+                  </small>
                 </div>
               <div class="mb-4">
                 <label for="exampleInputPassword1" class="form-label"
@@ -29,10 +31,16 @@
                   class="form-control"
                   [formControlName]="'password'"
                   required="required"
-                />
+                /><small class="err-text" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                  Password should be 8 characters long
+                </small>
               </div>
-            
               <button type="submit" class="btn btn-success btn-block">Login</button>
+              <div class="row mt-3">
+                <div class="col">
+                  <h6>Create An Account? <a href="sign-up" >Register</a></h6>
+                </div>
+              </div>
             </form>
           </div>
         </div>

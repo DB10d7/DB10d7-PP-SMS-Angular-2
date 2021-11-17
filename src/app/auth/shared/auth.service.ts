@@ -23,6 +23,11 @@ export class AuthService {
   signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
     return this.httpClient.post('http://localhost:8080/api/auth/signup', signupRequestPayload, { responseType: 'text' });
   }
+  activateAccount(token: String): Observable<any>{
+    console.log(token);
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/accountVerification/'+ token));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/accountVerification/'+ token);
+  }
   login(loginRequestPayload: LoginRequestPayload): Observable<boolean> {
     return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/login',
       loginRequestPayload).pipe(map(data => {

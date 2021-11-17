@@ -46,6 +46,8 @@ import { FilterPipeStudent } from './student/filter-pipes-student';
 import { FilterPipeDay } from './day/filter-pipe-day';
 import { FilterPipeUser } from './auth/shared/filter-pipe-user';
 import { FilterPipeBatch } from './batch/filter-pipes-batch';
+import { FooterComponent } from './footer/footer.component';
+import { AccountActivationPageComponent } from './auth/account-activation-page/account-activation-page.component';
 
 
 @NgModule({
@@ -83,7 +85,9 @@ import { FilterPipeBatch } from './batch/filter-pipes-batch';
     NotAuthorizedComponent,
     EmployeeListComponent,
     UpdateProfileComponent,
-    StudentHomeComponent
+    StudentHomeComponent,
+    FooterComponent,
+    AccountActivationPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,24 @@
 .dropdown-toggle::after {
     display: none;
 }
+.navbar{
+    background: #216ba7 !important;
+    padding: 1rem 1rem !important;
+}
+.title{
+    color: #ffff;
+    margin-left: 10px;
+}
+.title:hover{
+    color: #ffff;
+}
+.nav-link{
+    color: #ffff !important;
+    margin: 0px 10px 0px 10px;
+}
+.nav-link:hover{
+    padding: 0.5rem 0.5rem;
+    border: 2px solid #e24d4b;
+    border-radius: 0.5rem;
+    background-color: #e24d4b;
+}

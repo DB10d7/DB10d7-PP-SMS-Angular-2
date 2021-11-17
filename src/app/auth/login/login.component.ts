@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
 
   loginForm:any= FormGroup;
   loginRequestPayload:any= LoginRequestPayload;
-  registerSuccessMessage: string="";
-  isError: boolean=true;
+  //registerSuccessMessage: string="";
+ // isError: boolean=true;
   
   constructor(private authService:AuthService, private router:Router,private toastr: ToastrService,private activatedRoute: ActivatedRoute) {
     this.loginForm = {
@@ -46,21 +46,34 @@ export class LoginComponent implements OnInit {
             + 'activate your account before you Login!';
         }
       }); */
-      this.activatedRoute.queryParams
-      .subscribe(params => {
-        if (params.registered !== undefined && params.registered === 'true') {
-          this.toastr.success('Signup Successful');
-          this.registerSuccessMessage = 'Please Login!';
-        }
-      });
+      // this.activatedRoute.queryParams
+      // .subscribe(params => {
+      //   if (params.registered !== undefined && params.registered === 'true') {
+      //     this.toastr.success('Signup Successful');
+      //     this.registerSuccessMessage = 'Please Login!';
+      //   }
+      // });
   }
   onSubmit(){
+
+    if(this.loginForm.get('password').value === '' || this.loginForm.get('password').value.length<8){
+      console.log('register failed');
+      alert("Password's Has To Be 8 Characters Long");
+      
+      return;
+    }
+    if(this.loginForm.get('username').value === '' || this.loginForm.get('username').value.length < 8 ){
+      alert("UserName Has To Be 8 Characters Long");
+      
+      return;
+    }
+
     this.loginRequestPayload.username = this.loginForm.get('username').value;
     this.loginRequestPayload.password = this.loginForm.get('password').value;
     
 
     this.authService.login(this.loginRequestPayload).subscribe(data => {
-      this.isError = false;
+     // this.isError = false;
       this.router.navigateByUrl('');
       // if(this.authService.getUserRole() === 'SUPER-ADMIN'){
       //   this.router.navigateByUrl('superAdminHomePage');
@@ -75,7 +88,8 @@ export class LoginComponent implements OnInit {
       // }
       
     }, error => {
-      this.isError = true;
+      alert("Please Provide Valid User Name And Password");
+     // this.isError = true;
       throwError(error);
     });
 

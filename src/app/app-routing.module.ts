@@ -30,12 +30,14 @@ import { NotAuthorizedComponent } from './auth/not-authorized/not-authorized.com
 import { EmployeeListComponent } from './auth/employee-list/employee-list.component';
 import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
+import { AccountActivationPageComponent } from './auth/account-activation-page/account-activation-page.component';
 
 const routes: Routes = [
 
   {path: 'sign-up', component: SignupComponent },
   {path: 'login', component: LoginComponent },
   {path: '', component: HomeComponent },
+  {path: 'account-activation/:token', component: AccountActivationPageComponent},
   {path: 'not-Authorized', component: NotAuthorizedComponent },
   {path: 'updateProfile', component: UpdateProfileComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   

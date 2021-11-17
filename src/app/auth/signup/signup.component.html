@@ -22,7 +22,9 @@
                 id="inputUserName"
                 [formControlName]="'username'"
                 required="required"
-              />
+              /><small class="err-text" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+                Please provide a valid User-Name
+              </small>
             </div>
             <div class="mb-4">
               <label for="exampleInputEmail1" class="form-label">
@@ -34,7 +36,9 @@
                 id="inputUserName"
                 [formControlName]="'name'"
                 required="required"
-              />
+              /><small class="err-text" *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">
+                Please provide a valid Name
+              </small>
             </div>
             <div class="mb-4">
               <label for="exampleInputEmail1" class="form-label">
@@ -46,7 +50,9 @@
                 id="exampleInputEmail1"
                 [formControlName]="'email'"
                 required="required"
-              />
+              /><small class="err-text" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                Please provide a valid email
+              </small> 
             </div>
             <div class="mb-4">
               <label for="exampleInputPassword1" class="form-label"
@@ -57,22 +63,31 @@
                 class="form-control"
                 [formControlName]="'password'"
                 required="required"
-              />
+              /><small class="err-text" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                Password should be 8 characters long
+              </small>
             </div>
             <div class="mb-4">
               <label for="exampleInputPassword1" class="form-label"
-                >Enter Your Password</label
+                >Confirm Your Password</label
               >
               <input
                 type="password"
                 class="form-control"
                 [formControlName]="'confirmPassword'"
                 required="required"
-              />
+              /><small class="err-text" *ngIf="!signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched">
+                Confirm-Password should be 8 characters long
+              </small>
             </div>
             <button type="submit" class="btn btn-success btn-block">
               Signup
             </button>
+            <div class="row mt-3">
+              <div class="col">
+                <h6>Already Registered?  <a href="login" >Login</a></h6>
+              </div>
+            </div>
           </form>
         </div>
       </div>

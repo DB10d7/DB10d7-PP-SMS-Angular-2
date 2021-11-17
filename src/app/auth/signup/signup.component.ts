@@ -43,9 +43,27 @@ export class SignupComponent implements OnInit {
   }
   onSubmit(){
 
-    if(this.signupForm.get('password').value != this.signupForm.get('confirmPassword').value){
+    if((this.signupForm.get('password').value === '' || this.signupForm.get('confirmPassword').value === '') || (this.signupForm.get('password').value.length<8 || this.signupForm.get('confirmPassword').value.length<8)){
       console.log('register failed');
-      this.router.navigateByUrl('/register-success');
+      alert("Password's Has To Be 8 Characters Long");
+      
+      return;
+    }
+    if(this.signupForm.get('password').value !== this.signupForm.get('confirmPassword').value){
+      console.log('register failed');
+      alert("Password's Do Not Match");
+      
+      return;
+    }
+    if(this.signupForm.get('username').value === '' || this.signupForm.get('username').value.length < 8 ){
+      alert("UserName Has To Be 8 Characters Long");
+      
+      return;
+    }
+    if(this.signupForm.get('name').value === '' || this.signupForm.get('name').value.length < 8 ){
+      alert("Name Has To Be 8 Characters Long");
+      
+      return;
     }
     this.signupRequestPayload.username = this.signupForm.get('username').value;
     this.signupRequestPayload.name = this.signupForm.get('name').value;
@@ -58,8 +76,9 @@ export class SignupComponent implements OnInit {
         this.ngOnInit();
         if(data === "User Registered Successfully"){
           alert(data);
-          this.router.navigate([''],
-         { queryParams: { registered: 'true' } });
+          alert("Please Check Your Email To Activate Your Account")
+          this.router.navigate(['/login'],
+         );
         }else{
           alert(data);
           this.ngOnInit();
