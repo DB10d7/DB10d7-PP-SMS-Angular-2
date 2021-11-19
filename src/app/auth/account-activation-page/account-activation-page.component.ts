@@ -15,7 +15,21 @@ export class AccountActivationPageComponent implements OnInit {
   ngOnInit(): void {
     this.token= this.route.snapshot.params['token'];
     console.log(this.token);
-    this.authService.activateAccount(this.token);
+    this.activation();
+  }
+  activation(){
+    this.authService.activateAccount(this.token).subscribe(data =>{
+      if(data === "Account Activated Successfully"){
+        alert(data);
+        this.router.navigate(['/login'],
+       );
+      }else{
+        alert(data);
+      }
+      
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

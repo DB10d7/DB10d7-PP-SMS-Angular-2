@@ -48,6 +48,8 @@ import { FilterPipeUser } from './auth/shared/filter-pipe-user';
 import { FilterPipeBatch } from './batch/filter-pipes-batch';
 import { FooterComponent } from './footer/footer.component';
 import { AccountActivationPageComponent } from './auth/account-activation-page/account-activation-page.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -87,7 +89,9 @@ import { AccountActivationPageComponent } from './auth/account-activation-page/a
     UpdateProfileComponent,
     StudentHomeComponent,
     FooterComponent,
-    AccountActivationPageComponent
+    AccountActivationPageComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

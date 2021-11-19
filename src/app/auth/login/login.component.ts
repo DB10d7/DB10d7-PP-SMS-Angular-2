@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
 import { LoginRequestPayload } from './login-request.payload';
@@ -19,7 +18,7 @@ export class LoginComponent implements OnInit {
   //registerSuccessMessage: string="";
  // isError: boolean=true;
   
-  constructor(private authService:AuthService, private router:Router,private toastr: ToastrService,private activatedRoute: ActivatedRoute) {
+  constructor(private authService:AuthService, private router:Router,private activatedRoute: ActivatedRoute) {
     this.loginForm = {
       username: '',
       password: '',

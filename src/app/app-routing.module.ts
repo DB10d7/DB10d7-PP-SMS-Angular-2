@@ -31,6 +31,7 @@ import { EmployeeListComponent } from './auth/employee-list/employee-list.compon
 import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { AccountActivationPageComponent } from './auth/account-activation-page/account-activation-page.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 
 const routes: Routes = [
 
@@ -39,6 +40,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent },
   {path: 'account-activation/:token', component: AccountActivationPageComponent},
   {path: 'not-Authorized', component: NotAuthorizedComponent },
+  {path: 'forget-Password', component: ForgetPasswordComponent},
+
   {path: 'updateProfile', component: UpdateProfileComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   
   {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},

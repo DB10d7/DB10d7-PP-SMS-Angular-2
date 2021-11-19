@@ -1,3 +1,6 @@
 .footer{
     background: #023460
 }
+.nav-white .nav-link {
+    color: rgba(255,255,255,.7);
+}
