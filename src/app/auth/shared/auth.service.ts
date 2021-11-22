@@ -7,6 +7,7 @@ import { LoginResponse } from '../login/login-response.payload';
 import { LoginRequestPayload } from '../login/login-request.payload';
 import { map, tap } from 'rxjs/operators';
 import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
+import { ResetPasswordRequestPayload } from '../reset-password/reset-password-request.payload';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,16 @@ export class AuthService {
         return true;
       }));
   }
+  forgetPassword(name: String): Observable<any>{
+    console.log(name);
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/forgotPassword/'+ name));
+    return this.httpClient.get('http://localhost:8080/api/auth/forgotPassword/'+ name, { responseType: 'text' });
+  }
+  resetPassword(resetPasswordRequest: ResetPasswordRequestPayload ): Observable<any>{
+  
+    // console.log(this.httpClient.post('http://localhost:8080/api/auth/resetPassword/'));
+    return this.httpClient.post('http://localhost:8080/api/auth/resetPassword',resetPasswordRequest, { responseType: 'text' });
+  }
   getJwtToken() {
     return this.localStorage.retrieve('authenticationToken');
   }
@@ -68,6 +79,7 @@ export class AuthService {
   isLoggedIn(): boolean {
     return this.getJwtToken() != null;
   } 
+  
   getUserList(): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/');

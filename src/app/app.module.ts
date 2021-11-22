@@ -52,6 +52,7 @@ import { ForgetPasswordComponent } from './auth/forget-password/forget-password.
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +93,7 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
     AccountActivationPageComponent,
     ForgetPasswordComponent,
     ResetPasswordComponent
+    
   ],
   imports: [
     BrowserModule,
