@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { DayService } from '../day.service';
 import { CreateDayRequestPayload } from './create-day-request.payload';
 
@@ -13,8 +14,8 @@ export class CreateDayComponent implements OnInit {
 
   createDayRequest: CreateDayRequestPayload;
   createDayForm: any;
-
-  constructor(private router: Router, private dayService: DayService, private route: ActivatedRoute ) {
+  trainerList: any;
+  constructor(private router: Router, private dayService: DayService, private route: ActivatedRoute,private authService: AuthService ) {
 
     this.createDayRequest = {
       batchName:'',
@@ -26,6 +27,10 @@ export class CreateDayComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.authService.getTrainersList().subscribe(data =>{
+      this.trainerList=data;
+    })
     this.createDayForm = new FormGroup({
       batchName: new FormControl(this.route.snapshot.params['name'],Validators.required),
       dayName: new FormControl('',Validators.required),

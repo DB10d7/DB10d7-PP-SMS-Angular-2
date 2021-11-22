@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { BatchService } from '../batch.service';
 import { CreateBatchRequestPayload } from './create-batch-request.payload';
 
@@ -13,8 +14,8 @@ export class CreateBatchComponent implements OnInit {
   
   createBatchRequestPayload: CreateBatchRequestPayload;
   createBatchForm: any=FormGroup;
-
-  constructor(private router:Router,private batchService: BatchService) {
+  trainerList: any;
+  constructor(private router:Router,private batchService: BatchService,private authService: AuthService) {
     this.createBatchRequestPayload = {
       name:'',
       description:'',
@@ -28,6 +29,11 @@ export class CreateBatchComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.authService.getTrainersList().subscribe(data =>{
+      this.trainerList=data;
+    })
+
     this.createBatchForm = new FormGroup({
       name: new FormControl('',Validators.required),
       description: new FormControl('', Validators.required),

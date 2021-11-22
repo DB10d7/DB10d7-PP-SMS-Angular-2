@@ -1,6 +1,12 @@
 .footer{
-    background: #023460
+    background-color: #023460;
 }
-.nav-white .nav-link {
-    color: rgba(255,255,255,.7);
+.nav-link{
+    color: #ffff;
+}
+.nav-link:hover{
+    color: #ffff;
+}
+.fab{
+    color:#ffff;
 }

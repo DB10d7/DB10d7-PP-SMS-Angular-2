@@ -46,13 +46,13 @@ const routes: Routes = [
 
   {path: 'updateProfile', component: UpdateProfileComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   
-  {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
-  {path: 'updateBatch/:name', component: UpdateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'createBatch', component: CreateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
+  {path: 'updateBatch/:name', component: UpdateBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'batchList', component: BatchListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard] , data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'singleBatch/:name', component: SingleBatchComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
 
-  {path: 'createDay/:name', component: CreateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
-  {path: 'updateDay/:name', component: UpdateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER'] }},
+  {path: 'createDay/:name', component: CreateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
+  {path: 'updateDay/:name', component: UpdateDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'dayList', component: DayListComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'singleDay/:name', component: SingleDayComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   {path: 'dayListByBatch/:name', component: DayListByBatchComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},

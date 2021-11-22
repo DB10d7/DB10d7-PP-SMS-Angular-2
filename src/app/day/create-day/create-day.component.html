@@ -49,6 +49,12 @@
                 />
               </div>
               <div class="mb-4">
+                <label for="" class="my-3">Trainer</label>
+                <select  name="trainer" [formControlName]="'createdBy'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                  <option *ngFor="let trainer of trainerList" value={{trainer.name}} data-select2-id="26">{{trainer.name}}</option>
+                </select>
+              </div>
+              <!-- <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label">
                   Enter CreatedBy</label
                 >
@@ -59,7 +65,7 @@
                   [formControlName]="'createdBy'"
                   required="required"
                 />
-              </div>
+              </div> -->
               <button type="submit" class="btn btn-success btn-block">
                 Create Day
               </button>

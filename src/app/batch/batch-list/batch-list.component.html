@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div class="row justify-content-center align-item-center">
+  <div class="row justify-content-center align-item-center text-center">
     <div class="col-md-4 mb-5">
       <h2>PacketPrep's BatchList</h2>
     </div>
@@ -18,7 +18,7 @@
             <th scope="col">Batch-Details</th>
             <th scope="col">DaysList</th>
             <th scope="col">StudentList</th>
-            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'" scope="col">Update</th>
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" scope="col">Update</th>
           </tr>
         </thead>
         <tbody>
@@ -30,13 +30,13 @@
              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewBatch(batch.name)" class="btn btn-primary">View</button></th>
              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-primary">Days</button></th>
              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewStudentList(batch.name)" class="btn btn-primary">Students</button></th>
-             <th *ngIf="(authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER') && (batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') "><button (click)="updateBatch(batch.name)" class="btn btn-primary">Update</button></th>
+             <th *ngIf="(authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN') && (batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') "><button (click)="updateBatch(batch.name)" class="btn btn-primary">Update</button></th>
             <!--   <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
           </tr>        
         </tbody>
       </table>
       <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
-    <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER'"><button (click)="createBatch()" class="btn btn-success mt-3">Create Batch</button></th>
+    <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'"><button (click)="createBatch()" class="btn btn-success mt-3">Create Batch</button></th>
   </div>
 </div>
