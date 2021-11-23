@@ -88,9 +88,17 @@ export class AuthService {
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/employees'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/employees');
   }
+  getUnverifiedUserList(): Observable<any>{
+    console.log(this.httpClient.get('http://localhost:8080/api/auth/get/unverifiedUsers'));
+    return this.httpClient.get<any>('http://localhost:8080/api/auth/get/unverifiedUsers');
+  }
   getTrainersList(): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/trainersList'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/trainersList');
+  }
+  deleteUser(id: Number): Observable<any>{
+    console.log(this.httpClient.delete('http://localhost:8080/api/auth/delete/'+ id));
+    return this.httpClient.delete('http://localhost:8080/api/auth/delete/'+ id, { responseType: 'text' });
   }
   updateUser(name: String, userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
     console.log(this.httpClient.put('http://localhost:8080/api/auth/update/'+ name,userUpdateRequestPayload));
@@ -108,12 +116,13 @@ export class AuthService {
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/defaultRoleUsers'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/defaultRoleUsers');
   }
-  logout(){
+  logout():Observable<any>{
     this.localStorage.clear('authenticationToken');
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');
     this.localStorage.clear('role');
+    return this.httpClient.post('http://localhost:8080/api/auth/logout',this.refreshTokenPayload, { responseType: 'text' });
   }
 
 }

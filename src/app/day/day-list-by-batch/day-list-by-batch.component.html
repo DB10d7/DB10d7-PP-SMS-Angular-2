@@ -20,6 +20,7 @@
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">StudentList</th>
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">Add-Student</th>
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" scope="col">Update</th>
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
               <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
               <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button></th>
               <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'"><button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
+              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="deleteDay(day.id)" class="btn btn-danger">Delete</button></th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->

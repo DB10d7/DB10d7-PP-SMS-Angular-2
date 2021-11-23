@@ -18,5 +18,12 @@ export class DayListComponent implements OnInit {
       this.listDay = resp;
       })
   }
-
+  deleteDay(id: Number){
+    this.dayService.deleteDay(id).subscribe(data =>{
+      alert(data);
+      this.ngOnInit();
+    }, error =>{
+      alert("srry");
+    });
+  }
 }

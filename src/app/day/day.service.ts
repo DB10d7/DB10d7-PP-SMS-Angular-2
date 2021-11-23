@@ -48,4 +48,8 @@ export class DayService {
     console.log(this.httpClient.post('http://localhost:8080/api/days/studentsNotPresent', batchDayRequest));
     return this.httpClient.post<any>('http://localhost:8080/api/days/studentsNotPresent', batchDayRequest);
   }
+  deleteDay(id: Number): Observable<any>{
+    console.log(this.httpClient.delete('http://localhost:8080/api/days/delete/'+ id,));
+    return this.httpClient.delete('http://localhost:8080/api/days/delete/'+ id,{ responseType: 'text' });
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class StudentListByBatchComponent implements OnInit {
   listStudent:any;
   name: string="";
   searchText: string="";
-  constructor(private studentService: StudentService, private router:Router, private route: ActivatedRoute) { }
+  constructor(private studentService: StudentService,public authService: AuthService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.viewStudentList();
@@ -31,5 +32,13 @@ export class StudentListByBatchComponent implements OnInit {
   }
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
+  }
+  deleteUnverifiedUser(id:Number){
+    this.authService.deleteUser(id).subscribe(data =>{
+      alert(data);
+      this.ngOnInit();
+    }, error =>{
+      alert("Srry");
+    });
   }
 }

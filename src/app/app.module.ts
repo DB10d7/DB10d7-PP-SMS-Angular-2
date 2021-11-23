@@ -50,6 +50,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AccountActivationPageComponent } from './auth/account-activation-page/account-activation-page.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
 
 
 
@@ -92,7 +93,8 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
     FooterComponent,
     AccountActivationPageComponent,
     ForgetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UnverifiedUserComponent
     
   ],
   imports: [

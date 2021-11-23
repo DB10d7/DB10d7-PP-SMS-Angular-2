@@ -21,4 +21,12 @@ export class EmployeeListComponent implements OnInit {
   updateUser(name: String){
     this.router.navigate(['updateUser/',name]);
   }
+  deleteUnverifiedUser(id:Number){
+    this.authService.deleteUser(id).subscribe(data =>{
+      alert(data);
+      this.ngOnInit();
+    }, error =>{
+      alert("Srry");
+    });
+  }
 }

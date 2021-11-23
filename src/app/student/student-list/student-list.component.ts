@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { StudentService } from '../student.service';
 export class StudentListComponent implements OnInit {
   listStudent:any;
   searchText = '';
-  constructor(private studentService: StudentService ,private route: ActivatedRoute, private router: Router) { }
+  constructor(private studentService: StudentService,public authService:AuthService ,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.studentService.getStudentList().subscribe((resp)=>{
@@ -24,5 +25,12 @@ export class StudentListComponent implements OnInit {
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
   }
-  
+  deleteUnverifiedUser(id:Number){
+    this.authService.deleteUser(id).subscribe(data =>{
+      alert(data);
+      this.ngOnInit();
+    }, error =>{
+      alert("Srry");
+    });
+  }
 }

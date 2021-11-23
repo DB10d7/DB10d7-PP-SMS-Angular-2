@@ -40,4 +40,12 @@ export class DayListByBatchComponent implements OnInit {
   createDay(name: String){
     this.router.navigate(['createDay/', name]);
   }
+  deleteDay(id: Number){
+    this.dayService.deleteDay(id).subscribe(data =>{
+      alert(data);
+      this.ngOnInit();
+    }, error =>{
+      alert("srry");
+    });
+  }
 }

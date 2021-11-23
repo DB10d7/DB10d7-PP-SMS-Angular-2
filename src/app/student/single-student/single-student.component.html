@@ -1,21 +1,78 @@
-<div class="container mt-5" *ngIf="singleStudent">
-    <div class="row my-5">
-        <h1 class="text-center my-5" >{{singleStudent.username}}</h1>
-        <div class="row">
-            <div class="col-lg-6">
-                <img class="blog-img-body img-fluid" src="../../assets/images/blog display.jpg">
+<div class="container">
+    <div class="main-body m-5">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <div class="mt-3">
+                    <h4>{{singleStudent.username}}</h4>
+                    <p class="text-secondary mb-1">{{singleStudent.batch}}</p>
+                    <p class="text-muted font-size-sm">{{singleStudent.role}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-6">
-                <P class="text-start blog-body" >{{singleStudent.name}}</P>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Full Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleStudent.name}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleStudent.email}}
+                  </div>
+                </div>
+                <hr>
+                
+                <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Batch</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{singleStudent.batch}}
+                    </div>
+                  </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Role</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleStudent.role}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Username</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleStudent.username}}
+                  </div>
+                </div>
+                <hr >
+                <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Attendance</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{userAttendance}}%
+                    </div>
+                </div>
+              </div>
             </div>
+          
         </div>
-    </div> 
-    <div class="row my-5">
-        <div class="col-lg-6 text-center">
-            
-        </div>
-        <div class="col-lg-6 text-center">
-            <h3 class="" >Email : {{singleStudent.email}}</h3>
-        </div>
-    </div>
-</div>
+  </div>
