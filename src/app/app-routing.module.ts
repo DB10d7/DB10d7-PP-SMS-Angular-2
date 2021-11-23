@@ -33,6 +33,7 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { AccountActivationPageComponent } from './auth/account-activation-page/account-activation-page.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
 
 const routes: Routes = [
 
@@ -65,6 +66,7 @@ const routes: Routes = [
   {path: 'updateUser/:name', component: UpdateUserComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'updateDefaultUser/:name', component: UpdateDefaultRoleComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'userProfile', component: UserProfileComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
+  {path: 'unVerifiedUserList', component: UnverifiedUserComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
 
   {path: 'studentList', component: StudentListComponent , canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
   {path: 'singleStudent/:name', component: SingleStudentComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
