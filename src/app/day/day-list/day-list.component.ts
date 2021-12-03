@@ -10,6 +10,7 @@ import { DayService } from '../day.service';
 export class DayListComponent implements OnInit {
   searchText: string="";
   listDay:any;
+  dayId: Number=0;
   constructor(private dayService: DayService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,10 +19,14 @@ export class DayListComponent implements OnInit {
       this.listDay = resp;
       })
   }
+  recordId(id: Number){
+    this.dayId= id;
+  }
   deleteDay(id: Number){
     this.dayService.deleteDay(id).subscribe(data =>{
-      alert(data);
-      this.ngOnInit();
+      // alert(data);
+      // this.ngOnInit();
+      window.location.reload();
     }, error =>{
       alert("srry");
     });

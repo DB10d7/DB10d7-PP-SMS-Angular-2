@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="row justify-content-center align-item-center">
       <div class="col-md-6 mb-5">
-        <h2>PacketPrep's Default-Role User-List</h2>
+        <h2>PacketPrep's Un-Verified User-List</h2>
       </div>
       <div class="row text-center">
         <div class="col-md-4 mb-5 ms-auto">
@@ -26,13 +26,33 @@
                 <th>{{user.email}}</th>
                 <th>{{user.batch}}</th>
                 <th>{{user.role}}</th>
-                <th><button (click)="deleteUnverifiedUser(user.id)" class="btn btn-danger">Delete</button></th>
+                <th><button type="button" (click)="recordId(user.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>
+                <!-- <th><button (click)="deleteUnverifiedUser(user.id)" class="btn btn-danger">Delete</button></th> -->
               <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
                 <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
                 <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
             </tr>        
           </tbody>
         </table>
+        <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="modal-title " id="exampleModalLabel">Delete Employee</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6>The Data Of This User Will Delete Permanently..</h6>
+              <p>Do You Still Want To Delete This User ?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="deleteUnverifiedUser(unVerifiedUserId)" class="btn btn-danger">Yes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
         <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
     </div>
 </div>

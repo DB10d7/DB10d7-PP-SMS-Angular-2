@@ -10,22 +10,26 @@ import { AuthService } from '../shared/auth.service';
 export class DefaultUserListComponent implements OnInit {
   listDefaultUsers:any;
   searchText: string="";
+  defaultUserId: Number=0;
   constructor(private authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.authService.getDefaultRoleUserList().subscribe((resp)=>{
-
       this.listDefaultUsers = resp;
       })
+  }
+  recordId(id: Number){
+    this.defaultUserId=id;
   }
   updateDefaultRoleUser(name: String){
     this.router.navigate(['updateDefaultUser/',name]);
   }
-  deleteUnverifiedUser(id:Number){
+  deleteDefaultUser(id:Number){
     console.log(id);
     this.authService.deleteUser(id).subscribe(data =>{
-      alert(data);
-      this.ngOnInit();
+      // alert(data);
+      // this.ngOnInit();
+      window.location.reload();
     }, error =>{
       alert("Srry");
     });

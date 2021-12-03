@@ -10,21 +10,27 @@ import { AuthService } from '../shared/auth.service';
 export class EmployeeListComponent implements OnInit {
   listEmployee:any;
   searchText: string="";
+  employeeId: Number=0;
   constructor(private authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.authService.getEmployeeList().subscribe((resp)=>{
   
       this.listEmployee = resp;
+      console.log(this.listEmployee);
       })
   }
   updateUser(name: String){
     this.router.navigate(['updateUser/',name]);
   }
-  deleteUnverifiedUser(id:Number){
+  recordId(id: Number){
+    this.employeeId= id;
+  }
+  deleteEmployee(id:Number){
     this.authService.deleteUser(id).subscribe(data =>{
-      alert(data);
-      this.ngOnInit();
+      // alert(data);
+      // this.ngOnInit();
+      window.location.reload();
     }, error =>{
       alert("Srry");
     });

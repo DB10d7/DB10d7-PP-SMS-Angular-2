@@ -11,6 +11,7 @@ import { AuthService } from '../shared/auth.service';
 export class UnverifiedUserComponent implements OnInit {
   listUVUsers:any;
   searchText: string="";
+  unVerifiedUserId: Number=0;
   constructor(public authService: AuthService,private router:Router) { }
 
   ngOnInit(): void {
@@ -20,10 +21,14 @@ export class UnverifiedUserComponent implements OnInit {
       alert("hello");
     })
   }
+  recordId(id: Number){
+    this.unVerifiedUserId= id;
+  }
   deleteUnverifiedUser(id:Number){
     this.authService.deleteUser(id).subscribe(data =>{
-      alert(data);
-      this.ngOnInit();
+      // alert(data);
+      // this.ngOnInit();
+      window.location.reload();
     }, error =>{
       alert("Srry");
     });

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DayService } from 'src/app/day/day.service';
-import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../shared/auth.service';
-import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -17,7 +16,7 @@ export class UserProfileComponent implements OnInit {
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
-  constructor(public authService:AuthService,private httpClient: HttpClient,private dayService:DayService ,private router:Router,private route: ActivatedRoute) { }
+  constructor(public authService:AuthService,private dayService:DayService ,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe((result:any)=>{
