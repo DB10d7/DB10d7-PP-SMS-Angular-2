@@ -65,7 +65,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
 
 
     console.warn(this.userUpdateRequestPayload);
-    this.authService.updateUser(this.route.snapshot.params['name'],this.userUpdateRequestPayload).subscribe((data)=>{
+    this.authService.updateUser(this.userUpdateRequestPayload).subscribe((data)=>{
       console.warn("data is here",data);
       alert("Default Role Updated Successfully");
       this.router.navigate(['defaultRoleUserList']);

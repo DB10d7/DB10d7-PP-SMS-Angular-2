@@ -22,6 +22,7 @@ export class DefaultUserListComponent implements OnInit {
     this.router.navigate(['updateDefaultUser/',name]);
   }
   deleteUnverifiedUser(id:Number){
+    console.log(id);
     this.authService.deleteUser(id).subscribe(data =>{
       alert(data);
       this.ngOnInit();

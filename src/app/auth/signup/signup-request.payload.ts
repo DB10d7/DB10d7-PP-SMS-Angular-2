@@ -4,4 +4,5 @@ export class SignupRequestPayload {
     password: string="";
     email: string="";
     confirmPassword: string="";
+    selectedFile: any;
 }

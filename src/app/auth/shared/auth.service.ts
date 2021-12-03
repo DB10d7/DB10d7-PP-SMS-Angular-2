@@ -100,9 +100,13 @@ export class AuthService {
     console.log(this.httpClient.delete('http://localhost:8080/api/auth/delete/'+ id));
     return this.httpClient.delete('http://localhost:8080/api/auth/delete/'+ id, { responseType: 'text' });
   }
-  updateUser(name: String, userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
-    console.log(this.httpClient.put('http://localhost:8080/api/auth/update/'+ name,userUpdateRequestPayload));
-    return this.httpClient.put('http://localhost:8080/api/auth/update/'+ name,userUpdateRequestPayload,{ responseType: 'text' });
+  updateUser(userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
+    console.log(this.httpClient.put('http://localhost:8080/api/auth/update',userUpdateRequestPayload));
+    return this.httpClient.put('http://localhost:8080/api/auth/update',userUpdateRequestPayload,{ responseType: 'text' });
+  }
+  updateUserProfile(userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
+    console.log(this.httpClient.put('http://localhost:8080/api/auth/updateProfile',userUpdateRequestPayload));
+    return this.httpClient.put('http://localhost:8080/api/auth/updateProfile',userUpdateRequestPayload,{ responseType: 'text' });
   }
   getSingleUser(name : String): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/' + name));
@@ -115,6 +119,9 @@ export class AuthService {
   getDefaultRoleUserList(): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/defaultRoleUsers'));
     return this.httpClient.get<any>('http://localhost:8080/api/auth/get/defaultRoleUsers');
+  }
+  getUserImage(name: String): Observable<any>{
+    return this.httpClient.get<any>('http://localhost:8080/api/user/image/get/'+ name);
   }
   logout():Observable<any>{
     this.localStorage.clear('authenticationToken');

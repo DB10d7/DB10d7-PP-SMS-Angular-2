@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DayService } from 'src/app/day/day.service';
 import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../shared/auth.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -13,16 +14,20 @@ export class UserProfileComponent implements OnInit {
   listDayByStudent:any;
   listDayByBatch:any;
   userAttendance: number=0;
-  constructor(public authService:AuthService,private dayService:DayService ,private router:Router,private route: ActivatedRoute) { }
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  constructor(public authService:AuthService,private httpClient: HttpClient,private dayService:DayService ,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe((result:any)=>{
-      console.log(result);
       this.singleUser=result;
       console.log(this.singleUser);
+      this.getImage();
       if(this.authService.getUserRole() === 'STUDENT'){
         this.viewDayListByStudent();
       }
+      
     });
   }
   viewDayListByStudent(){
@@ -47,5 +52,17 @@ export class UserProfileComponent implements OnInit {
   }
   updateProfile(){
     this.router.navigate(['updateProfile']);
+  }
+  getImage() {
+    //Make a call to Sprinf Boot to get the Image Bytes.
+    this.authService.getUserImage(this.singleUser.username)
+      .subscribe(
+        res => {
+          this.retrieveResonse = res;
+          this.base64Data = this.retrieveResonse.picByte;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          console.log(this.retrieveResonse);
+        }
+      );
   }
 }
