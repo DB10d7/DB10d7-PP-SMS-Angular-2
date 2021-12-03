@@ -12,6 +12,7 @@ export class StudentListByBatchComponent implements OnInit {
   listStudent:any;
   name: string="";
   searchText: string="";
+  studentId: Number=0;
   constructor(private studentService: StudentService,public authService: AuthService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,6 +27,9 @@ export class StudentListByBatchComponent implements OnInit {
       console.log(this.listStudent);
     })
   }
+  recordId(id: Number){
+    this.studentId=id;
+  }
   viewStudent(name: String){
     this.router.navigate(['singleStudent/',name]);
     console.log(name);
@@ -33,10 +37,11 @@ export class StudentListByBatchComponent implements OnInit {
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
   }
-  deleteUnverifiedUser(id:Number){
+  deleteStudent(id:Number){
     this.authService.deleteUser(id).subscribe(data =>{
-      alert(data);
-      this.ngOnInit();
+      // alert(data);
+      // this.ngOnInit();
+      window.location.reload();
     }, error =>{
       alert("Srry");
     });

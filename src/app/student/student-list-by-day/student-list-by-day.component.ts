@@ -12,6 +12,7 @@ import { RemoveStudentRequest } from './removeStudentFromDayRequest.payload';
 export class StudentListByDayComponent implements OnInit {
   listStudent:any;
   removeStudentRequest : RemoveStudentRequest;
+  studentName: String="";
   constructor(private studentService: StudentService, private dayService: DayService , private router:Router, private route: ActivatedRoute) {
     this.removeStudentRequest = {
       studentName : '',
@@ -29,6 +30,9 @@ export class StudentListByDayComponent implements OnInit {
       this.listStudent= result;
       console.log(this.listStudent);
     })
+  }
+  recordId(name: String){
+    this.studentName= name;
   }
   viewStudent(name: String){
     this.router.navigate(['singleStudent/',name]);
