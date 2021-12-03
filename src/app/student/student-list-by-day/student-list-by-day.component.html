@@ -12,6 +12,8 @@
             
             <th scope="col">Role</th>
             <th scope="col">Details</th>
+            <th scope="col">Attendance</th>
+            <th scope="col">Remove</th>
           </tr>
         </thead>
         <tbody>
@@ -23,13 +25,33 @@
               <th>{{student.role}}</th>
               <th><button (click)="viewStudent(student.username)" class="btn btn-primary">View</button></th>
               <th><button (click)="viewAllDays(student.username)" class="btn btn-primary">Days Present</button></th>
-              <th><button (click)="removeStudent(student.username)" class="btn btn-danger">Remove</button></th>
+              <!-- <th><button (click)="removeStudent(student.username)" class="btn btn-danger">Remove</button></th> -->
+              <th><button type="button" (click)="recordId(student.username)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button></th>
               <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
           </tr>        
         </tbody>
       </table>
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="modal-title " id="exampleModalLabel">Remove Student</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6> This Student Will Remove from this Day..</h6>
+              <p>Do You Still Want To Remove This Student ?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="removeStudent(studentName)" class="btn btn-danger">Yes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
   </div>
 </div>

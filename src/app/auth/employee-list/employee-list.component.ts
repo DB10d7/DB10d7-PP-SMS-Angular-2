@@ -20,6 +20,9 @@ export class EmployeeListComponent implements OnInit {
       console.log(this.listEmployee);
       })
   }
+  viewSingleUser(name: String){
+    this.router.navigate(['singleUser/',name]);
+  }
   updateUser(name: String){
     this.router.navigate(['updateUser/',name]);
   }

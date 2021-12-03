@@ -4,11 +4,11 @@ import { DayService } from 'src/app/day/day.service';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-single-user',
+  templateUrl: './single-user.component.html',
+  styleUrls: ['./single-user.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class SingleUserComponent implements OnInit {
   singleUser: any;
   listDayByStudent:any;
   listDayByBatch:any;
@@ -19,11 +19,10 @@ export class UserProfileComponent implements OnInit {
   constructor(public authService:AuthService,private dayService:DayService ,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getImage();
-    this.authService.getCurrentUser().subscribe((result:any)=>{
+    this.authService.getSingleUser(this.route.snapshot.params['name']).subscribe((result:any)=>{
       this.singleUser=result;
       console.log(this.singleUser);
-      
+      this.getImage();
       if(this.authService.getUserRole() === 'STUDENT'){
         this.viewDayListByStudent();
       }
@@ -55,15 +54,13 @@ export class UserProfileComponent implements OnInit {
   }
   getImage() {
     //Make a call to Sprinf Boot to get the Image Bytes.
-    this.authService.getUserImage(this.authService.getUserName())
+    this.authService.getUserImage(this.singleUser.username)
       .subscribe(
         res => {
           this.retrieveResonse = res;
-          const resp=res.name;
-          console.log(this.retrieveResonse);
           this.base64Data = this.retrieveResonse.picByte;
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-          return resp;
+          console.log(this.retrieveResonse);
         }
       );
   }

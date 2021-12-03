@@ -35,6 +35,7 @@ export class UpdateProfileComponent implements OnInit {
     //Select File
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
+    console.log(this.selectedFile.size);
   }
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe((result:any)=>{
@@ -55,12 +56,7 @@ export class UpdateProfileComponent implements OnInit {
        
     });
   }
-  onUpload() {
-    console.log(this.selectedFile);
-    
-    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-    
-  }
+  
   viewBatchList(){
     this.batchService.getBatchList().subscribe((resp)=>{
 
@@ -95,7 +91,7 @@ export class UpdateProfileComponent implements OnInit {
         }
         
       }, error =>{
-          alert('Please reduce the image size to 3 mb')
+          alert('Please reduce the image size to 60 kb')
       }
       );
   }

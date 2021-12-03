@@ -77,6 +77,8 @@ export class SignupComponent implements OnInit {
           alert(this.message);
         }
         
+      }, error =>{
+        alert('Please reduce the image size to 60 kb')
       }
       );
   }

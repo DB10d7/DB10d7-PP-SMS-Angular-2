@@ -18,6 +18,9 @@ export class UserListComponent implements OnInit {
       this.listUser = resp;
       })
   }
+  viewSingleUser(name: String){
+    this.router.navigate(['singleUser/',name]);
+  }
   updateUser(name: String){
     this.router.navigate(['updateUser/',name]);
   }

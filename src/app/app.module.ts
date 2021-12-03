@@ -51,6 +51,7 @@ import { AccountActivationPageComponent } from './auth/account-activation-page/a
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
+import { SingleUserComponent } from './auth/single-user/single-user.component';
 
 
 
@@ -94,7 +95,8 @@ import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.
     AccountActivationPageComponent,
     ForgetPasswordComponent,
     ResetPasswordComponent,
-    UnverifiedUserComponent
+    UnverifiedUserComponent,
+    SingleUserComponent
     
   ],
   imports: [

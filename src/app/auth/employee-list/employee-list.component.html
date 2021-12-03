@@ -16,6 +16,7 @@
             <th scope="col">Email</th>
             <th scope="col">Batch</th>
             <th scope="col">Role</th>
+            <th scope="col">Details</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
           </tr>
@@ -27,6 +28,7 @@
               <th>{{user.email}}</th>
               <th>{{user.batch}}</th>
               <th>{{user.role}}</th>
+              <th><button (click)="viewSingleUser(user.username)" class="btn btn-info">View</button></th>
               <th><button (click)="updateUser(user.username)" class="btn btn-primary">Update</button></th>
               <!-- <th><button (click)="deleteUnverifiedUser(user.id)" class="btn btn-danger">Delete</button></th> -->
               <th><button type="button" (click)="recordId(user.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>

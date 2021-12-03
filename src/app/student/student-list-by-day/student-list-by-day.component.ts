@@ -46,7 +46,7 @@ export class StudentListByDayComponent implements OnInit {
     this.removeStudentRequest.dayName = this.route.snapshot.params['name'];
     this.dayService.removeStudentFromDay(this.removeStudentRequest )
       .subscribe((data: any) => {
-        this.ngOnInit();
+        window.location.reload();
       }, (error : any) => {
         console.log(error);
       });

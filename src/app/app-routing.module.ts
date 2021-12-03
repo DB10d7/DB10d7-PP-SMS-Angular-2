@@ -34,6 +34,7 @@ import { AccountActivationPageComponent } from './auth/account-activation-page/a
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
+import { SingleUserComponent } from './auth/single-user/single-user.component';
 
 const routes: Routes = [
 
@@ -60,6 +61,7 @@ const routes: Routes = [
   {path: 'dayListByTopic/:name', component: DayListByTopicComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
   {path: 'dayListByStudent/:name', component: DayListByStudentComponent, canActivate:[AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN','STUDENT'] }},
 
+  {path: 'singleUser/:name', component: SingleUserComponent, canActivate: [AuthGaurdService,RoleGaurdGuard], data:{ expectedRoles: ['SUPER-ADMIN']}},
   {path: 'userList', component: UserListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'employeeList', component: EmployeeListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN'] }},
   {path: 'defaultRoleUserList', component: DefaultUserListComponent, canActivate: [AuthGaurdService,RoleGaurdGuard],data:{ expectedRoles: ['SUPER-ADMIN','TRAINER','ADMIN'] }},
