@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['']); 
     }, error =>{
       alert('Sorry! Unable to Logout')
+      this.router.navigate(['']);
     });
     
   }

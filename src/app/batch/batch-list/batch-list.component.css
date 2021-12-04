@@ -1,0 +1,26 @@
+.btn-view{
+    color: snow;
+    background: linear-gradient(to right, #fe9365, #feb798);;
+}
+.btn-day{
+    color: snow;
+    background:linear-gradient(to right, #551764, #7d5083) !important;
+}
+.btn-student{
+    color: snow;
+    background:linear-gradient(to right, #fe5d70, #fe909d) !important;
+}
+.btn-create-batch{
+    color: black;
+    border-color: springgreen;
+    border-radius: 20px;
+
+}
+.btn-create-batch:hover{
+    color: snow;
+    background: linear-gradient(to right, #0ac282, #0df3a3);
+}
+.btn-update{
+    color: snow;
+    background: linear-gradient(to right, #01a9ac, #75c5d5);
+}

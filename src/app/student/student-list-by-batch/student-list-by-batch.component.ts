@@ -1,3 +1,4 @@
+import { newArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
@@ -11,6 +12,7 @@ import { StudentService } from '../student.service';
 export class StudentListByBatchComponent implements OnInit {
   listStudent:any;
   name: string="";
+  resArray: any = [];
   searchText: string="";
   studentId: Number=0;
   constructor(private studentService: StudentService,public authService: AuthService, private router:Router, private route: ActivatedRoute) { }
@@ -45,5 +47,33 @@ export class StudentListByBatchComponent implements OnInit {
     }, error =>{
       alert("Srry");
     });
+  }
+  downloadExcel(){
+    var newArry: any = [];
+    var o;
+    for(o in this.listStudent[0]){
+      newArry.push(o);
+    }
+    this.resArray.push(newArry);
+    console.log(this.resArray);
+    for(let i=0; i<this.listStudent.length;i++){
+       this.resArray.push(Object.values(this.listStudent[i]));
+    }
+    console.log(this.resArray);
+    var CsvString = "";
+    this.resArray.forEach((RowItem: any, RowIndex: any) =>{
+      console.log(RowItem);
+      RowItem.forEach((ColItem: any, ColIndex:any) =>{
+        CsvString += ColItem + ',';
+      })
+      console.log(CsvString);
+      CsvString+= "\r\n";
+    });
+    CsvString = "data:application/csv," + encodeURIComponent(CsvString);
+    var x = document.createElement("A");
+    x.setAttribute("href", CsvString);
+    x.setAttribute("download",this.name+ "-Student-List.csv");
+    document.body.appendChild(x);
+    x.click();
   }
 }

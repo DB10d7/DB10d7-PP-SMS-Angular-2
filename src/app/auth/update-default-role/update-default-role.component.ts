@@ -18,7 +18,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
     this.userUpdateRequestPayload = {
       username: '',
       name: '',
-      password: '',
+      // password: '',
       email: '',
       batch: '',
       role: ''
@@ -32,7 +32,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
       this.userUpdateForm = new FormGroup ({
         username: new FormControl(result['username']),
         name: new FormControl(result['name']),
-        password: new FormControl(result['password']),
+        // password: new FormControl(result['password']),
         email: new FormControl(result['email']),
         batch: new FormControl(result['batch']),
         role: new FormControl(result['role']) 
@@ -59,7 +59,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;
     this.userUpdateRequestPayload.name = this.userUpdateForm.get('name').value;
     this.userUpdateRequestPayload.email = this.userUpdateForm.get('email').value;
-    this.userUpdateRequestPayload.password = this.userUpdateForm.get('password').value;
+    // this.userUpdateRequestPayload.password = this.userUpdateForm.get('password').value;
     this.userUpdateRequestPayload.batch = this.userUpdateForm.get('batch').value;
     this.userUpdateRequestPayload.role = this.userUpdateForm.get('role').value;
 
