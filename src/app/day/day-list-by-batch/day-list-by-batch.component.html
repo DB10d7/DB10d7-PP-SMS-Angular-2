@@ -5,6 +5,7 @@
       </div>
       <div class="row text-center">
         <div class="col-md-4 mb-5 ms-auto">
+          <th><button (click)="downloadExcel()" class="btn btn-success mb-2">Download Excel</button></th>
           <input type="text" [(ngModel)]="searchText" placeholder="Search for names.." class="form-control me-2" aria-label="Search" >
         </div>
       </div>
@@ -34,13 +35,32 @@
               <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
               <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button></th>
               <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'"><button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
-              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="deleteDay(day.id)" class="btn btn-danger">Delete</button></th>
+              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="recordId(day.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
           </tr>        
         </tbody>
       </table>
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="modal-title " id="exampleModalLabel">Delete Day</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6>The Data Of This Day Will Delete Permanently..</h6>
+              <p>Do You Still Want To Delete This Day ?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="deleteDay(dayId)" class="btn btn-danger">Yes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" ><button (click)="createDay(batchName)" class="btn btn-success">Add Day</button></th>
     </div>
 </div>

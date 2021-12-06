@@ -12,6 +12,8 @@ export class DayListByBatchComponent implements OnInit {
   listDay:any;
   batchName:string="";
   searchText: string="";
+  resArray: any = [];
+  dayId: Number=0;
   constructor(private dayService: DayService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,6 +32,9 @@ export class DayListByBatchComponent implements OnInit {
     this.router.navigate(['studentListByDay/',name]);
     console.log(name);
   }
+  recordId(id: Number){
+    this.dayId= id;
+  }
   viewDayToAddStudent(name: String){
     this.router.navigate(['addStudentToDay/', name]);
     console.log(name);
@@ -47,5 +52,33 @@ export class DayListByBatchComponent implements OnInit {
     }, error =>{
       alert("srry");
     });
+  }
+  downloadExcel(){
+    var newArry: any = [];
+    var o;
+    for(o in this.listDay[0]){
+      newArry.push(o);
+    }
+    this.resArray.push(newArry);
+    console.log(this.resArray);
+    for(let i=0; i<this.listDay.length;i++){
+       this.resArray.push(Object.values(this.listDay[i]));
+    }
+    console.log(this.resArray);
+    var CsvString = "";
+    this.resArray.forEach((RowItem: any, RowIndex: any) =>{
+      console.log(RowItem);
+      RowItem.forEach((ColItem: any, ColIndex:any) =>{
+        CsvString += ColItem + ',';
+      })
+      console.log(CsvString);
+      CsvString+= "\r\n";
+    });
+    CsvString = "data:application/csv," + encodeURIComponent(CsvString);
+    var x = document.createElement("A");
+    x.setAttribute("href", CsvString);
+    x.setAttribute("download",this.batchName+"-Day-List.csv");
+    document.body.appendChild(x);
+    x.click();
   }
 }
