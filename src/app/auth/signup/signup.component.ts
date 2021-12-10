@@ -125,7 +125,7 @@ export class SignupComponent implements OnInit {
           this.uploadUserImage();
         }else{
           alert(data);
-          this.ngOnInit();
+          
         }
         
       }, error => {
