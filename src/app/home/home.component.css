@@ -1,3 +1,21 @@
 .card-text{
     text-decoration: none;
 }
+.btn-login{
+    color: #ffff;
+   background-color: rgb(108, 85, 249);
+}
+.btn-login:hover{
+    color: #ffff;
+   background-color: pink;
+}
+.btn-register:hover{
+    color: #ffff;
+   background-color: pink;
+}
+/* .navbar{
+    background-color: cornflowerblue !important;
+} */
+.subjects{
+    margin-top: 100px !important;
+}

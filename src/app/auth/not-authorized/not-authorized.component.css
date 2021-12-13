@@ -1,0 +1,13 @@
+.err-msg{
+    color: rgb(65, 61, 65)!important;
+    font-size: 120px!important;
+}
+.err-num{
+    color: rgb(59, 54, 54)!important;
+    font-size: 400px!important;
+}
+.err{
+    color: rgb(59, 54, 54)!important;
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+}

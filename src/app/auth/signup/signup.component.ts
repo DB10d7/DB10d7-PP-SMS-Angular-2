@@ -50,6 +50,11 @@ export class SignupComponent implements OnInit {
     //Select File
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
+    console.log(this.selectedFile.size);
+    if(this.selectedFile.size >= 200000){
+      alert('Please reduce the image size to 200 KB')
+      window.location.reload();
+    }
   }
   onUpload() {
     console.log(this.selectedFile);
@@ -87,6 +92,10 @@ export class SignupComponent implements OnInit {
     if(this.selectedFile === undefined){
       console.log('Image not present');
       alert('Please provide an image');
+      return;
+    }
+    if(this.selectedFile.size >= 200000){
+      alert('Please reduce the image size to 200 KB')
       return;
     }
     if((this.signupForm.get('password').value === '' || this.signupForm.get('confirmPassword').value === '') || (this.signupForm.get('password').value.length<8 || this.signupForm.get('confirmPassword').value.length<8)){

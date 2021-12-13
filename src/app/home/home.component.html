@@ -6,7 +6,7 @@
     </div>
     <div class="row m-5">
           <div class="col-md-6">
-              <h2>Hello {{userName}}</h2>
+              <h2>Hello {{userName}},</h2>
           </div>
     </div>
     <div class="row m-5">
@@ -76,7 +76,7 @@
     </div>
       <div class="row m-5">
           <div class="col-md-6">
-              <h2>Hello {{userName}}</h2>
+              <h2>Hello {{userName}},</h2>
           </div>
       </div>
       <div class="row m-5">
@@ -144,7 +144,7 @@
     </div>
       <div class="row m-5">
           <div class="col-md-6">
-              <h2>Hello {{userName}}</h2>
+              <h2>Hello {{userName}},</h2>
           </div>
       </div>
       <div class="row m-5">
@@ -212,7 +212,7 @@
     </div>
       <div class="row m-5">
           <div class="col-md-6">
-              <h2>Hello {{userName}}</h2>
+              <h2>Hello {{userName}},</h2>
           </div>
       </div>
       <div class="row m-5">
@@ -284,14 +284,56 @@
     </div>
 </div>
 <div class="container" *ngIf="!authService.isLoggedIn()">
-    <div class="row m-5 justify-content-center align-item-center text-center ">
-        <div class="col-md-6 ">
-            <h1>Welcome To Packet-Prep</h1>
+    <div class="container mb-5">
+        <div class="row justify-content-center align-items-center d-flex h-100">
+            <div class="col-md-6 ">
+                <h1 class="p-4">Get Trained and build your career with us.</h1> 
+                <p class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nisi maiores iste velit, vel cupiditate neque sapiente ut animi perferendis!</p> 
+                <div class=" col-md-6 text-center">
+                    <button type="button" (click)="loginPage()" class="btn m-1 btn-login">Login</button>
+                    <button type="button" (click)="registerPage()" class="btn m-1 btn-register">Register</button>
+                </div>
+            </div>
+            <div class="col-md-6 text-center mt-5 ">
+                <img  src="../../assets/images/home/bg_image_1.png" class="w-75" alt="">
+            </div>
         </div>
     </div>
-    <div class="row m-5 justify-content-center align-item-center text-center ">
-        <div class="col-md-6 ">
-            <h1>Please Login</h1>
+    <div class="container subjects mt-5">
+        <div class="row">
+            <div class="col-md-4 mb-2 text-center">
+                <div class="card h-100">
+                    <img class="card-img-top img-fluid" style="max-height: 60%;" src="../../assets/images/home/core-java.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Core Java</h5>
+                      
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4 mb-2 text-center">
+                <div class="card h-100">
+                    <img class="card-img-top img-fluid"  src="../../assets/images/home/advanced-java.png" style="background-color: black; max-height: 60%;" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Advanced Java</h5>
+                      
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card h-100">
+                    <img class="card-img-top img-fluid" src="../../assets/images/home/angular.png" style="background-color: black;" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Angular</h5>
+                      
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                     
+                    </div>
+                  </div>
+            </div>
         </div>
     </div>
 </div>

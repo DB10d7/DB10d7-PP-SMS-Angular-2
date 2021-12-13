@@ -51,4 +51,10 @@ export class HomeComponent implements OnInit {
   viewDayListByBatch(name: String){
     this.router.navigate(['dayListByBatch/', name]);
   }
+  loginPage(){
+    this.router.navigate(['login']);
+  }
+  registerPage(){
+    this.router.navigate(['sign-up']);
+  }
 }
