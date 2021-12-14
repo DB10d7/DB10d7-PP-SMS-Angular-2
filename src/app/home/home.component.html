@@ -1,4 +1,4 @@
-<div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'">
+<div class="container mb-5" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'">
     <div class="row m-5 justify-content-center align-item-center text-center ">
         <div class="col-md-6 ">
             <h1>PacketPrep SUPER-ADMIN</h1>
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-<div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'">
+<div class="container mb-5" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='TRAINER'">
     <div class="row m-5 justify-content-center align-item-center text-center ">
         <div class="col-md-6">
             <h1>PacketPrep TRAINER</h1>
@@ -136,7 +136,7 @@
         </div> -->
     </div>
 </div>
-<div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'">
+<div class="container mb-5" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='ADMIN'">
     <div class="row m-5 justify-content-center align-item-center text-center ">
         <div class="col-md-6 ">
             <h1>PacketPrep ADMIN</h1>
@@ -204,7 +204,7 @@
         </div> -->
     </div>
 </div>
-<div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='STUDENT'">
+<div class="container mb-5" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='STUDENT'">
     <div class="row m-5 justify-content-center align-item-center text-center ">
         <div class="col-md-6 ">
             <h1>PacketPrep STUDENT</h1>
@@ -274,21 +274,30 @@
         </div>
     </div>
 </div>
-<div class="container" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='DEFAULT'">
+<div class="container mb-5" *ngIf="authService.isLoggedIn() && authService.getUserRole()==='DEFAULT'">
     <div class="row m-5 justify-content-center align-item-center text-center ">
         <div class="col-md-6 ">
-            <h1>You Are Having A Default User Role</h1>
-            <h4>Srry, Your Account Is Not Updated By Our Team</h4>
-            <h4>We Will Shortly Update It To Student Account</h4>
+            <div class="card-d" >
+                <div class="card-body-d">
+                  <p class="card-title-d">Hi {{userName}},</p>
+                  <img class="image mb-3" src="../../assets/images/others/default-role-user.png"  alt="Card image cap">
+                 
+                  <p class="card-text-d"><span class="card-text-span">You Are Having A Default User Role.</span><br>Srry, Your Account Is Not Updated By Our Team,
+                    We Will Shortly Update It To Student Account.</p>
+                  
+                  <p class="card-thx">Thanks</p>
+                  <p class="card-team">PacketPrep Team</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container" *ngIf="!authService.isLoggedIn()">
+<div class="container mb-5" *ngIf="!authService.isLoggedIn()">
     <div class="container mb-5">
         <div class="row justify-content-center align-items-center d-flex h-100">
             <div class="col-md-6 ">
-                <h1 class="p-4">Get Trained and build your career with us.</h1> 
-                <p class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nisi maiores iste velit, vel cupiditate neque sapiente ut animi perferendis!</p> 
+                <h1 class="p-4" style="font-size: 50px;">Get Trained and build your career with us.</h1> 
+                <p class="p-4" style="font-size: 20px;">Full Stack Java Training with pay after placement. Quasi nisi maiores iste velit, vel cupiditate neque sapiente ut animi perferendis!</p> 
                 <div class=" col-md-6 text-center">
                     <button type="button" (click)="loginPage()" class="btn m-1 btn-login">Login</button>
                     <button type="button" (click)="registerPage()" class="btn m-1 btn-register">Register</button>

@@ -19,3 +19,35 @@
 .subjects{
     margin-top: 100px !important;
 }
+.card-title-d{
+    font-size: 40px;
+    
+}
+.card-text-d{
+    font-size: 16px !important;
+}
+.card-greet{
+    font-size: 20px;
+}
+.card{
+    border-radius: 10px !important;
+    border-width: 3px;
+    border-color: rgb(109, 62, 28);
+}
+.card-d{
+    border-radius: 50px !important;
+    border-width: 10px;
+    border-color: chocolate;
+}
+.card-text-span{
+    font-size: 25px;
+}
+.image{
+    width: 30%;
+}
+.card-thx{
+    font-size: 22px ;
+}
+.card-team{
+    font-size: 16px;
+}

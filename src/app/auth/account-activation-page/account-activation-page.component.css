@@ -1,0 +1,26 @@
+.card-title{
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+.card-text{
+    font-size: 18px !important;
+}
+.card-greet{
+    font-size: 20px;
+}
+.card{
+    color: #ffff;
+    background-color: rgb(22, 8, 8);
+}
+.image{
+    width: 22%;
+}
+.card-thx{
+    font-size: 22px ;
+}
+.card-team{
+    font-size: 16px;
+}
+.container{
+    margin-top: 100px !important;
+}

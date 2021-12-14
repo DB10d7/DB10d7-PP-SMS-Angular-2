@@ -9,12 +9,14 @@ import { DayService } from '../day.service';
 })
 export class DayListByStudentComponent implements OnInit {
   listDay: any;
+  studentName: String="";
   constructor(private dayService: DayService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.viewDayList();
   }
   viewDayList(){
+    this.studentName= this.route.snapshot.params['name'];
     this.dayService.getDayListByStudent(this.route.snapshot.params['name']).subscribe((result)=>{
       console.log(this.route.snapshot.params['name']);
       console.log("data is here",result);

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-5">
     <div class="row mt-5">
       <div class="col-md-4 offset-md-4">
         <div class="card">
@@ -37,24 +37,7 @@
                 <select  name="batch" [formControlName]="'batch'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                   <option *ngFor="let batch of listBatch" value={{batch.name}} data-select2-id="26">{{batch.name}}</option>
                 </select>
-                <!-- <label for="exampleInputEmail1" class="form-label"
-                  > Enter Your Batch</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserBatchName"
-                  [formControlName]="'batch'"
-                  required="required"
-                />
-                <label>Role</label>
-                <input
-                type=""
-                class="form-control"
-                id="inputUserRoleName"
-                [formControlName]="'role'"
-                required="required"
-                 /> -->
+                
               </div>
               <div class="mb-4">
                 <label for="" >Role</label>
