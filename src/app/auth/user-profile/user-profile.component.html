@@ -1,5 +1,11 @@
 <div class="container">
+    
     <div class="main-body m-5">
+        <div class="row mb-4 justify-content-center align-items-center ">
+          <div class="col-md-8 text-center">
+            <h1>User Profile Page</h1>
+          </div>
+        </div>
         <div class="row gutters-sm">
           <div class="col-md-4 mb-3">
             <div class="card">
@@ -9,7 +15,7 @@
                     <img [src]="retrievedImage" alt="Admin" class="rounded-circle" width="150">
                   </div> -->
                   
-                    <img [src]="retrievedImage" alt="" class="rounded-circle w-50">
+                    <img [src]="retrievedImage" alt="" class="rounded-circle mt-5" width="80%">
                     
                     <!-- <p>Hello</p> -->
                   
@@ -44,7 +50,7 @@
                     <h6 class="mb-0">Full Name</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    {{singleUser.name}}
+                    {{singleUser.name}} {{singleUser.surname}}
                   </div>
                 </div>
                 <hr>
@@ -82,7 +88,113 @@
                     {{singleUser.role}}
                   </div>
                 </div>
-              
+                
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Mobile Number</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.number}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Gender</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.gender}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Date of Birth</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.birthDate}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">College Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.collegeName}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">University</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.university}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">State</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.state}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">City</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.city}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Year Of Passing</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.yearOfPassing}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Status</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.status}}
+                  </div>
+                </div> <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Graduation Marks</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.graduationMarks}}%
+                  </div>
+                </div> <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">12th Marks</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.twelfthMarks}}%
+                  </div>
+                </div> <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">10th Marks</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{singleUser.tenthMarks}}%
+                  </div>
+                </div>
+
                 <hr *ngIf="singleUser.role === 'STUDENT'" >
                 <div *ngIf="singleUser.role === 'STUDENT'" class="row">
                     <div class="col-sm-3">

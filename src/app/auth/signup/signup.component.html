@@ -1,4 +1,121 @@
-<div class="container my-5">
+<div class="d-flex flex-column justify-content-center align-items-center text-center" style="background-color: #d3e4d7;;min-height: 100vh; overflow: hidden;">
+  <div class="container justify-content-center align-items-center" >
+    <div class="d-flex justify-content-center align-items-center pt-5">
+        <h2 class="">Register your profile</h2>
+    </div> 
+    <form class="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="row justify-content-center ">
+            <div class="col-md-3 justify-content-center align-items-center border-right">
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="../../../assets/images/home/bg_image_1.png" width="90%">
+                <span class="font-weight-bold">Hello,</span>
+                <span class="text-black-50">Welcome to PacketPrep's</span>
+                <span>Registration Page</span>
+            </div>
+                <div class="mt-5 text-center">
+                    <label for="exampleInputPassword1" class="form-label"
+                      >Upload Image</label
+                    >
+                    <input type="file" accept="image/*" (change)="onFileChanged($event)"> 
+                </div>
+            </div>
+            <div class="col-md-4 mr-4 border-right">
+                <div class=" pt-3">
+                    
+                    <div class="row mt-2">
+                        <div class="col-md-6 text-center"><label class="labels">First Name</label><input type="text" class="form-control" [formControlName]="'name'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Name Required</small>
+                        </div>
+                        <div class="col-md-6 text-center"><label class="labels">Last Name</label><input type="text" class="form-control" [formControlName]="'surname'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('surname').valid && signupForm.get('surname').touched">Surname Requided</small>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12 text-center"><label class="labels">User Name</label><input type="text" class="form-control" [formControlName]="'username'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">Username should be 8 characters long</small>
+                        </div>
+                        <div class="col-md-12 text-center"><label class="labels">E-mail Address</label><input type="email" class="form-control" [formControlName]="'email'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please Provide a valid Email Address</small>
+                        </div>
+                        <div class="col-md-12 text-center"><label class="labels">College Name</label><input type="text" class="form-control" [formControlName]="'collegeName'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('collegeName').valid && signupForm.get('collegeName').touched">Please provide your College Name</small>
+                        </div>  
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6 text-center"><label class="labels">State</label><input type="text" class="form-control" [formControlName]="'state'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('state').valid && signupForm.get('state').touched">State Name Required</small>
+                        </div>
+                        <div class="col-md-6 text-center"><label class="labels">City/Region</label><input type="text" class="form-control" [formControlName]="'city'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('city').valid && signupForm.get('city').touched">City Name Required</small>
+                        </div>
+                        <div class="col-md-12 text-center"><label class="labels">Password</label><input type="password" class="form-control" [formControlName]="'password'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Password should be 8 characters long</small>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-4 border-right">
+                <div class=" pt-3">
+                    <div class="row t-row">
+                        <div class="col-md-6 text-center"><label class="labels">Gender</label>
+                            <select name="gender" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'gender'"required="required">
+                                <option value="MALE" data-select2-id="26">MALE</option>
+                                <option value="FEMALE" data-select2-id="26">FEMALE</option>
+                                <option value="OTHERS" data-select2-id="26">OTHERS</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 text-center"><label class="labels">Year of Passing</label>
+                            <select name="YOP" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'yearOfPassing'"required="required">
+                                <option value="2018" data-select2-id="26">2018</option>
+                                <option value="2019" data-select2-id="26">2019</option>
+                                <option value="2020" data-select2-id="26">2020</option>
+                                <option value="2021" data-select2-id="26">2021</option>
+                                <option value="2022" data-select2-id="26">2022</option>
+                                <option value="2023" data-select2-id="26">2023</option>
+                                <option value="2024" data-select2-id="26">2024</option>
+                                <option value="2025" data-select2-id="26">2025</option>
+                                <option value="2026" data-select2-id="26">2026</option>
+                                <option value="2027" data-select2-id="26">2027</option>
+                                <option value="2028" data-select2-id="26">2028</option>
+                                <option value="2029" data-select2-id="26">2029</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12 text-center"><label class="labels">Mobile Number</label><input type="text" class="form-control" [formControlName]="'number'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('number').valid && signupForm.get('number').touched">Please provide valid Mobile Number</small>
+                        </div>
+                        <div class="col-md-12 text-center"><label class="labels">University</label><input type="text" class="form-control" [formControlName]="'university'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('university').valid && signupForm.get('university').touched">Please provide your University Name</small>
+                        </div>
+                        <div class="col-md-6 text-center"><label class="labels">Graduation </label><input type="text" class="form-control" [formControlName]="'graduationMarks'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('graduationMarks').valid && signupForm.get('graduationMarks').touched">Graduation Marks Required</small>
+                        </div>
+                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="text" class="form-control" [formControlName]="'birthDate'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('birthDate').valid && signupForm.get('birthDate').touched">Date-Of-Birth Requided</small>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6 text-center"><label class="labels">10th Percentage</label><input type="text" class="form-control" [formControlName]="'tenthMarks'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('tenthMarks').valid && signupForm.get('tenthMarks').touched">10th Marks Requided</small>
+                        </div>
+                        <div class="col-md-6 text-center"><label class="labels">12th Percentage</label><input type="text" class="form-control" [formControlName]="'twelfthMarks'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('twelfthMarks').valid && signupForm.get('twelfthMarks').touched">12th Marks Requided </small>
+                        </div>
+                        <div class="col-md-12 text-center"><label class="labels">Confirm Password</label><input type="password" class="form-control" [formControlName]="'confirmPassword'"required="required">
+                            <small class="err-text" *ngIf="!signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched">Confirm Password should be 8 characters long</small>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 pb-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+    </form>     
+  </div>
+</div>
+
+<!-- <div class="container my-5">
   <div class="row mt-5">
     <div class="col-md-4 offset-md-4">
       <div class="card">
@@ -19,11 +136,7 @@
               <input type="file" accept="image/*" (change)="onFileChanged($event)">
               
             </div>
-            <!-- <div class="mb-4">
-              <div *ngIf=file>
-                <img [src]="file">
-            </div>
-            </div> -->
+            
             <div class="mb-4">
               <label for="exampleInputEmail1" class="form-label">
                 Enter Your UserName</label
@@ -105,4 +218,11 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<!-- <div class="mb-4">
+        <div *ngIf=file>
+          <img [src]="file">
+        </div>
+      </div> -->
+
+

@@ -25,7 +25,7 @@ export class UpdateProfileComponent implements OnInit {
     this.userUpdateRequestPayload = {
       username: '',
       name: '',
-      // password: '',
+  
       email: '',
       batch: '',
       role: ''
@@ -43,7 +43,7 @@ export class UpdateProfileComponent implements OnInit {
       this.userUpdateForm = new FormGroup ({
         username: new FormControl(result['username']),
         name: new FormControl(result['name']),
-        // password: new FormControl(result['password']),
+        
         email: new FormControl(result['email']),
         batch: new FormControl(result['batch']),
         role: new FormControl(result['role']) 
