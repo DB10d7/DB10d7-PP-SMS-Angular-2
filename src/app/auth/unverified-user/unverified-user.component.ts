@@ -26,8 +26,6 @@ export class UnverifiedUserComponent implements OnInit {
   }
   deleteUnverifiedUser(id:Number){
     this.authService.deleteUser(id).subscribe(data =>{
-      // alert(data);
-      // this.ngOnInit();
       window.location.reload();
     }, error =>{
       alert("Srry");
