@@ -21,7 +21,6 @@ export class SignupRequestPayload {
     tenthMarks: string="";
     twelfthMarks: string="";
     graduationMarks: string="";
-    // status: string="";
     state: string="";
     city: string="";
     number: string="";

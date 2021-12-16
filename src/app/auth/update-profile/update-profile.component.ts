@@ -25,10 +25,23 @@ export class UpdateProfileComponent implements OnInit {
     this.userUpdateRequestPayload = {
       username: '',
       name: '',
-  
       email: '',
       batch: '',
-      role: ''
+      role: '',
+
+      city: '',
+      surname: '',
+      state: '',
+      tenthMarks: '',
+      twelfthMarks: '',
+      graduationMarks: '',
+      number: '',
+      birthDate: '',
+      yearOfPassing: '',
+      gender: '',
+      collegeName: '',
+      university: '',
+      status: ''
     } 
   }
   public onFileChanged(event: any) {

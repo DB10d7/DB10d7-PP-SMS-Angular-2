@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
       email: '',
       password: '',
       confirmPassword: '',
-      // status: '',
+      
       city: '',
       surname: '',
       state: '',
@@ -253,6 +253,7 @@ export class SignupComponent implements OnInit {
     this.signupRequestPayload.email = this.signupForm.get('email').value;
     this.signupRequestPayload.password = this.signupForm.get('password').value;
     this.signupRequestPayload.confirmPassword = this.signupForm.get('confirmPassword').value;
+    
     this.signupRequestPayload.surname = this.signupForm.get('surname').value;
     this.signupRequestPayload.city = this.signupForm.get('city').value;
     this.signupRequestPayload.state = this.signupForm.get('state').value;
