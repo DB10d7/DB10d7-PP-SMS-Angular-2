@@ -283,7 +283,4 @@ export class SignupComponent implements OnInit {
         this.toastr.error('Registration Failed! Please try again');
       });
   }
-   isValidForm(){
-    
-  }
 }

@@ -111,7 +111,6 @@ export class UpdateUserComponent implements OnInit {
     })
   }
   getImage() {
-    //Make a call to Sprinf Boot to get the Image Bytes.
     this.authService.getUserImage(this.updateUser.username)
       .subscribe(
         res => {
