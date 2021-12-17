@@ -19,7 +19,7 @@ export class CreateBatchComponent implements OnInit {
     this.createBatchRequestPayload = {
       name:'',
       description:'',
-      createdBy:''
+      
     };
     this.createBatchForm = {
       name: '',
@@ -45,7 +45,7 @@ export class CreateBatchComponent implements OnInit {
 
     this.createBatchRequestPayload.name = this.createBatchForm.get('name').value;
     this.createBatchRequestPayload.description = this.createBatchForm.get('description').value;
-    this.createBatchRequestPayload.createdBy = this.createBatchForm.get('createdBy').value;
+    
     console.log('hello1');
     console.log(this.createBatchForm);
     this.batchService.createBatch(this.createBatchRequestPayload).subscribe(data => {
