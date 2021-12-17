@@ -40,7 +40,9 @@ export class UpdateUserComponent implements OnInit {
       gender: '',
       collegeName: '',
       university: '',
-      status: ''
+      status: '',
+      graduation: '',
+      graduationBranch: ''
     } 
   }
 
@@ -69,6 +71,8 @@ export class UpdateUserComponent implements OnInit {
         collegeName: new FormControl(result['collegeName']),
         university: new FormControl(result['university']),
         status: new FormControl(result['status']),
+        graduation: new FormControl(result['graduation']),
+        graduationBranch: new FormControl(result['graduationBranch'])
        });
        this.viewBatchList();
     });
@@ -101,6 +105,8 @@ export class UpdateUserComponent implements OnInit {
     this.userUpdateRequestPayload.collegeName = this.userUpdateForm.get('collegeName').value;
     this.userUpdateRequestPayload.university = this.userUpdateForm.get('university').value;
     this.userUpdateRequestPayload.status = this.userUpdateForm.get('status').value;
+    this.userUpdateRequestPayload.graduation = this.userUpdateForm.get('graduation').value;
+    this.userUpdateRequestPayload.graduationBranch = this.userUpdateForm.get('graduationBranch').value;
 
 
     console.warn(this.userUpdateRequestPayload);

@@ -18,4 +18,6 @@ export class UserUpdateRequestPayload {
     city: string="";
     number: string="";
     status: string="";
+    graduationBranch : string="";
+    graduation : string="";
 }

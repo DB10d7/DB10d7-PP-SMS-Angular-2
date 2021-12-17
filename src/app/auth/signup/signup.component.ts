@@ -54,7 +54,9 @@ export class SignupComponent implements OnInit {
       yearOfPassing: '',
       gender: '',
       collegeName: '',
-      university: ''
+      university: '',
+      graduation: '',
+      graduationBranch: ''
     };
    }
   ngOnInit(): void {
@@ -76,6 +78,8 @@ export class SignupComponent implements OnInit {
       number: new FormControl('', Validators.required),
       collegeName: new FormControl('', Validators.required),
       university: new FormControl('', Validators.required),
+      graduation: new FormControl('', Validators.required),
+      graduationBranch: new FormControl('', Validators.required),
     });
     console.log(this.signupForm.get('username').value);
   }
@@ -192,6 +196,16 @@ export class SignupComponent implements OnInit {
       this.isValid = false;
       return;
     }
+    if(this.signupForm.get('graduation').value === ''){
+      alert("Please provide your Graduation Course");
+      this.isValid = false;
+      return;
+    }
+    if(this.signupForm.get('graduationBranch').value === ''){
+      alert("Please provide your Graduation Branch");
+      this.isValid = false;
+      return;
+    }
     if(this.signupForm.get('graduationMarks').value === '' || this.signupForm.get('graduationMarks').value.length < 2){
       alert("Please provide your Graduation Marks");
       this.isValid = false;
@@ -266,6 +280,8 @@ export class SignupComponent implements OnInit {
     this.signupRequestPayload.birthDate = this.signupForm.get('birthDate').value;
     this.signupRequestPayload.collegeName = this.signupForm.get('collegeName').value;
     this.signupRequestPayload.university = this.signupForm.get('university').value;
+    this.signupRequestPayload.graduation = this.signupForm.get('graduation').value;
+    this.signupRequestPayload.graduationBranch = this.signupForm.get('graduationBranch').value;
 
     console.log(this.signupRequestPayload);
     this.authService.signup(this.signupRequestPayload)

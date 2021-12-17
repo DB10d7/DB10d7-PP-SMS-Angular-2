@@ -24,4 +24,6 @@ export class SignupRequestPayload {
     state: string="";
     city: string="";
     number: string="";
+    graduationBranch : string="";
+    graduation : string="";
 }

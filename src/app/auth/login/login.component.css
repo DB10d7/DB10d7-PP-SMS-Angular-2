@@ -1,0 +1,45 @@
+
+.row-main{
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px;
+}
+.image{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+.sign-in-text h2{
+    font-size: 3rem;
+    font-weight: 500px;
+}
+.input{
+    height: 50px;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    box-shadow: 15px 8px 29px 10px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 15px 8px 29px 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 15px 8px 29px 10px rgba(0,0,0,0.3);
+}
+.btn-login{
+    height: 50px;
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    font-weight: 600;
+    background: rgb(223, 56,56);
+    color: white;
+}
+.btn-login:hover{
+    color: white;
+}
+.forget{
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.forget:hover{
+    text-decoration: none;
+    color: red;
+}

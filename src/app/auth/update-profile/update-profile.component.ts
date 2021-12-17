@@ -44,7 +44,9 @@ export class UpdateProfileComponent implements OnInit {
       gender: '',
       collegeName: '',
       university: '',
-      status: ''
+      status: '',
+      graduation: '',
+      graduationBranch: ''
     } 
   }
   public onFileChanged(event: any) {
@@ -81,7 +83,9 @@ export class UpdateProfileComponent implements OnInit {
         number: new FormControl(result['number']),
         collegeName: new FormControl(result['collegeName']),
         university: new FormControl(result['university']),
-        status: new FormControl(result['status'])
+        status: new FormControl(result['status']),
+        graduation: new FormControl(result['graduation']),
+        graduationBranch: new FormControl(result['graduationBranch'])
        });
        this.username = this.userUpdateForm.get('username').value;
        if(this.authService.getUserRole() === 'SUPER-ADMIN'){
@@ -160,6 +164,8 @@ export class UpdateProfileComponent implements OnInit {
     this.userUpdateRequestPayload.collegeName = this.userUpdateForm.get('collegeName').value;
     this.userUpdateRequestPayload.university = this.userUpdateForm.get('university').value;
     this.userUpdateRequestPayload.status = this.userUpdateForm.get('status').value;
+    this.userUpdateRequestPayload.graduation = this.userUpdateForm.get('graduation').value;
+    this.userUpdateRequestPayload.graduationBranch = this.userUpdateForm.get('graduationBranch').value;
 
     console.warn(this.userUpdateRequestPayload);
     this.authService.updateUserProfile(this.userUpdateRequestPayload).subscribe((data)=>{

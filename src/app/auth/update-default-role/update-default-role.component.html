@@ -32,7 +32,16 @@
                         <div class="col-md-12 text-center"><label class="labels">E-mail Address</label><input type="email" class="form-control" [formControlName]="'email'"required="required">
                         </div>
                         <div class="col-md-12 text-center"><label class="labels">College Name</label><input type="text" class="form-control" [formControlName]="'collegeName'"required="required">
-                          
+                          <div class="col-md-12 text-center"><label class="labels">Graduation</label>
+                            <select name="gender" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'graduation'"required="required">
+                              <option value="B.TECH" data-select2-id="26">B.TECH</option>
+                              <option value="B.Sc" data-select2-id="26">B.Sc</option>
+                              <option value="M.Sc" data-select2-id="26">M.Sc</option>
+                              <option value="BCA" data-select2-id="26">BCA</option>
+                              <option value="MCA" data-select2-id="26">MCA</option>
+                              <option value="OTHERS" data-select2-id="26">OTHERS</option>
+                            </select>
+                          </div> 
                         </div>
                         <div class="col-md-12 text-center"><label class="labels">Batch</label>
                           <select  name="batch" [formControlName]="'batch'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
@@ -87,6 +96,20 @@
                             
                         </div>
                         <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="text" class="form-control" [formControlName]="'birthDate'"required="required"></div>
+                        <div class="col-md-12 text-center"><label class="labels">Graduation Branch</label>
+                          <select name="YOP" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'graduationBranch'"required="required">
+                            <option value="Computer Science and Engineering" data-select2-id="26">Computer Science and Engineering</option>
+                            <option value="Mechanical Engineering" data-select2-id="26">Mechanical Engineering</option>
+                            <option value="Electrical Engineering" data-select2-id="26">Electrical Engineering</option>
+                            <option value="Civil Engineering" data-select2-id="26">Civil Engineering</option>
+                            <option value="Electronics and Communication Engineering" data-select2-id="26">Electronics and Communication Engineering</option>
+                            <option value="Computer Science (B.Sc)" data-select2-id="26">Computer Science (B.Sc)</option>
+                            <option value="Computer Science (M.Sc)" data-select2-id="26">Computer Science (M.Sc)</option>
+                            <option value="Computer Application (BCA)" data-select2-id="26">Computer Application (BCA)</option>
+                            <option value="Computer Application (MCA)" data-select2-id="26">Computer Application (MCA)</option>
+                            <option value="OTHERS" data-select2-id="26">OTHERS</option>
+                          </select>
+                        </div>
                         <div class="col-md-6 text-center"><label class="labels">Role</label>
                           <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                             <option value="SUPER-ADMIN" data-select2-id="12">SUPER-ADMIN</option>
