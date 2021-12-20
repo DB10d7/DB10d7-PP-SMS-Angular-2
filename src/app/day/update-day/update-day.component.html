@@ -1,9 +1,10 @@
-<div class="container my-5">
-    <div class="row mt-5">
-      <div class="col-md-4 offset-md-4">
+<div class="d-flex flex-column justify-content-center align-items-center text-center" style="background-color: #d3e4d7;; overflow: hidden;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
         <div class="card">
-          <div class="card-header text-center">
-            <li class="fa fa-user-circle-o fa-2x"></li>
+          <div class="card-header text-center"  style="background-color: cornflowerblue; border-radius: 20px;color: white;">
+            <i class="fas fa-book-open fa-3x" style="border-radius: 1px;"></i>
             <h5>Update Day</h5>
           </div>
           <div class="card-body text-center">
@@ -12,39 +13,46 @@
               [formGroup]="updateDayForm"
               (ngSubmit)="onSubmit()"
             >
-              <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">
-                  Enter URL</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserName"
-                  [formControlName]="'url'"
-                  required="required"
-                />
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Enter URL</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserName"
+                    [formControlName]="'url'"
+                    required="required"
+                  />
+                </div>
               </div>
-              <!-- <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">
-                  Enter Description</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserName"
-                  [formControlName]="'description'"
-                  required="required"
-                />
-              </div> -->
-              <div class="mb-4">
-                <label class="mb-1" for="" >Description</label>
-                <select name="description" [formControlName]="'description'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option value="Advanced Java" data-select2-id="26">Advanced Java</option>
-                  <option value="Core Java" data-select2-id="26">Core Java</option>
-                  <option value="Angular" data-select2-id="26">Angular</option>
-                  <option value="Aptitute" data-select2-id="26">Aptitute</option>
-                  <option value="Softskills" data-select2-id="26">Softskills</option>
-                </select>
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Enter Description</label
+                  >
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="inputUserName"
+                    [formControlName]="'description'"
+                    required="required"
+                    cols="15" rows="10"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label class="mb-1" for="" >Topic</label>
+                  <select name="topic" [formControlName]="'topic'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                    <option value="Advanced Java" data-select2-id="26">Advanced Java</option>
+                    <option value="Core Java" data-select2-id="26">Core Java</option>
+                    <option value="Angular" data-select2-id="26">Angular</option>
+                    <option value="Aptitute" data-select2-id="26">Aptitute</option>
+                    <option value="Softskills" data-select2-id="26">Softskills</option>
+                  </select>
+                </div>
               </div>
               <button type="submit" class="btn btn-success btn-block">
                 Update Day
@@ -55,4 +63,6 @@
       </div>
     </div>
   </div>
+</div>
+
   

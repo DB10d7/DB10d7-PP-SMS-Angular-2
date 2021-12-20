@@ -28,6 +28,7 @@ export class SingleStudentComponent implements OnInit {
       this.singleStudent= result;
       console.log(this.singleStudent);
       this.getImage();
+      this.viewDayListByStudent();
     })
   }
   viewDayListByStudent(){

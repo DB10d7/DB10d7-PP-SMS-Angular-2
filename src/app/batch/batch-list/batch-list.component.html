@@ -14,7 +14,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Description</th>
+            <!-- <th scope="col">Description</th> -->
             <!-- <th scope="col">CreatedBy</th> -->
             <th scope="col">Batch-Details</th>
             <th scope="col">DaysList</th>
@@ -26,7 +26,7 @@
           <tr *ngFor="let batch of listBatch | searchFilter: searchText">
               <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.id}}</th>
               <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.name}}</th>
-              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.description}}</th>
+              <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.description}}</th> -->
               <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.createdBy}}</th> -->
              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewBatch(batch.name)" class="btn btn-view">View</button></th>
              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-day">Days</button></th>

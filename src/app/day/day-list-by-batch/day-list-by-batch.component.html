@@ -5,7 +5,7 @@
       </div>
       <div class="row text-center">
         <div class="col-md-4 mb-5 ms-auto">
-          <th><button (click)="downloadExcel()" class="btn btn-success mb-2">Download Excel</button></th>
+          <th *ngIf="authService.getUserRole() != 'STUDENT'" ><button (click)="downloadExcel()" class="btn btn-success mb-2">Download Excel</button></th>
           <input type="text" [(ngModel)]="searchText" placeholder="Search for names.." class="form-control me-2" aria-label="Search" >
         </div>
       </div>
@@ -15,11 +15,12 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Video-Link</th>
-            <th scope="col">Description</th>
+            <th scope="col">Topic</th>
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
+            <th *ngIf="authService.getUserRole() === 'STUDENT'" scope="col">Status</th>
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">StudentList</th>
-            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">Add-Student</th>
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" scope="col">Attendance</th>
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" scope="col">Update</th>
             <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" scope="col">Delete</th>
           </tr>
@@ -29,12 +30,14 @@
               <th>{{day.id}}</th>
               <th>{{day.dayName}}</th>
               <th>{{day.url}}</th>
-              <th>{{day.description}}</th>
+              <th>{{day.topic}}</th>
               <th>{{day.createdBy}}</th>
               <th>{{day.batchName}}</th>
+              <th *ngIf="authService.getUserRole() === 'STUDENT' && (listDayByStudent.has(day.dayName))" style="color: lightgreen;">Present</th>
+              <th *ngIf="authService.getUserRole() === 'STUDENT' && (!listDayByStudent.has(day.dayName))" style="color: red;">Absent</th>
               <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
-              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button></th>
-              <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'"><button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>
+              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="viewDayToAddStudent(day.dayName)" class="btn" style="background: lightgreen; color: white;">Attendance</button></th>
+              <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" (click)="updateDay(day.dayName)" class="btn btn-warning" style="color: white;">Update</button></th>
               <th><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="recordId(day.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>

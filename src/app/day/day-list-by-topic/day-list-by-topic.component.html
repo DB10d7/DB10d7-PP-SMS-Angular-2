@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container my-5">
     <div class="row">
       <div class="container mb-5 text-center">
         <h1>{{topicName}} Days Of {{batchName}}</h1>
@@ -9,7 +9,7 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Video-Link</th>
-            <th scope="col">Description</th>
+            <th scope="col">Topic</th>
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
             <th scope="col">Status</th>
@@ -17,14 +17,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let day of listDay">
-              <th *ngIf="day.description === topicName" >{{day.id}}</th>
-              <th *ngIf="day.description === topicName">{{day.dayName}}</th>
-              <th *ngIf="day.description === topicName">{{day.url}}</th>
-              <th *ngIf="day.description === topicName">{{day.description}}</th>
-              <th *ngIf="day.description === topicName">{{day.createdBy}}</th>
-              <th *ngIf="day.description === topicName">{{day.batchName}}</th>
-              <th *ngIf="day.description === topicName && (listDayByStudent.has(day.dayName))">Present</th>
-              <th *ngIf="day.description === topicName && (!listDayByStudent.has(day.dayName))">Absent</th>
+              <th *ngIf="day.topic === topicName" >{{day.id}}</th>
+              <th *ngIf="day.topic === topicName">{{day.dayName}}</th>
+              <th *ngIf="day.topic === topicName">{{day.url}}</th>
+              <th *ngIf="day.topic === topicName">{{day.topic}}</th>
+              <th *ngIf="day.topic === topicName">{{day.createdBy}}</th>
+              <th *ngIf="day.topic === topicName">{{day.batchName}}</th>
+              <th *ngIf="day.topic === topicName && (listDayByStudent.has(day.dayName))" style="color: lightgreen;">Present</th>
+              <th *ngIf="day.topic === topicName && (!listDayByStudent.has(day.dayName))" style="color: red;">Absent</th>
             <!--   <th><button (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
               <th><button (click)="viewDayToAddStudent(day.dayName)" class="btn btn-primary">Add Students</button>
                 <button (click)="updateDay(day.dayName)" class="btn btn-info">Update</button></th>

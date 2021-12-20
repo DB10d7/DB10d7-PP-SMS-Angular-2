@@ -1,9 +1,10 @@
-<div class="container my-5">
-    <div class="row mt-5">
-      <div class="col-md-4 offset-md-4">
+<div class="d-flex flex-column justify-content-center align-items-center text-center" style="background-color: #d3e4d7;; overflow: hidden;">
+  <div class="container">
+    <div class="row  justify-content-center">
+      <div class="col-md-6">
         <div class="card">
-          <div class="card-header text-center">
-            <li class="fa fa-user-circle-o fa-2x"></li>
+          <div class="card-header text-center"  style="background-color: cornflowerblue; border-radius: 20px;color: white;">
+            <i class="fas fa-book-open fa-3x" style="border-radius: 1px;"></i>
             <h5>Update Batch</h5>
           </div>
           <div class="card-body text-center">
@@ -16,13 +17,14 @@
                 <label for="exampleInputEmail1" class="form-label">
                   Enter Description</label
                 >
-                <input
+                <textarea
                   type="text"
                   class="form-control"
                   id="inputUserName"
                   [formControlName]="'description'"
                   required="required"
-                />
+                  cols="15" rows="10"
+                ></textarea>
               </div>
               <button type="submit" class="btn btn-success btn-block">
                 Update
@@ -33,4 +35,6 @@
       </div>
     </div>
   </div>
+</div>
+
   

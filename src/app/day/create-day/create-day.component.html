@@ -1,9 +1,10 @@
-<div class="container my-5">
-    <div class="row mt-5">
-      <div class="col-md-4 offset-md-4">
+<div class="d-flex flex-column justify-content-center align-items-center text-center" style="background-color: #d3e4d7;; overflow: hidden;">
+  <div class="container ">
+    <div class="row justify-content-center ">
+      <div class="col-md-6">
         <div class="card">
-          <div class="card-header text-center">
-            <li class="fa fa-user-circle-o fa-2x"></li>
+          <div class="card-header text-center" style="background-color: cornflowerblue; border-radius: 20px;color: white;">
+            <i class="fas fa-book-open fa-3x" style="border-radius: 1px;"></i>
             <h5>Create New Day</h5>
           </div>
           <div class="card-body text-center">
@@ -12,49 +13,75 @@
               [formGroup]="createDayForm"
               (ngSubmit)="onSubmit()"
             >
-              <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">
-                  Enter DayName</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserName"
-                  [formControlName]="'dayName'"
-                  required="required"
-                />
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Enter DayName</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserName"
+                    [formControlName]="'dayName'"
+                    required="required"
+                  />
+                </div>
               </div>
-              <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">
-                  Enter Description</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserName"
-                  [formControlName]="'description'"
-                  required="required"
-                />
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Enter Description</label
+                  >
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="inputUserName"
+                    [formControlName]="'description'"
+                    required="required"
+                    cols="15" rows="10"
+                  ></textarea>
+                </div>
               </div>
-              <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">
-                  Enter URL</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputUserName"
-                  [formControlName]="'url'"
-                  required="required"
-                />
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Enter Topic Name</label
+                  >
+                  <select name="gender" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'topic'"required="required">
+                    <option value="Core Java" data-select2-id="26">Core Java</option>
+                    <option value="Advanced Java" data-select2-id="26">Advanced Java</option>
+                    <option value="Angular" data-select2-id="26">Angular</option>
+                    <option value="Aptitude" data-select2-id="26">Aptitude</option>
+                    <option value="Softskills" data-select2-id="26">Softskills</option>
+                  </select>
+                </div>
               </div>
-              <div class="mb-4">
-                <label for="" class="my-3">Trainer</label>
-                <select  name="trainer" [formControlName]="'createdBy'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
-                  <option *ngFor="let trainer of trainerList" value={{trainer.name}} data-select2-id="26">{{trainer.name}}</option>
-                </select>
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Enter URL</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserName"
+                    [formControlName]="'url'"
+                    required="required"
+                  />
+                </div>
               </div>
-              <!-- <div class="mb-4">
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                  <label for="" class="my-3">Trainer</label>
+                  <select  name="trainer" [formControlName]="'createdBy'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                    <option *ngFor="let trainer of trainerList" value={{trainer.username}} data-select2-id="26">{{trainer.username}}</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+
+                </div>
                 <label for="exampleInputEmail1" class="form-label">
                   Enter CreatedBy</label
                 >
@@ -75,4 +102,6 @@
       </div>
     </div>
   </div>
+</div>
+
   

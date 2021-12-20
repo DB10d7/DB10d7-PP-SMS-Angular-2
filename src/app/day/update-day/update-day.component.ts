@@ -21,6 +21,7 @@ export class UpdateDayComponent implements OnInit {
       url:'',
       description:'',
       createdBy:'',
+      topic:''
     }
    }
 
@@ -32,6 +33,7 @@ export class UpdateDayComponent implements OnInit {
         dayName: new FormControl(result['dayName']),
         url: new FormControl(result['url']),
         description: new FormControl(result['description']),
+        topic: new FormControl(result['topic']),
         createdBy: new FormControl(result['createdBy']), 
        });
    });
@@ -42,6 +44,7 @@ export class UpdateDayComponent implements OnInit {
    this.updateDayRequest.description= this.updateDayForm.get('description').value;
    this.updateDayRequest.url= this.updateDayForm.get('url').value;
    this.updateDayRequest.createdBy= this.updateDayForm.get('createdBy').value;
+   this.updateDayRequest.topic= this.updateDayForm.get('topic').value;
 
    this.dayService.updateDay(this.route.snapshot.params['name'],this.updateDayRequest).subscribe((data)=>{
     console.warn("data is here",data);

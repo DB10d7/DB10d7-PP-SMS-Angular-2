@@ -22,7 +22,8 @@ export class CreateDayComponent implements OnInit {
       dayName:'',
       description:'',
       url:'',
-      createdBy:''
+      createdBy:'',
+      topic:''
     }
   }
 
@@ -36,17 +37,21 @@ export class CreateDayComponent implements OnInit {
       dayName: new FormControl('',Validators.required),
       description: new FormControl('', Validators.required),
       url: new FormControl('',Validators.required),
-      createdBy: new FormControl('', Validators.required) 
+      createdBy: new FormControl('', Validators.required),
+      topic: new FormControl('', Validators.required)
     })
   }
 
   onSubmit(){
+
+    
 
     this.createDayRequest.batchName= this.createDayForm.get('batchName').value;
     this.createDayRequest.dayName= this.createDayForm.get('dayName').value;
     this.createDayRequest.description= this.createDayForm.get('description').value;
     this.createDayRequest.url= this.createDayForm.get('url').value;
     this.createDayRequest.createdBy= this.createDayForm.get('createdBy').value;
+    this.createDayRequest.topic= this.createDayForm.get('topic').value;
 
     this.dayService.createDay(this.createDayRequest)
       .subscribe((data: String) => {

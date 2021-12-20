@@ -11,13 +11,19 @@ import { DayService } from '../day.service';
 export class DayListByBatchComponent implements OnInit {
   listDay:any;
   batchName:string="";
+  username: string="";
   searchText: string="";
   resArray: any = [];
   dayId: Number=0;
+  listDayByStudent: Set<string> = new Set<string>() ;
   constructor(private dayService: DayService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.viewDayList();
+    if(this.authService.getUserRole() === 'STUDENT'){
+      this.username = this.authService.getUserName();
+      this.viewDayListByStudent();
+    }
   }
   viewDayList(){
     this.dayService.getDayListByBatch(this.route.snapshot.params['name']).subscribe((result)=>{
@@ -26,6 +32,26 @@ export class DayListByBatchComponent implements OnInit {
       this.batchName=this.route.snapshot.params['name'];
       this.listDay= result;
       console.log(this.listDay);
+    })
+  }
+  viewDayListByStudent(){
+    this.dayService.getDayListByStudent(this.username).subscribe((result)=>{
+      console.log(this.username);
+      console.log("data is here",result);
+     // this.listDayByStudent= result;
+     for (var i = 0; i < result.length; i++){
+      // console.log("<br><br>array index: " + i);
+      var obj = result[i];
+      for (var key in obj){
+        if(key==='dayName'){
+          this.listDayByStudent.add(obj[key]);
+        }
+        // console.log("<br> - " + key + ": " + obj[key]);
+        
+      }
+    }
+      console.log('hello');
+      console.log(this.listDayByStudent);
     })
   }
   viewStudentList(name: String){
@@ -48,7 +74,7 @@ export class DayListByBatchComponent implements OnInit {
   deleteDay(id: Number){
     this.dayService.deleteDay(id).subscribe(data =>{
       alert(data);
-      this.ngOnInit();
+      window.location.reload();
     }, error =>{
       alert("srry");
     });

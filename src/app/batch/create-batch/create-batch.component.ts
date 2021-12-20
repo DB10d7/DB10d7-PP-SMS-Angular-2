@@ -63,6 +63,11 @@ export class CreateBatchComponent implements OnInit {
         
     }, error => {
         console.log(error);
+        console.log(error.status)
+        if(error.status == 500){
+          alert("Batch description is too long. Please keep your batch description upto 1000 characters")
+        }
+        
     });
   }
 
