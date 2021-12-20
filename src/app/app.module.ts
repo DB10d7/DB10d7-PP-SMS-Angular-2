@@ -14,6 +14,8 @@ import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+
+
 import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './auth/user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
@@ -52,6 +54,7 @@ import { ForgetPasswordComponent } from './auth/forget-password/forget-password.
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
 import { SingleUserComponent } from './auth/single-user/single-user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -108,6 +111,7 @@ import { SingleUserComponent } from './auth/single-user/single-user.component';
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgbModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

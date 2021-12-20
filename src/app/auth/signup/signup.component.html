@@ -107,7 +107,7 @@
                         <div class="col-md-6 text-center"><label class="labels">Graduation Marks</label><input type="text" class="form-control" [formControlName]="'graduationMarks'"required="required">
                             <small class="err-text" *ngIf="!signupForm.get('graduationMarks').valid && signupForm.get('graduationMarks').touched">Graduation Marks Required</small>
                         </div>
-                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="text" class="form-control" [formControlName]="'birthDate'"required="required">
+                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="date" class="form-control" [formControlName]="'birthDate'"required="required">
                             <small class="err-text" *ngIf="!signupForm.get('birthDate').valid && signupForm.get('birthDate').touched">Date-Of-Birth Requided</small>
                         </div>
                         <div class="col-md-12 text-center"><label class="labels">Graduation Branch</label>
@@ -140,6 +140,7 @@
                 </div>
             </div>
         </div>
+       
         <div class="mt-5 pb-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
     </form>     
   </div>
