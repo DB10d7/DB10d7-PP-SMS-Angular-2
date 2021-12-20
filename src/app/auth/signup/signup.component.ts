@@ -89,8 +89,8 @@ export class SignupComponent implements OnInit {
     console.log(this.selectedFile);
     console.log(this.selectedFile.picByte);
     console.log(this.selectedFile.size);
-    if(this.selectedFile.size >= 200000){
-      alert('Please reduce the image size to 200 KB')
+    if(this.selectedFile.size >= 300000){
+      alert('Please reduce the image size to 300 KB')
       window.location.reload();
     }
   }
@@ -129,8 +129,8 @@ export class SignupComponent implements OnInit {
       this.isValid = false;
       return ;
     }
-    if(this.selectedFile.size >= 200000){
-      alert('Please reduce the image size to 200 KB')
+    if(this.selectedFile.size >= 300000){
+      alert('Please reduce the image size to 300 KB')
       this.isValid = false;
       return;
     }

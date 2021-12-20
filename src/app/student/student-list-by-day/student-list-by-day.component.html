@@ -33,7 +33,7 @@
               
               <th>{{student.role}}</th>
               <th><button (click)="viewStudent(student.username)" class="btn btn-primary">View</button></th>
-              <th><button (click)="viewAllDays(student.username)" class="btn btn-primary">Days Present</button></th>
+              <th><button (click)="viewAllDays(student.username)" class="btn" style="background: limegreen; color: white;">Days Present</button></th>
               <!-- <th><button (click)="removeStudent(student.username)" class="btn btn-danger">Remove</button></th> -->
               <th><button type="button" (click)="recordId(student.username)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button></th>
               <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>

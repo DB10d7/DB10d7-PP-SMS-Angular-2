@@ -54,8 +54,8 @@ export class UpdateProfileComponent implements OnInit {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
     console.log(this.selectedFile.size);
-    if(this.selectedFile.size >= 200000){
-      alert('Please reduce the image size to 200 KB')
+    if(this.selectedFile.size >= 300000){
+      alert('Please reduce the image size to 300 KB')
       window.location.reload();
     }
   }
