@@ -5,9 +5,9 @@
     </div> 
     <form class="userUpdateForm" [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()">
         <div class="row justify-content-center ">
-            <div class="col-md-3 justify-content-center align-items-center border-right">
+            <div class="col-md-3 justify-content-center align-items-center">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img [src]="retrievedImage" alt="" class="rounded-circle mt-5 mb-3" width="100%">
+                    <img [src]="retrievedImage" alt="" class="rounded-circle mt-5 mb-3" width="80%">
                     <span class="font-weight-bold">{{singleUser.name}} {{singleUser.surname}} </span>
                     <span class="text-black-50">{{singleUser.email}} </span>
                     <span>{{singleUser.city}}</span>
@@ -19,7 +19,7 @@
                   <input type="file" accept="image/*" (change)="onFileChanged($event)"> 
               </div>
             </div>
-            <div class="col-md-4 mr-4 border-right">
+            <div class="col-md-4 mr-4 ">
                 <div class=" pt-3">
                     
                     <div class="row mt-2">
@@ -53,7 +53,7 @@
                     
                 </div>
             </div>
-            <div class="col-md-4 border-right">
+            <div class="col-md-4">
                 <div class=" pt-3">
                     <div class="row t-row">
                         
@@ -90,7 +90,7 @@
                         <div class="col-md-6 text-center"><label class="labels">Graduation </label><input type="text" class="form-control" [formControlName]="'graduationMarks'"required="required">
                             
                         </div>
-                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="text" class="form-control" [formControlName]="'birthDate'"required="required"></div>
+                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="date" class="form-control" [formControlName]="'birthDate'"required="required"></div>
                         <div class="col-md-12 text-center"><label class="labels">Graduation Branch</label>
                           <select name="YOP" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'graduationBranch'"required="required">
                             <option value="Computer Science and Engineering" data-select2-id="26">Computer Science and Engineering</option>

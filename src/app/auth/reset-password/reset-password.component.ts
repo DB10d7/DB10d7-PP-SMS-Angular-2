@@ -32,13 +32,13 @@ export class ResetPasswordComponent implements OnInit {
   onSubmit(){
 
     if((this.resetPasswordForm.get('password').value === '' || this.resetPasswordForm.get('confirmPassword').value === '') || (this.resetPasswordForm.get('password').value.length<8 || this.resetPasswordForm.get('confirmPassword').value.length<8)){
-      console.log('register failed');
+      console.log('password-reset failed');
       alert("Password's Has To Be 8 Characters Long");
       
       return;
     }
     if(this.resetPasswordForm.get('password').value !== this.resetPasswordForm.get('confirmPassword').value){
-      console.log('register failed');
+      console.log('password-reset failed');
       alert("Password's Do Not Match");
       
       return;
