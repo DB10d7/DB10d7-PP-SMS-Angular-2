@@ -5,7 +5,7 @@
     </div> 
     <form class="userUpdateForm" [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()">
         <div class="row justify-content-center ">
-            <div class="col-md-3 justify-content-center align-items-center border-right">
+            <div class="col-md-3 justify-content-center align-items-center">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img [src]="retrievedImage" alt="" class="rounded-circle mt-5 mb-3" width="100%">
                     <span class="font-weight-bold">{{updateUser.name}} {{updateUser.surname}} </span>
@@ -19,7 +19,7 @@
                     <input type="file" accept="image/*" (change)="onFileChanged($event)"> 
                 </div> -->
             </div>
-            <div class="col-md-4 mr-4 border-right">
+            <div class="col-md-4 mr-4 ">
                 <div class=" pt-3">
                     
                     <div class="row mt-2">
@@ -32,7 +32,7 @@
                         <div class="col-md-12 text-center"><label class="labels">E-mail Address</label><input type="email" class="form-control" [formControlName]="'email'"required="required">
                         </div>
                         <div class="col-md-12 text-center"><label class="labels">College Name</label><input type="text" class="form-control" [formControlName]="'collegeName'"required="required">
-                        <div class="col-md-12 text-center"><label class="labels">Graduation</label>
+                        <div class="col-md-12 text-center"><label class="labels">Graduation Course</label>
                             <select name="gender" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'graduation'"required="required">
                               <option value="B.TECH" data-select2-id="26">B.TECH</option>
                               <option value="B.Sc" data-select2-id="26">B.Sc</option>
@@ -58,7 +58,7 @@
                     
                 </div>
             </div>
-            <div class="col-md-4 border-right">
+            <div class="col-md-4 ">
                 <div class=" pt-3">
                     <div class="row t-row">
                         
@@ -95,7 +95,7 @@
                         <div class="col-md-6 text-center"><label class="labels">Graduation </label><input type="text" class="form-control" [formControlName]="'graduationMarks'"required="required">
                             
                         </div>
-                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="text" class="form-control" [formControlName]="'birthDate'"required="required"></div>
+                        <div class="col-md-6 text-center"><label class="labels">Date of Birth</label><input type="date" class="form-control" [formControlName]="'birthDate'"required="required"></div>
                         
                         <div class="col-md-12 text-center"><label class="labels">Graduation Branch</label>
                           <select name="YOP" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true" [formControlName]="'graduationBranch'"required="required">

@@ -5,7 +5,7 @@
     </div> 
     <form class="userUpdateForm" [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()">
         <div class="row justify-content-center ">
-            <div class="col-md-3 justify-content-center align-items-center border-right">
+            <div class="col-md-3 justify-content-center align-items-center ">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img [src]="retrievedImage" alt="" class="rounded-circle mt-5 mb-3" width="100%">
                     <span class="font-weight-bold">{{updateUser.name}} {{updateUser.surname}} </span>
@@ -19,7 +19,7 @@
                     <input type="file" accept="image/*" (change)="onFileChanged($event)"> 
                 </div> -->
             </div>
-            <div class="col-md-4 mr-4 border-right">
+            <div class="col-md-4 mr-4 ">
                 <div class=" pt-3">
                     
                     <div class="row mt-2">
@@ -58,7 +58,7 @@
                     
                 </div>
             </div>
-            <div class="col-md-4 border-right">
+            <div class="col-md-4 ">
                 <div class=" pt-3">
                     <div class="row t-row">
                         
@@ -110,11 +110,18 @@
                             <option value="OTHERS" data-select2-id="26">OTHERS</option>
                           </select>
                         </div>
-                        <div class="col-md-6 text-center"><label class="labels">Role</label>
+                        <div *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" class="col-md-6 text-center"><label class="labels">Role</label>
                           <select  *ngIf="authService.isLoggedIn() && authService.getUserRole()==='SUPER-ADMIN'" name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                             <option value="SUPER-ADMIN" data-select2-id="12">SUPER-ADMIN</option>
                             <option value="ADMIN" data-select2-id="12">ADMIN</option>
                             <option value="TRAINER" data-select2-id="26">TRAINER</option>
+                            <option value="STUDENT" data-select2-id="27">STUDENT</option>
+                            <option value="DEFAULT" data-select2-id="27">DEFAULT</option>
+                          </select>
+                        </div>
+                        <div *ngIf="authService.isLoggedIn() && (authService.getUserRole()==='ADMIN' || authService.getUserRole()==='TRAINER')" class="col-md-6 text-center"><label class="labels">Role</label>
+                          <select  name="role" [formControlName]="'role'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                            
                             <option value="STUDENT" data-select2-id="27">STUDENT</option>
                             <option value="DEFAULT" data-select2-id="27">DEFAULT</option>
                           </select>

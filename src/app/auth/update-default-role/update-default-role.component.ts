@@ -13,6 +13,7 @@ import { UserUpdateRequestPayload } from '../update-user/update-user-request.pay
 export class UpdateDefaultRoleComponent implements OnInit {
   userUpdateRequestPayload : UserUpdateRequestPayload;
   userUpdateForm : any= FormGroup;
+  username : string="";
   updateUser : any;
   listBatch:any;
   retrievedImage: any;
@@ -73,8 +74,10 @@ export class UpdateDefaultRoleComponent implements OnInit {
         graduation: new FormControl(result['graduation']),
         graduationBranch: new FormControl(result['graduationBranch'])
        });
+       this.username = this.userUpdateForm.get('username').value;
+        this.viewBatchList();
     });
-    this.viewBatchList();
+    
   }
   viewBatchList(){
     this.batchService.getBatchList().subscribe((resp)=>{
@@ -116,7 +119,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
 
 
     console.warn(this.userUpdateRequestPayload);
-    this.authService.updateUser(this.userUpdateRequestPayload).subscribe((data)=>{
+    this.authService.updateUser(this.userUpdateRequestPayload, this.username).subscribe((data)=>{
       console.warn("data is here",data);
       alert("Default Role Updated Successfully");
       this.router.navigate(['defaultRoleUserList']);

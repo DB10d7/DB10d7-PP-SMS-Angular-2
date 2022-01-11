@@ -14,7 +14,7 @@
               (ngSubmit)="onSubmit()"
             >
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="exampleInputEmail1" class="form-label">
                     Enter DayName</label
                   >
@@ -28,7 +28,7 @@
                 </div>
               </div>
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="exampleInputEmail1" class="form-label">
                     Enter Description</label
                   >
@@ -43,7 +43,7 @@
                 </div>
               </div>
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="exampleInputEmail1" class="form-label">
                     Enter Topic Name</label
                   >
@@ -57,7 +57,7 @@
                 </div>
               </div>
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="exampleInputEmail1" class="form-label">
                     Enter URL</label
                   >
@@ -71,7 +71,7 @@
                 </div>
               </div>
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="" class="my-3">Trainer</label>
                   <select  name="trainer" [formControlName]="'createdBy'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                     <option *ngFor="let trainer of trainerList" value={{trainer.username}} data-select2-id="26">{{trainer.username}}</option>
@@ -93,9 +93,13 @@
                   required="required"
                 />
               </div> -->
-              <button type="submit" class="btn btn-success btn-block">
-                Create Day
-              </button>
+              <div class="row justify-content-center">
+                <div class="col-md-4 ">
+                  <button type="submit" class="btn btn-success btn-block" style="border-radius: 30px;">
+                    Create Day
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -103,5 +107,3 @@
     </div>
   </div>
 </div>
-
-  

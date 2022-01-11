@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { SignupRequestPayload } from '../signup/signup-request.payload';
 import { LoginResponse } from '../login/login-response.payload';
@@ -100,13 +100,13 @@ export class AuthService {
     console.log(this.httpClient.delete('http://localhost:8080/api/auth/delete/'+ id));
     return this.httpClient.delete('http://localhost:8080/api/auth/delete/'+ id, { responseType: 'text' });
   }
-  updateUser(userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
-    console.log(this.httpClient.put('http://localhost:8080/api/auth/update',userUpdateRequestPayload));
-    return this.httpClient.put('http://localhost:8080/api/auth/update',userUpdateRequestPayload,{ responseType: 'text' });
+  updateUser(userUpdateRequestPayload: UserUpdateRequestPayload, name: String ): Observable<any>{
+    console.log(this.httpClient.put('http://localhost:8080/api/auth/update/' + name,userUpdateRequestPayload));
+    return this.httpClient.put('http://localhost:8080/api/auth/update/' + name,userUpdateRequestPayload,{ responseType: 'text' });
   }
-  updateUserProfile(userUpdateRequestPayload: UserUpdateRequestPayload ): Observable<any>{
-    console.log(this.httpClient.put('http://localhost:8080/api/auth/updateProfile',userUpdateRequestPayload));
-    return this.httpClient.put('http://localhost:8080/api/auth/updateProfile',userUpdateRequestPayload,{ responseType: 'text' });
+  updateUserProfile(userUpdateRequestPayload: UserUpdateRequestPayload, name: String ): Observable<any>{
+    console.log(this.httpClient.put('http://localhost:8080/api/auth/updateProfile' + name,userUpdateRequestPayload));
+    return this.httpClient.put('http://localhost:8080/api/auth/updateProfile' + name,userUpdateRequestPayload,{ responseType: 'text' });
   }
   getSingleUser(name : String): Observable<any>{
     console.log(this.httpClient.get('http://localhost:8080/api/auth/get/' + name));

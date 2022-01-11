@@ -14,7 +14,7 @@
               (ngSubmit)="onSubmit()"
             >
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="exampleInputEmail1" class="form-label">
                     Enter URL</label
                   >
@@ -28,7 +28,7 @@
                 </div>
               </div>
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label for="exampleInputEmail1" class="form-label">
                     Enter Description</label
                   >
@@ -43,7 +43,7 @@
                 </div>
               </div>
               <div class="row justify-content-center mb-4">
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <label class="mb-1" for="" >Topic</label>
                   <select name="topic" [formControlName]="'topic'" class="form-control select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
                     <option value="Advanced Java" data-select2-id="26">Advanced Java</option>
@@ -54,9 +54,13 @@
                   </select>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success btn-block">
-                Update Day
-              </button>
+              <div class="row justify-content-center">
+                <div class="col-md-4 ">
+                  <button type="submit" class="btn btn-success btn-block" style="border-radius: 30px;">
+                    Update Day
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
