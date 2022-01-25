@@ -203,7 +203,7 @@ export class UpdateUserComponent implements OnInit {
 
 
     console.warn(this.userUpdateRequestPayload);
-    this.authService.updateUser(this.userUpdateRequestPayload,this.username).subscribe((data)=>{
+    this.authService.updateUser(this.userUpdateRequestPayload,this.userUpdateRequestPayload.username).subscribe((data)=>{
       console.warn("data is here",data);
       alert("User Updated Successfully");
       this.router.navigate(['userList']);

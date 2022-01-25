@@ -31,12 +31,12 @@
             <span class="material-icons">list</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/userList">User-List</a></li>
-            <li><a class="dropdown-item" href="/employeeList">Employee-List</a></li>
-            <li><a class="dropdown-item" href="defaultRoleUserList">Default-User-List</a></li>
-            <li><a class="dropdown-item" href="/batchList">Batch-List</a></li>
-            <li><a class="dropdown-item" href="/studentList">Student-List</a></li>
-            <li><a class="dropdown-item" href="/unVerifiedUserList">Un-Verified-User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="userList()">User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="employeeList()">Employee-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="defaultRoleUserList()">Default-User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="batchList()">Batch-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="studentList()">Student-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="unVerifiedUserList()">Un-Verified-User-List</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -44,7 +44,7 @@
             <span class="material-icons">supervisor_account</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/userProfile">Profile</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="viewProfile()">Profile</a></li>
             <li><a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Logout</a></li>
           </ul>
         </li>
@@ -66,14 +66,14 @@
           <a class="nav-link" href="/studentList">Student-List</a>
         </li> -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="material-icons">list</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="defaultRoleUserList">Default-User-List</a></li>
-            <li><a class="dropdown-item" href="/batchList">Batch-List</a></li>
-            <li><a class="dropdown-item" href="/studentList">Student-List</a></li>
-            <li><a class="dropdown-item" href="/unVerifiedUserList">Un-Verified-User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="defaultRoleUserList()">Default-User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="batchList()">Batch-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="studentList()">Student-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="unVerifiedUserList()">Un-Verified-User-List</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -81,7 +81,7 @@
             <span class="material-icons">manage_accounts</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/userProfile">Profile</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="viewProfile()">Profile</a></li>
             <li><a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Logout</a></li>
           </ul>
         </li>
@@ -94,23 +94,23 @@
           <a class="nav-link" href="">Home</a>
         </li>
         <!-- <li class="nav-item">
-          <a class="nav-link" href="defaultRoleUserList">Default-User-List</a>
+          <a class="nav-link" href="defaultRoledefaultRoleUserList()">Default-User-List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/batchList">Batch-List</a>
+          <a class="nav-link" href="/bbatchList()">Batch-List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/studentList">Student-List</a>
+          <a class="nav-link" href="/stustudentList()">Student-List</a>
         </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="material-icons">list</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="defaultRoleUserList">Default-User-List</a></li>
-            <li><a class="dropdown-item" href="/batchList">Batch-List</a></li>
-            <li><a class="dropdown-item" href="/studentList">Student-List</a></li>
-            <li><a class="dropdown-item" href="/unVerifiedUserList">Un-Verified-User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="defaultRoleUserList()">Default-User-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="batchList()">Batch-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="studentList()">Student-List</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="unVerifiedUserList()">Un-Verified-User-List</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -118,7 +118,7 @@
             <span class="material-icons">manage_accounts</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/userProfile">Profile</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="viewProfile()">Profile</a></li>
             <li><a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Logout</a></li>
           </ul>
         </li>
@@ -135,7 +135,7 @@
             <span class="material-icons">account_circle</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/userProfile">Profile</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="viewProfile()">Profile</a></li>
             <li><a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Logout</a></li>
           </ul>
         </li>
@@ -156,10 +156,10 @@
           <a class="nav-link" href="">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/login">Login</a>
+          <a class="nav-link" aria-current="page" style="cursor: pointer;" (click)="loginPage()">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sign-up">Register</a>
+          <a class="nav-link" style="cursor: pointer;" (click)="registerPage()">Register</a>
         </li>
       </ul>
     </div>

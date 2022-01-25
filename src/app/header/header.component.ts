@@ -23,4 +23,34 @@ export class HeaderComponent implements OnInit {
     });
     
   }
+  loginPage(){
+    this.router.navigate(['login']);
+  }
+  registerPage(){
+    this.router.navigate(['sign-up']);
+  }
+  defaultRoleUserList(){
+    this.router.navigate(['defaultRoleUserList']);
+  }
+  userList(){
+    this.router.navigate(['userList']);
+  }
+  dayList(){
+    this.router.navigate(['dayList']);
+  }
+  batchList(){
+    this.router.navigate(['batchList']);
+  }
+  studentList(){
+    this.router.navigate(['studentList']);
+  }
+  employeeList(){
+    this.router.navigate(['employeeList']);
+  }
+  unVerifiedUserList(){
+    this.router.navigate(['unVerifiedUserList']);
+  }
+  viewProfile(){
+    this.router.navigate(['singleUser/', this.authService.getUserName()]);
+  }
 }

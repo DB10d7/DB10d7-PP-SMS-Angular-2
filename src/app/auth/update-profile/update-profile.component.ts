@@ -5,6 +5,7 @@ import { AuthService } from '../shared/auth.service';
 import { BatchService } from 'src/app/batch/batch.service';
 import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-update-profile',
@@ -24,6 +25,7 @@ export class UpdateProfileComponent implements OnInit {
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
+  host:string=environment.apiUrl;
   constructor(public authService:AuthService,private httpClient: HttpClient,private batchService: BatchService, private router:Router,private route: ActivatedRoute) {
     this.userUpdateRequestPayload = {
       username: '',
@@ -115,7 +117,7 @@ export class UpdateProfileComponent implements OnInit {
     console.log(this.uploadImageData.get('imageFile').value);
     console.log(this.uploadImageData.get('username').value);
     
-    this.httpClient.post('http://localhost:8080/api/user/image/update', this.uploadImageData, { responseType: 'text' })
+    this.httpClient.post(this.host+'api/user/image/update', this.uploadImageData, { responseType: 'text' })
       .subscribe((response) => {
         console.log(response);
         if (response === "Image Updated") {

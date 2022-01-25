@@ -53,6 +53,9 @@ export class LoginComponent implements OnInit {
       //   }
       // });
   }
+  forgetPassword(){
+    this.router.navigate(['forget-Password']);
+  }
   onSubmit(){
 
     if(this.loginForm.get('password').value === '' || this.loginForm.get('password').value.length<8){
@@ -93,4 +96,5 @@ export class LoginComponent implements OnInit {
     });
 
   }
+  
 }

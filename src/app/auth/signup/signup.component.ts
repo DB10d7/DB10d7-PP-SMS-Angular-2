@@ -5,7 +5,7 @@ import { SignupRequestPayload } from './signup-request.payload';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth.service';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
   uploadImageData: any= FormData;
   message: string="";
   isValid: boolean= true;
+  host:string=environment.apiUrl;
   constructor(private authService:AuthService,private httpClient: HttpClient, private router:Router,private toastr: ToastrService) {
     this.signupForm = {
       username: '',
@@ -103,7 +104,7 @@ export class SignupComponent implements OnInit {
     console.log(this.uploadImageData.get('imageFile').value);
     console.log(this.uploadImageData.get('username').value);
     
-    this.httpClient.post('http://localhost:8080/api/user/image/upload', this.uploadImageData, { responseType: 'text' })
+    this.httpClient.post(this.host+'api/user/image/upload', this.uploadImageData, { responseType: 'text' })
       .subscribe((response) => {
         if (response === "Image Uploaded") {
           this.message = 'Image uploaded successfully';
