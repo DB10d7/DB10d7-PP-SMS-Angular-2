@@ -89,19 +89,6 @@ export class UpdateUserComponent implements OnInit {
   }
   onSubmit(){
 
-    
-    if((this.userUpdateForm.get('password').value === '' || this.userUpdateForm.get('confirmPassword').value === '') || (this.userUpdateForm.get('password').value.length<8 || this.userUpdateForm.get('confirmPassword').value.length<8)){
-      console.log('register failed');
-      alert("Password's Has To Be 8 Characters Long");
-      
-      return;
-    }
-    if(this.userUpdateForm.get('password').value !== this.userUpdateForm.get('confirmPassword').value){
-      console.log('register failed');
-      alert("Password's Do Not Match");
-      
-      return;
-    }
     if(this.userUpdateForm.get('username').value === '' || this.userUpdateForm.get('username').value.length < 8 ){
       alert("UserName Has To Be 8 Characters Long");
       

@@ -51,6 +51,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['unVerifiedUserList']);
   }
   viewProfile(){
-    this.router.navigate(['singleUser/', this.authService.getUserName()]);
+    this.router.navigate(['userProfile']);
   }
 }

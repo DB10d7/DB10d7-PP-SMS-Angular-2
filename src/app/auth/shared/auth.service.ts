@@ -8,8 +8,8 @@ import { LoginRequestPayload } from '../login/login-request.payload';
 import { map, tap } from 'rxjs/operators';
 import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
 import { ResetPasswordRequestPayload } from '../reset-password/reset-password-request.payload';
-// import { environment } from 'src/environments/environment.prod';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
+// import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -107,8 +107,8 @@ export class AuthService {
     return this.httpClient.put(this.host+'api/auth/update/' + name,userUpdateRequestPayload,{ responseType: 'text' });
   }
   updateUserProfile(userUpdateRequestPayload: UserUpdateRequestPayload, name: String ): Observable<any>{
-    console.log(this.httpClient.put(this.host+'api/auth/updateProfile' + name,userUpdateRequestPayload));
-    return this.httpClient.put(this.host+'api/auth/updateProfile' + name,userUpdateRequestPayload,{ responseType: 'text' });
+    console.log(this.httpClient.put(this.host+'api/auth/updateProfile/' + name,userUpdateRequestPayload));
+    return this.httpClient.put(this.host+'api/auth/updateProfile/' + name,userUpdateRequestPayload,{ responseType: 'text' });
   }
   getSingleUser(name : String): Observable<any>{
     console.log(this.httpClient.get(this.host+'api/auth/get/' + name));

@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CreateBatchRequestPayload } from './create-batch/create-batch-request.payload';
 import { UpdateBatchRequest } from './update-batch/updateBatchRequest.payload';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
