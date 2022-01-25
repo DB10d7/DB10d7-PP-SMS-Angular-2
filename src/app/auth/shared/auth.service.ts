@@ -8,8 +8,8 @@ import { LoginRequestPayload } from '../login/login-request.payload';
 import { map, tap } from 'rxjs/operators';
 import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
 import { ResetPasswordRequestPayload } from '../reset-password/reset-password-request.payload';
-import { environment } from 'src/environments/environment.prod';
-// import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

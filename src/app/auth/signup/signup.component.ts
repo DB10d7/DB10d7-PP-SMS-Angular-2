@@ -5,8 +5,8 @@ import { SignupRequestPayload } from './signup-request.payload';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment.prod';
-
+// import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-signup',
