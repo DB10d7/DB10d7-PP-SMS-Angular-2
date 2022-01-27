@@ -14,7 +14,7 @@ import { UpdateUserComponent } from './auth/update-user/update-user.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './auth/user-list/user-list.component';
@@ -114,8 +114,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
+    provide: HTTP_INTERCEPTORS, 
+    useClass: TokenInterceptor, 
+    multi: true
+  },{
+    provide:  LocationStrategy,
+    useClass: HashLocationStrategy,
     multi: true
   }],
   bootstrap: [AppComponent]

@@ -58,7 +58,7 @@ export class UserListComponent implements OnInit {
         }
         
       }, error =>{
-        alert('Please reduce the image size to 60 kb')
+        alert('Data not uploaded successfully')
       }
       );
       })
