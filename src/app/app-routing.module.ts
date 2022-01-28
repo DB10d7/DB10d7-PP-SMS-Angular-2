@@ -35,13 +35,14 @@ import { ForgetPasswordComponent } from './auth/forget-password/forget-password.
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
 import { SingleUserComponent } from './auth/single-user/single-user.component';
+import { DefaultPageComponent } from './others/default-page/default-page.component';
 
 const routes: Routes = [
 
   {path: 'sign-up', component: SignupComponent },
   {path: 'login', component: LoginComponent },
   {path: '', component: HomeComponent },
-  
+  {path: '**', component: DefaultPageComponent },
   {path: 'account-activation/:token', component: AccountActivationPageComponent},
   {path: 'not-Authorized', component: NotAuthorizedComponent },
   {path: 'forget-Password', component: ForgetPasswordComponent},
