@@ -55,7 +55,7 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { UnverifiedUserComponent } from './auth/unverified-user/unverified-user.component';
 import { SingleUserComponent } from './auth/single-user/single-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DefaultPageComponent } from './others/default-page/default-page.component';
+// import { DefaultPageComponent } from './others/default-page/default-page.component';
 
 
 
@@ -102,7 +102,7 @@ import { DefaultPageComponent } from './others/default-page/default-page.compone
     ResetPasswordComponent,
     UnverifiedUserComponent,
     SingleUserComponent,
-    DefaultPageComponent
+    // DefaultPageComponent
     
   ],
   imports: [
