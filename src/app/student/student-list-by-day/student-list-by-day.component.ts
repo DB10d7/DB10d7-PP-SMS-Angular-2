@@ -51,6 +51,13 @@ export class StudentListByDayComponent implements OnInit {
     this.dayService.removeStudentFromDay(this.removeStudentRequest )
       .subscribe((data: any) => {
         window.location.reload();
+        
+        // let currentUrl = this.router.url;
+        // console.log(currentUrl);
+        // this.router.navigate([currentUrl]);
+        // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        //     this.router.navigate([currentUrl]);
+        // });
       }, (error : any) => {
         console.log(error);
       });

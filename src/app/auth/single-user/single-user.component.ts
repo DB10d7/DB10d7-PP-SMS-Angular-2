@@ -49,9 +49,9 @@ export class SingleUserComponent implements OnInit {
       console.log(this.userAttendance);
     })
   }
-  updateProfile(){
-    this.router.navigate(['updateProfile']);
-  }
+  // updateProfile(){
+  //   this.router.navigate(['updateProfile']);
+  // }
   getImage() {
     //Make a call to Sprinf Boot to get the Image Bytes.
     this.authService.getUserImage(this.singleUser.username)

@@ -58,6 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,17 +112,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    
     NgbModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, 
     useClass: TokenInterceptor, 
     multi: true
-  },{
-    provide:  LocationStrategy,
-    useClass: HashLocationStrategy,
-    multi: true
   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

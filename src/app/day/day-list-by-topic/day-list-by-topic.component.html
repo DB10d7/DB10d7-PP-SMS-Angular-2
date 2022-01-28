@@ -6,23 +6,23 @@
       <table class="table text-center">
         <thead>
           <tr>
-            <th scope="col">Id</th>
+            
             <th scope="col">Name</th>
             <th scope="col">Video-Link</th>
             <th scope="col">Topic</th>
             <th scope="col">CreatedBy</th>
-            <th scope="col">BatchName</th>
+            
             <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let day of listDay">
-              <th *ngIf="day.topic === topicName" >{{day.id}}</th>
+              
               <th *ngIf="day.topic === topicName">{{day.dayName}}</th>
               <th *ngIf="day.topic === topicName">{{day.url}}</th>
               <th *ngIf="day.topic === topicName">{{day.topic}}</th>
               <th *ngIf="day.topic === topicName">{{day.createdBy}}</th>
-              <th *ngIf="day.topic === topicName">{{day.batchName}}</th>
+              
               <th *ngIf="day.topic === topicName && (listDayByStudent.has(day.dayName))" style="color: lightgreen;">Present</th>
               <th *ngIf="day.topic === topicName && (!listDayByStudent.has(day.dayName))" style="color: red;">Absent</th>
             <!--   <th><button (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>

@@ -36,6 +36,9 @@ export class StudentListComponent implements OnInit {
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
   }
+  updateStudent(name: String){
+    this.router.navigate(['updateUser/',name]);
+  }
   deleteStudent(id:Number){
     this.authService.deleteUser(id).subscribe(data =>{
       // alert(data);

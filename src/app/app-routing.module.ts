@@ -41,6 +41,7 @@ const routes: Routes = [
   {path: 'sign-up', component: SignupComponent },
   {path: 'login', component: LoginComponent },
   {path: '', component: HomeComponent },
+  
   {path: 'account-activation/:token', component: AccountActivationPageComponent},
   {path: 'not-Authorized', component: NotAuthorizedComponent },
   {path: 'forget-Password', component: ForgetPasswordComponent},
@@ -79,7 +80,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

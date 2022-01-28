@@ -29,6 +29,9 @@ export class StudentListByBatchComponent implements OnInit {
       console.log(this.listStudent);
     })
   }
+  updateStudent(name: String){
+    this.router.navigate(['updateUser/',name]);
+  }
   recordId(id: Number){
     this.studentId=id;
   }

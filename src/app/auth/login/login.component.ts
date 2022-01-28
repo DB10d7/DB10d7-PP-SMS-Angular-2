@@ -58,17 +58,17 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(){
 
-    if(this.loginForm.get('password').value === '' || this.loginForm.get('password').value.length<8){
-      console.log('register failed');
-      alert("Password's Has To Be 8 Characters Long");
+    // if(this.loginForm.get('password').value === '' || this.loginForm.get('password').value.length<8){
+    //   console.log('register failed');
+    //   alert("Password's Has To Be 8 Characters Long");
       
-      return;
-    }
-    if(this.loginForm.get('username').value === '' || this.loginForm.get('username').value.length < 8 ){
-      alert("UserName Has To Be 8 Characters Long");
+    //   return;
+    // }
+    // if(this.loginForm.get('username').value === '' || this.loginForm.get('username').value.length < 8 ){
+    //   alert("UserName Has To Be 8 Characters Long");
       
-      return;
-    }
+    //   return;
+    // }
 
     this.loginRequestPayload.username = this.loginForm.get('username').value;
     this.loginRequestPayload.password = this.loginForm.get('password').value;
