@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RemoveStudentRequest } from 'src/app/student/student-list-by-day/removeStudentFromDayRequest.payload';
 import { StudentService } from 'src/app/student/student.service';
 import { DayService } from '../day.service';
 import { AddStudentToDayRequest } from './addStudentToDay.request.payload';
@@ -14,8 +15,15 @@ export class AddStudentToDayComponent implements OnInit {
   listStudent:any;
   addStudentToDayRequest:any= AddStudentToDayRequest;
   batchDayRequest:any;
+  listStudentNotPresent: any;
+  setStudentNotPresent: Set<String>= new Set();
+  removeStudentRequest : RemoveStudentRequest;
   constructor(private dayService: DayService,private studentService: StudentService,private route: ActivatedRoute, private router: Router) { 
     this.addStudentToDayRequest = {
+      studentName : '',
+      dayName:'',
+    };
+    this.removeStudentRequest = {
       studentName : '',
       dayName:'',
     };
@@ -38,16 +46,44 @@ export class AddStudentToDayComponent implements OnInit {
       this.singleDay= result;
       this.batchDayRequest.batchName= this.singleDay.batchName;
       this.batchDayRequest.dayName= this.singleDay.dayName;
-      console.log("helloViewDay");
-      this.studentListByBatch();
+      this.studentService.getStudentListByBatch(this.singleDay.batchName).subscribe((res)=>{
+        this.listStudent = res;
+        console.log(this.listStudent);
+        console.log("helloViewDay");
+        this.studentListByBatch();
+      })
+      
+      
     })
+  }
+  removeStudent(studentName : String){
+    this.removeStudentRequest.studentName = studentName;
+    this.removeStudentRequest.dayName = this.route.snapshot.params['name'];
+    this.dayService.removeStudentFromDay(this.removeStudentRequest )
+      .subscribe((data: any) => {
+        window.location.reload();
+        
+        // let currentUrl = this.router.url;
+        // console.log(currentUrl);
+        // this.router.navigate([currentUrl]);
+        // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        //     this.router.navigate([currentUrl]);
+        // });
+      }, (error : any) => {
+        console.log(error);
+      });
   }
   studentListByBatch(){
     console.log("helloStudentList");
       this.dayService.studentListByBatchNotPresent(this.batchDayRequest).subscribe((resp)=>{
 
-        this.listStudent = resp;
-        console.log(resp);
+        this.listStudentNotPresent = resp;
+        console.log(this.listStudentNotPresent);
+        for(var i=0;i<this.listStudentNotPresent.length;i++){
+          this.setStudentNotPresent.add(this.listStudentNotPresent[i].username);
+        }
+        // window.location.reload();
+        console.log(this.setStudentNotPresent);
       })
   }
   addStudent(name: String){

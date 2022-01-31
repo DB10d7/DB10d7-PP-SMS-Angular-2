@@ -12,16 +12,19 @@
             <th scope="col">Topic</th>
             <th scope="col">CreatedBy</th>
             <th scope="col">BatchName</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let day of listDay">
+          <tr *ngFor="let day of listTotalDay">
               
               <th>{{day.dayName}}</th>
               <th><a href="{{day.url}}" >{{day.url}}</a></th>
               <th>{{day.topic}}</th>
               <th>{{day.createdBy}}</th>
               <th>{{day.batchName}}</th>
+              <th *ngIf="setDay.has(day.dayName)" style="color: rgb(22, 238, 22);">Present</th>
+              <th *ngIf="!setDay.has(day.dayName)" style="color: rgb(238, 30, 30);">Absent</th>
             <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
               <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
               <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->

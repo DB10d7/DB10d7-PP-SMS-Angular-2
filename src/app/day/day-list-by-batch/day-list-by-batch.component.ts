@@ -68,8 +68,8 @@ export class DayListByBatchComponent implements OnInit {
   updateDay(name: String){
     this.router.navigate(['updateDay/', name]);
   }
-  createDay(name: String){
-    this.router.navigate(['createDay/', name]);
+  createDay(){
+    this.router.navigate(['createDay/', this.batchName]);
   }
   deleteDay(id: Number){
     this.dayService.deleteDay(id).subscribe(data =>{

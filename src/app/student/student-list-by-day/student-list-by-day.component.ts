@@ -16,6 +16,11 @@ export class StudentListByDayComponent implements OnInit {
   resArray: any = [];
   searchText: string="";
   studentName: String="";
+  totalDays!: number;
+  batchName!: string;
+  listTotalDays:any;
+  numberOfDaysByStudent: Map<string,number>= new Map();
+  list:any;
   constructor(private studentService: StudentService, private dayService: DayService , private router:Router, private route: ActivatedRoute) {
     this.removeStudentRequest = {
       studentName : '',
@@ -24,6 +29,7 @@ export class StudentListByDayComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
     this.viewStudentList();
   }
   viewStudentList(){
@@ -32,9 +38,32 @@ export class StudentListByDayComponent implements OnInit {
       this.dayName=this.route.snapshot.params['name'];
       console.log("data is here",result);
       this.listStudent= result;
+      this.batchName=this.listStudent[0].batch;
+      console.log(this.listStudent[0].batch);
+      for(var i=0;i<this.listStudent.length;i++){
+        console.log(this.listStudent[i].username);
+        this.dayService.getDayListByStudent(this.listStudent[i].username).subscribe((res:any)=>{
+          this.list=res;
+        //  var list=res;
+        //  console.log(res);
+        //  console.log(list);
+        //  this.list.add(list);
+          console.log(this.list);
+          this.numberOfDaysByStudent.set(this.listStudent[i].username,this.list.length);
+        })
+        
+      }
+      
+      console.log(this.numberOfDaysByStudent);
+      this.dayService.getDayListByBatch(this.listStudent[0].batch).subscribe((res)=>{
+        this.listTotalDays=res;
+        console.log(this.listTotalDays);
+       
+      })
       console.log(this.listStudent);
     })
   }
+  
   recordId(name: String){
     this.studentName= name;
   }
@@ -45,23 +74,23 @@ export class StudentListByDayComponent implements OnInit {
   viewAllDays(name: String){
     this.router.navigate(['dayListByStudent/',name]);
   }
-  removeStudent(studentName : String){
-    this.removeStudentRequest.studentName = studentName;
-    this.removeStudentRequest.dayName = this.route.snapshot.params['name'];
-    this.dayService.removeStudentFromDay(this.removeStudentRequest )
-      .subscribe((data: any) => {
-        window.location.reload();
+  // removeStudent(studentName : String){
+  //   this.removeStudentRequest.studentName = studentName;
+  //   this.removeStudentRequest.dayName = this.route.snapshot.params['name'];
+  //   this.dayService.removeStudentFromDay(this.removeStudentRequest )
+  //     .subscribe((data: any) => {
+  //       window.location.reload();
         
-        // let currentUrl = this.router.url;
-        // console.log(currentUrl);
-        // this.router.navigate([currentUrl]);
-        // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        //     this.router.navigate([currentUrl]);
-        // });
-      }, (error : any) => {
-        console.log(error);
-      });
-  }
+  //       // let currentUrl = this.router.url;
+  //       // console.log(currentUrl);
+  //       // this.router.navigate([currentUrl]);
+  //       // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+  //       //     this.router.navigate([currentUrl]);
+  //       // });
+  //     }, (error : any) => {
+  //       console.log(error);
+  //     });
+  // }
   downloadExcel(){
     var newArry: any = [];
     var o;

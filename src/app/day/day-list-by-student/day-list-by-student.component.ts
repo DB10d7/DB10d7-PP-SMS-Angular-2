@@ -9,11 +9,18 @@ import { DayService } from '../day.service';
 })
 export class DayListByStudentComponent implements OnInit {
   listDay: any;
+  setDay: Set<string>= new Set();
+  listTotalDay: any;
   studentName: String="";
   constructor(private dayService: DayService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.viewDayList();
+  }
+  viewDayListByBatch(name: string){
+    this.dayService.getDayListByBatch(name).subscribe((res)=>{
+      this.listTotalDay= res;
+    })
   }
   viewDayList(){
     this.studentName= this.route.snapshot.params['name'];
@@ -21,7 +28,13 @@ export class DayListByStudentComponent implements OnInit {
       console.log(this.route.snapshot.params['name']);
       console.log("data is here",result);
       this.listDay= result;
+      for(var i=0;i<this.listDay.length;i++){
+        this.setDay.add(this.listDay[0].dayName);
+      }
       console.log(this.listDay);
+      console.log(this.setDay);
+      console.log(this.listDay[0].batchName);
+      this.viewDayListByBatch(this.listDay[0].batchName);
     })
   }
 }

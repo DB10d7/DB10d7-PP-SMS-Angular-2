@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
+import { StudentService } from 'src/app/student/student.service';
 import { BatchService } from '../batch.service';
 
 
@@ -13,14 +14,34 @@ export class BatchListComponent implements OnInit {
   listBatch:any;
   searchText: string="";
   resArray: any = [];
-  constructor(private batchService: BatchService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
+  totalStudents:any;
+  batchToStudentMap: Map<String, number>= new Map([["1",0]]) ;
+
+  constructor(private batchService: BatchService,public authService: AuthService,private studentService: StudentService,private route: ActivatedRoute, private router: Router) { }
   
   ngOnInit(): void {
     this.batchService.getBatchList().subscribe((resp)=>{
 
       this.listBatch = resp;
       console.log(this.listBatch);
+      this.numberOfStudents();
       })
+
+  }
+  numberOfStudents(){
+    this.studentService.getStudentList().subscribe((resp)=>{
+      this.totalStudents = resp;
+      console.log(this.totalStudents);
+      // for(var i=0;i<this.listBatch;i++){
+      //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
+      //   for(var j=0;j<this.totalStudents;j++){
+      //     // if(this.listBatch.get(i).n)
+      //     if(this.listBatch.get(i).name === this.totalStudents.get(j).batch){
+      //       this.batchToStudentMap.set(this.listBatch.get(i).name, this.batchToStudentMap.get(this.listBatch.get(i).name)+1);
+      //     }
+      //   }
+      // }
+    })
   }
   viewBatch(name: String){
     this.router.navigate(['singleBatch/',name]);

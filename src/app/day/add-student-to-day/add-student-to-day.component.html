@@ -13,8 +13,9 @@
             <th scope="col">Email</th>
             <th scope="col">BatchName</th>
             <th scope="col">Role</th>
-            <th scope="col">Details</th>
-            <th scope="col">Attendance</th>
+            <!-- <th scope="col">Details</th> -->
+            <th scope="col">Mark Present</th>
+            <th scope="col">Mark Absent</th>
           </tr>
         </thead>
         <tbody>
@@ -24,14 +25,15 @@
               <th>{{student.email}}</th>
               <th>{{student.batch}}</th>
               <th>{{student.role}}</th>
-              <th><button (click)="viewStudent(student.username)" class="btn btn-primary">View</button></th>
-              <th><button (click)="addStudent(student.username)" class="btn btn-success">Present</button></th>
-            <!--  <th><button (click)="viewBlog(blog._id)" class="btn btn-primary">View</button></th>
-              <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th>
-              <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> -->
+              <!-- <th><button (click)="viewStudent(student.username)" class="btn btn-primary">View</button></th> -->
+              <th *ngIf="setStudentNotPresent.has(student.username)"><button (click)="addStudent(student.username)" class="btn btn-success">Present</button></th>
+              <th></th>
+              <th *ngIf="!setStudentNotPresent.has(student.username)"><button (click)="removeStudent(student.username)" class="btn btn-danger">Absent</button></th>
+              
+              
           </tr>        
         </tbody>
       </table>
-      <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
+      
     </div>
 </div>
