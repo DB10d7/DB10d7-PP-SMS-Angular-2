@@ -6,7 +6,7 @@
       <div class="row text-center">
         <div class="col-md-4 mb-5 ms-auto">
           <th *ngIf="authService.getUserRole() != 'STUDENT'" ><button (click)="downloadExcel()" class="btn btn-success mb-2">Download Excel</button></th>
-          <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" ><button (click)="createDay()" class="btn btn-success mb-2 ml-2">Add Day</button></th>
+          <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" ><button (click)="createDay()" class="btn btn-success mb-2 ml-2">Add Session</button></th>
           <input type="text" [(ngModel)]="searchText" placeholder="Search for names.." class="form-control me-2" aria-label="Search" >
         </div>
       </div>
@@ -30,14 +30,14 @@
         <tbody>
           <tr *ngFor="let day of listDay | searchFilterDay: searchText">
               
-              <th>{{day.dayName}}</th>
+              <th>{{day.sessionName}}</th>
               <!-- <th>{{day.url}}</th> -->
               <th>{{day.topic}}</th>
               <th>{{day.createdBy}}</th>
               
               <th *ngIf="authService.getUserRole() === 'STUDENT' && (listDayByStudent.has(day.dayName))" style="color: lightgreen;">Present</th>
               <th *ngIf="authService.getUserRole() === 'STUDENT' && (!listDayByStudent.has(day.dayName))" style="color: red;">Absent</th>
-              <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')"><button  (click)="viewStudentList(day.dayName)" class="btn btn-primary">Students</button></th>
+              <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')"><button  (click)="viewStudentList(day.dayName)" class="btn btn-primary">{{mapDayToStudents.get(day.dayName)}}/{{numberOfStudents}}</button></th>
               <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')"><button  (click)="viewDayToAddStudent(day.dayName)" class="btn" style="background: lightgreen; color: white;">Attendance</button></th>
               <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'"><button  (click)="updateDay(day.dayName)" class="btn btn-warning" style="color: white;">Update</button></th>
               <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')"><button *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || (authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN')" (click)="recordId(day.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>

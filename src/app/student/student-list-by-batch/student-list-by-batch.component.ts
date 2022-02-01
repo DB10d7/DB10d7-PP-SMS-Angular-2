@@ -2,6 +2,7 @@ import { newArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
+import { DayService } from 'src/app/day/day.service';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class StudentListByBatchComponent implements OnInit {
   resArray: any = [];
   searchText: string="";
   studentId: Number=0;
-  constructor(private studentService: StudentService,public authService: AuthService, private router:Router, private route: ActivatedRoute) { }
+  listTotalDays:any;
+  totalDays!: number;
+  numberOfDaysByStudent: Map<string,number>= new Map();
+  listDaysPresent:any;
+  constructor(private studentService: StudentService, private dayService: DayService ,public authService: AuthService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.viewStudentList();
@@ -27,7 +32,40 @@ export class StudentListByBatchComponent implements OnInit {
       this.name=this.route.snapshot.params['name'];
       this.listStudent= result;
       console.log(this.listStudent);
+      this.viewDaysListByBatch();
     })
+  }
+  viewDaysListByBatch(){
+    this.dayService.getDayListByBatch(this.listStudent[0].batch).subscribe((res)=>{
+      this.listTotalDays=res;
+      this.totalDays=this.listTotalDays.length;
+      console.log(this.totalDays);
+      for(var i=0;i<this.listStudent.length;i++){
+        console.log(this.listStudent[i].username);
+        this.viewDaysListByStudent(this.listStudent[i].username);
+        
+      }
+      
+    })
+  }
+  viewDaysListByStudent(name : string){
+    
+    this.dayService.getDayListByStudent(name).subscribe((result)=>{
+      // console.log(this.listStudent[i].username);
+      this.listDaysPresent=result;
+    //  var listDaysPresent=res;
+    //  console.log(res);
+    //  console.log(listDaysPresent);
+    //  this.listDaysPresent.add(listDaysPresent);
+        console.log(this.listDaysPresent.length)
+        this.numberOfDaysByStudent.set(name,this.listDaysPresent.length);
+      // console.log(this.listStudent[i].username);
+      // console.log(this.listDaysPresent.length);
+      // this.listStudent[i].add("daysPresent",this.listDaysPresent.length);
+      // console.log(this.listStudent);
+    })
+    // console.log(this.numberOfDaysByStudent);
+    
   }
   updateStudent(name: String){
     this.router.navigate(['updateUser/',name]);

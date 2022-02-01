@@ -5,4 +5,5 @@ export class CreateDayRequestPayload{
     topic: String="";
     url: String="";
     createdBy: String="";
+    sessionName: String="";
 }

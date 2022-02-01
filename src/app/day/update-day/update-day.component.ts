@@ -21,7 +21,8 @@ export class UpdateDayComponent implements OnInit {
       url:'',
       description:'',
       createdBy:'',
-      topic:''
+      topic:'',
+      sessionName:'',
     }
    }
 
@@ -35,12 +36,13 @@ export class UpdateDayComponent implements OnInit {
         description: new FormControl(result['description']),
         topic: new FormControl(result['topic']),
         createdBy: new FormControl(result['createdBy']), 
+        sessionName: new FormControl(result['sessionName']), 
        });
    });
   }
  onSubmit(){
    this.updateDayRequest.batchName= this.updateDayForm.get('batchName').value;
-   this.updateDayRequest.dayName= this.updateDayForm.get('dayName').value;
+   this.updateDayRequest.dayName= this.updateDayForm.get('batchName').value +"-"+ this.updateDayForm.get('sessionName').value;
    this.updateDayRequest.description= this.updateDayForm.get('description').value;
    this.updateDayRequest.url= this.updateDayForm.get('url').value;
    this.updateDayRequest.createdBy= this.updateDayForm.get('createdBy').value;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
+import { StudentService } from 'src/app/student/student.service';
 import { DayService } from '../day.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class DayListByBatchComponent implements OnInit {
   resArray: any = [];
   dayId: Number=0;
   listDayByStudent: Set<string> = new Set<string>() ;
-  constructor(private dayService: DayService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
+  mapDayToStudents: Map<String,number> = new Map();
+  numberOfStudents!: number;
+  constructor(private dayService: DayService,public studentService: StudentService,public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.viewDayList();
@@ -25,6 +28,19 @@ export class DayListByBatchComponent implements OnInit {
       this.viewDayListByStudent();
     }
   }
+  viewStudentListByDay(name:String){
+    this.studentService.getStudentListByDay(name).subscribe((result)=>{
+      var students= result;
+      this.mapDayToStudents.set(name,students.length);
+      this.viewStudentListByBatch()
+    })
+  }
+  viewStudentListByBatch(){
+    this.studentService.getStudentListByBatch(this.batchName).subscribe((result)=>{
+      
+      this.numberOfStudents=result.length;
+    })
+  }
   viewDayList(){
     this.dayService.getDayListByBatch(this.route.snapshot.params['name']).subscribe((result)=>{
       console.log(this.route.snapshot.params['name']);
@@ -32,6 +48,9 @@ export class DayListByBatchComponent implements OnInit {
       this.batchName=this.route.snapshot.params['name'];
       this.listDay= result;
       console.log(this.listDay);
+      for(var i=0;i<this.listDay.length;i++){
+        this.viewStudentListByDay(this.listDay[i].dayName);
+      }
     })
   }
   viewDayListByStudent(){

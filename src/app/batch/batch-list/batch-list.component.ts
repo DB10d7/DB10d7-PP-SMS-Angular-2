@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
+import { DayService } from 'src/app/day/day.service';
 import { StudentService } from 'src/app/student/student.service';
 import { BatchService } from '../batch.service';
 
@@ -14,24 +15,46 @@ export class BatchListComponent implements OnInit {
   listBatch:any;
   searchText: string="";
   resArray: any = [];
-  totalStudents:any;
-  batchToStudentMap: Map<String, number>= new Map([["1",0]]) ;
-
-  constructor(private batchService: BatchService,public authService: AuthService,private studentService: StudentService,private route: ActivatedRoute, private router: Router) { }
+  students:any;
+  days:any;
+  batchToStudentMap: Map<String, number>= new Map() ;
+  batchToDayMap: Map<String, number>= new Map() ;
+  constructor(private batchService: BatchService,public dayService: DayService,public authService: AuthService,private studentService: StudentService,private route: ActivatedRoute, private router: Router) { }
   
   ngOnInit(): void {
     this.batchService.getBatchList().subscribe((resp)=>{
 
       this.listBatch = resp;
       console.log(this.listBatch);
-      this.numberOfStudents();
+      for(var i=0;i<this.listBatch.length;i++){
+        this.numberOfStudentsByBatch(this.listBatch[i].name);
+        this.numberOfDaysByBatch(this.listBatch[i].name);
+      }
+      
       })
 
   }
-  numberOfStudents(){
-    this.studentService.getStudentList().subscribe((resp)=>{
-      this.totalStudents = resp;
-      console.log(this.totalStudents);
+  numberOfStudentsByBatch(name : string){
+    this.studentService.getStudentListByBatch(name).subscribe((resp)=>{
+      this.students = resp;
+      console.log(this.students);
+      this.batchToStudentMap.set(name,this.students.length);
+      // for(var i=0;i<this.listBatch;i++){
+      //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
+      //   for(var j=0;j<this.totalStudents;j++){
+      //     // if(this.listBatch.get(i).n)
+      //     if(this.listBatch.get(i).name === this.totalStudents.get(j).batch){
+      //       this.batchToStudentMap.set(this.listBatch.get(i).name, this.batchToStudentMap.get(this.listBatch.get(i).name)+1);
+      //     }
+      //   }
+      // }
+    })
+  }
+  numberOfDaysByBatch(name : string){
+    this.dayService.getDayListByBatch(name).subscribe((resp)=>{
+      this.days = resp;
+      console.log(this.days);
+      this.batchToDayMap.set(name,this.days.length);
       // for(var i=0;i<this.listBatch;i++){
       //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
       //   for(var j=0;j<this.totalStudents;j++){

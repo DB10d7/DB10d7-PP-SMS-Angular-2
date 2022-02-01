@@ -7,7 +7,7 @@
         <thead>
           <tr>
             
-            <th scope="col">Name</th>
+            <th scope="col">Session Name</th>
             <th scope="col">Video-Link</th>
             <th scope="col">Topic</th>
             <th scope="col">CreatedBy</th>
@@ -18,7 +18,7 @@
         <tbody>
           <tr *ngFor="let day of listDay">
               
-              <th *ngIf="day.topic === topicName">{{day.dayName}}</th>
+              <th *ngIf="day.topic === topicName">{{day.sessionName}}</th>
               <th *ngIf="day.topic === topicName">{{day.url}}</th>
               <th *ngIf="day.topic === topicName">{{day.topic}}</th>
               <th *ngIf="day.topic === topicName">{{day.createdBy}}</th>

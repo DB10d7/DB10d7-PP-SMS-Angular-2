@@ -85,6 +85,7 @@ export class AddStudentToDayComponent implements OnInit {
         // window.location.reload();
         console.log(this.setStudentNotPresent);
       })
+      
   }
   addStudent(name: String){
     console.log("helloAddStudent");
@@ -94,6 +95,7 @@ export class AddStudentToDayComponent implements OnInit {
     this.dayService.addStudentToDay(this.addStudentToDayRequest )
       .subscribe(data => {
         this.studentListByBatch();
+        window.location.reload();
       }, error => {
         console.log(error);
       });

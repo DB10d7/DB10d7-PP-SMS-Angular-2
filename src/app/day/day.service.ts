@@ -22,7 +22,7 @@ export class DayService {
     return this.httpClient.get<any>(this.host+'api/days/by-batch/'+ name);
   }
   getDayListByStudent(name: String): Observable<any>{
-    console.log(this.httpClient.get(this.host+'api/students/'+ name + '/get/allDays'));
+    console.log("hello console");
     return this.httpClient.get<any>(this.host+'api/students/'+ name + '/get/allDays');
   }
   addStudentToDay(addStudentToDayRequest: AddStudentToDayRequest ): Observable<any>{

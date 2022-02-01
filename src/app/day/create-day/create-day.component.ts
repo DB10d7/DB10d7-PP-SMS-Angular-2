@@ -23,7 +23,8 @@ export class CreateDayComponent implements OnInit {
       description:'',
       url:'',
       createdBy:'',
-      topic:''
+      topic:'',
+      sessionName:''
     }
   }
 
@@ -34,11 +35,12 @@ export class CreateDayComponent implements OnInit {
     })
     this.createDayForm = new FormGroup({
       batchName: new FormControl(this.route.snapshot.params['name'],Validators.required),
-      dayName: new FormControl('',Validators.required),
+      
       description: new FormControl('', Validators.required),
       url: new FormControl('',Validators.required),
       createdBy: new FormControl('', Validators.required),
-      topic: new FormControl('', Validators.required)
+      topic: new FormControl('', Validators.required),
+      sessionName: new FormControl('', Validators.required),
     })
   }
 
@@ -47,7 +49,7 @@ export class CreateDayComponent implements OnInit {
     
 
     this.createDayRequest.batchName= this.createDayForm.get('batchName').value;
-    this.createDayRequest.dayName= this.createDayForm.get('dayName').value;
+    this.createDayRequest.dayName= this.createDayForm.get('batchName').value +"-"+ this.createDayForm.get('sessionName').value;
     this.createDayRequest.description= this.createDayForm.get('description').value;
     this.createDayRequest.url= this.createDayForm.get('url').value;
     this.createDayRequest.createdBy= this.createDayForm.get('createdBy').value;
@@ -58,7 +60,6 @@ export class CreateDayComponent implements OnInit {
         this.ngOnInit();
         if(data === "Day Successfully Created"){
           alert(data);
-       //   this.router.navigate(['dayListByBatch/',this.route.snapshot.params['name']]);
           this.router.navigate(['dayListByBatch/',this.route.snapshot.params['name']],
          { queryParams: { registered: 'true' } });
         }else{

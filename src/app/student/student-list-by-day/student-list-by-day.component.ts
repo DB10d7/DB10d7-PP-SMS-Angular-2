@@ -11,6 +11,7 @@ import { RemoveStudentRequest } from './removeStudentFromDayRequest.payload';
 })
 export class StudentListByDayComponent implements OnInit {
   listStudent:any;
+  
   dayName: String="";
   removeStudentRequest : RemoveStudentRequest;
   resArray: any = [];
@@ -20,7 +21,7 @@ export class StudentListByDayComponent implements OnInit {
   batchName!: string;
   listTotalDays:any;
   numberOfDaysByStudent: Map<string,number>= new Map();
-  list:any;
+  listDaysPresent:any;
   constructor(private studentService: StudentService, private dayService: DayService , private router:Router, private route: ActivatedRoute) {
     this.removeStudentRequest = {
       studentName : '',
@@ -40,30 +41,43 @@ export class StudentListByDayComponent implements OnInit {
       this.listStudent= result;
       this.batchName=this.listStudent[0].batch;
       console.log(this.listStudent[0].batch);
+      
+      
+      this.viewDaysListByBatch();
+    })
+  }
+  viewDaysListByBatch(){
+    this.dayService.getDayListByBatch(this.listStudent[0].batch).subscribe((res)=>{
+      this.listTotalDays=res;
+      this.totalDays=this.listTotalDays.length;
+      console.log(this.totalDays);
       for(var i=0;i<this.listStudent.length;i++){
         console.log(this.listStudent[i].username);
-        this.dayService.getDayListByStudent(this.listStudent[i].username).subscribe((res:any)=>{
-          this.list=res;
-        //  var list=res;
-        //  console.log(res);
-        //  console.log(list);
-        //  this.list.add(list);
-          console.log(this.list);
-          this.numberOfDaysByStudent.set(this.listStudent[i].username,this.list.length);
-        })
+        this.viewDaysListByStudent(this.listStudent[i].username);
         
       }
       
-      console.log(this.numberOfDaysByStudent);
-      this.dayService.getDayListByBatch(this.listStudent[0].batch).subscribe((res)=>{
-        this.listTotalDays=res;
-        console.log(this.listTotalDays);
-       
-      })
-      console.log(this.listStudent);
     })
   }
-  
+  viewDaysListByStudent(name : string){
+    
+    this.dayService.getDayListByStudent(name).subscribe((result)=>{
+      // console.log(this.listStudent[i].username);
+      this.listDaysPresent=result;
+    //  var listDaysPresent=res;
+    //  console.log(res);
+    //  console.log(listDaysPresent);
+    //  this.listDaysPresent.add(listDaysPresent);
+        console.log(this.listDaysPresent.length)
+        this.numberOfDaysByStudent.set(name,this.listDaysPresent.length);
+      // console.log(this.listStudent[i].username);
+      // console.log(this.listDaysPresent.length);
+      // this.listStudent[i].add("daysPresent",this.listDaysPresent.length);
+      // console.log(this.listStudent);
+    })
+    // console.log(this.numberOfDaysByStudent);
+    
+  }
   recordId(name: String){
     this.studentName= name;
   }
