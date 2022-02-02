@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { SignupRequestPayload } from '../signup/signup-request.payload';
@@ -9,6 +9,7 @@ import { map, tap } from 'rxjs/operators';
 import { UserUpdateRequestPayload } from '../update-user/update-user-request.payload';
 import { ResetPasswordRequestPayload } from '../reset-password/reset-password-request.payload';
 import { environment } from 'src/environments/environment.prod';
+import { BYPASS_LOG } from 'src/app/token-interceptor';
 // import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -29,7 +30,7 @@ export class AuthService {
   getApiData(name: string): Observable<any>{
     console.log(name);
     console.log(this.httpClient.get('https://learn.packetprep.com/apiuser?token=ppofficerwx4356&info='+ name));
-    return this.httpClient.get<any>('https://learn.packetprep.com/apiuser?token=ppofficerwx4356&info='+ name);
+    return this.httpClient.get<any>('https://learn.packetprep.com/apiuser?token=ppofficerwx4356&info='+ name,{ context: new HttpContext().set(BYPASS_LOG, true) });
   }
   activateAccount(token: String): Observable<any>{
     console.log(token);

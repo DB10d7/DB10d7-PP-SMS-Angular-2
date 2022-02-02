@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse, HttpContextToken } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, switchMap, take, filter } from 'rxjs/operators';
 import { LoginResponse } from './auth/login/login-response.payload';
 import { AuthService } from './auth/shared/auth.service';
+export const BYPASS_LOG = new HttpContextToken(() => false);
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +21,12 @@ export class TokenInterceptor implements HttpInterceptor {
         
 
         const jwtToken = this.authService.getJwtToken();
+        if (req.context.get(BYPASS_LOG) === true)
+            return next.handle(req);
 
+        console.log(`req to ${req.url}`);
+
+        return next.handle(req);
         if (jwtToken) {
             this.addToken(req, jwtToken);
             return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {

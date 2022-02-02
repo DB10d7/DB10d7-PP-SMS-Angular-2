@@ -122,7 +122,7 @@ export class StudentListByBatchComponent implements OnInit {
         console.log(this.listCleanData);
         this.uploadApiData(this.listCleanData);
       }
-      window.location.reload();
+      
       console.log(this.listCleanData);
     })
   }
