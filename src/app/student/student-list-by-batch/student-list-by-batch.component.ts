@@ -4,6 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
 import { DayService } from 'src/app/day/day.service';
 import { StudentService } from '../student.service';
+import * as XLSX from 'xlsx';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { SignupRequestPayload } from 'src/app/auth/signup/signup-request.payload';
+import { BatchListComponent } from 'src/app/batch/batch-list/batch-list.component';
 
 @Component({
   selector: 'app-student-list-by-batch',
@@ -20,7 +25,34 @@ export class StudentListByBatchComponent implements OnInit {
   totalDays!: number;
   numberOfDaysByStudent: Map<string,number>= new Map();
   listDaysPresent:any;
-  constructor(private studentService: StudentService, private dayService: DayService ,public authService: AuthService, private router:Router, private route: ActivatedRoute) { }
+  convertedJson!:string;
+  host:string=environment.apiUrl;
+  listCleanData:SignupRequestPayload;
+  listData!:any;
+  constructor(private studentService: StudentService,private httpClient: HttpClient, private dayService: DayService ,public authService: AuthService, private router:Router, private route: ActivatedRoute) { 
+    this.listCleanData = {
+      username: '',
+      name:'',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      
+      city: '',
+      surname: '',
+      state: '',
+      tenthMarks: '',
+      twelfthMarks: '',
+      graduationMarks: '',
+      number: '',
+      birthDate: '',
+      yearOfPassing: '',
+      gender: '',
+      collegeName: '',
+      university: '',
+      graduation: '',
+      graduationBranch: ''
+    };
+  }
 
   ngOnInit(): void {
     this.viewStudentList();
@@ -36,7 +68,7 @@ export class StudentListByBatchComponent implements OnInit {
     })
   }
   viewDaysListByBatch(){
-    this.dayService.getDayListByBatch(this.listStudent[0].batch).subscribe((res)=>{
+    this.dayService.getDayListByBatch(this.route.snapshot.params['name']).subscribe((res)=>{
       this.listTotalDays=res;
       this.totalDays=this.listTotalDays.length;
       console.log(this.totalDays);
@@ -47,6 +79,91 @@ export class StudentListByBatchComponent implements OnInit {
       }
       
     })
+  }
+  fetchApi(){
+    var batch = this.route.snapshot.params['name'];
+    console.log(batch);
+    console.log(batch.length);
+    var search='';
+    for(var i=0;i<batch.length;i++){
+      
+      if(batch[i]>='A' && batch[i]<='Z'){
+        search+=batch[i].toLowerCase();
+        console.log(batch[i]);
+      }else if(batch[i]>='0' && batch[i]<='9'){
+        search+=batch[i];
+        console.log(batch[i]);
+      }
+    }
+    console.log(search);
+    this.authService.getApiData(search).subscribe((result)=>{
+      this.listData=result;
+      console.log(this.listData)
+      console.log(this.listData.length);
+      for(var i=0;i<this.listData.length;i++){
+        
+        this.listCleanData.username = this.listData[i].username;
+        this.listCleanData.name = this.listData[i].name;
+        this.listCleanData.email = this.listData[i].email;
+        this.listCleanData.number = this.listData[i].phone;
+        this.listCleanData.yearOfPassing = this.listData[i].year_of_passing;
+        this.listCleanData.tenthMarks = this.listData[i].tenth;
+        this.listCleanData.twelfthMarks = this.listData[i].twelveth;
+        this.listCleanData.graduationMarks = this.listData[i].bachelors;
+        this.listCleanData.city = this.listData[i].current_city;
+        this.listCleanData.gender = this.listData[i].gender;
+        this.listCleanData.graduation = "B.Tech";
+        this.listCleanData.graduationBranch = "OTHERS";
+        this.listCleanData.birthDate = this.listData[i].dob;
+        
+        this.listCleanData.password = "PacketPrep";
+        this.listCleanData.collegeName = "NA";
+        this.listCleanData.university = "NA";
+        console.log(this.listCleanData);
+        this.uploadApiData(this.listCleanData);
+      }
+      window.location.reload();
+      console.log(this.listCleanData);
+    })
+  }
+  uploadApiData(list: any){
+    this.authService.signup(list).subscribe((result)=>{
+      console.log("Data uploaded");
+    })
+  }
+  fileUpload(event:any){
+    console.log(event.target.files);
+    const selectedFile = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.readAsBinaryString(selectedFile);
+    fileReader.onload = (event:any)=> {
+      console.log(event);
+      let binaryData = event.target.result;
+      let workbook = XLSX.read(binaryData, {type:'binary'});
+      workbook.SheetNames.forEach(sheet => {
+        const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
+        console.log(data);
+        this.convertedJson= JSON.stringify(data,undefined,4);
+        console.log(this.convertedJson);
+        this.httpClient.post(this.host+'api/auth/uploadExcel', this.convertedJson, { responseType: 'text' })
+        .subscribe((response) => {
+        if (response === "Uploaded") {
+          
+          alert('Data uploaded successfully');
+          
+          this.router.navigate(['studentListByBatch/'+ this.route.snapshot.params['name']]);
+        } else {
+          
+          alert('Data not uploaded successfully');
+        }
+        
+      }, error =>{
+        alert('Data not uploaded successfully')
+      }
+      );
+      })
+      console.log(workbook);
+    }
   }
   viewDaysListByStudent(name : string){
     

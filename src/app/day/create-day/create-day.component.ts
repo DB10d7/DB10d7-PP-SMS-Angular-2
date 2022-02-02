@@ -54,6 +54,7 @@ export class CreateDayComponent implements OnInit {
     this.createDayRequest.url= this.createDayForm.get('url').value;
     this.createDayRequest.createdBy= this.createDayForm.get('createdBy').value;
     this.createDayRequest.topic= this.createDayForm.get('topic').value;
+    this.createDayRequest.sessionName= this.createDayForm.get('sessionName').value;
 
     this.dayService.createDay(this.createDayRequest)
       .subscribe((data: String) => {

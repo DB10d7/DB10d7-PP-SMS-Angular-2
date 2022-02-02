@@ -5,7 +5,12 @@
       </div>
       <div class="row text-center">
         <div class="col-md-4 mb-5 ms-auto text-center">
-          <th><button (click)="downloadExcel()" class="btn btn-success mb-2">Download Excel</button></th>
+          <form id="file-upload" class="uploader">
+            <input id="file-up" type="file" (change)="fileUpload($event)"  name="fileUpload" accept=".xls,.xlsx">
+            <label for="file-up" id="file-drag"></label>
+          </form>
+          <th><button (click)="downloadExcel()" class="btn btn-success my-2 mr-2">Download Excel</button></th>
+          <th><button (click)="fetchApi()" class="btn btn-success my-2">Fetch Api</button></th>
           <input type="text" [(ngModel)]="searchText" placeholder="Search for names.." class="form-control me-2" aria-label="Search" >
         </div>
       </div>

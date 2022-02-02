@@ -26,6 +26,11 @@ export class AuthService {
   signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
     return this.httpClient.post(this.host+'api/auth/signup', signupRequestPayload, { responseType: 'text' });
   }
+  getApiData(name: string): Observable<any>{
+    console.log(name);
+    console.log(this.httpClient.get('https://learn.packetprep.com/apiuser?token=ppofficerwx4356&info='+ name));
+    return this.httpClient.get<any>('https://learn.packetprep.com/apiuser?token=ppofficerwx4356&info='+ name);
+  }
   activateAccount(token: String): Observable<any>{
     console.log(token);
     console.log(this.httpClient.get(this.host+'api/auth/accountVerification/'+ token));
