@@ -19,7 +19,8 @@
             <!-- <th scope="col">CreatedBy</th> -->
             <!-- <th scope="col">Batch-Details</th> -->
             <th scope="col">Number of Students</th>
-            <th scope="col">Number of Sessions</th>     
+            <th scope="col">Number of Sessions</th>  
+            <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN'" scope="col">Delete Batch</th>    
             <!-- <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'" scope="col">Update</th> -->
           </tr>
         </thead>
@@ -32,7 +33,8 @@
               <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.createdBy}}</th> -->
              <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewBatch(batch.name)" class="btn btn-view">View</button></th> -->
              <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewStudentList(batch.name)" class="btn btn-student">{{batchToStudentMap.get(batch.name)}} Students</button></th>
-             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-day">{{batchToDayMap.get(batch.name)}} Session</button></th>            
+             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-day">{{batchToDayMap.get(batch.name)}} Session</button></th> 
+             <th *ngIf="(batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') && (authService.getUserRole() === 'SUPER-ADMIN' ) "><button type="button" (click)="recordId(batch.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>           
              <!-- <th *ngIf="(authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN') && (batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') "><button (click)="updateBatch(batch.name)" class="btn btn-update">Update</button></th>
             <!--   <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th> -->
               <!-- <th><button (click)="deleteBlog(blog._id)" class="btn btn-danger">Delete</button></th> --> 
@@ -41,5 +43,24 @@
       </table>
       <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
     <!-- <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN'"><button (click)="createBatch()" class="btn btn-create-batch mt-3">Create Batch</button></th> -->
+  </div>
+</div>
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title " id="exampleModalLabel">Delete Batch</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>The Data Of This Batch Will Delete Permanently..</h6>
+        <p>Do You Still Want To Delete This Batch ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="deleteBatch()" class="btn btn-danger">Yes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
   </div>
 </div>

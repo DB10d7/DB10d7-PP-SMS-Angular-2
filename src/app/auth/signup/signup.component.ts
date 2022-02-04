@@ -44,7 +44,8 @@ export class SignupComponent implements OnInit {
       email: '',
       password: '',
       confirmPassword: '',
-      
+      uname: '',
+      batch:'',
       city: '',
       surname: '',
       state: '',
@@ -52,19 +53,21 @@ export class SignupComponent implements OnInit {
       twelfthMarks: '',
       graduationMarks: '',
       number: '',
-      birthDate: '',
+      birthDate: new Date(),
       yearOfPassing: '',
       gender: '',
       collegeName: '',
       university: '',
       graduation: '',
-      graduationBranch: ''
+      graduationBranch: '',
+      role: ''
     };
    }
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       username: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
+      uname: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.required),
@@ -202,6 +205,10 @@ export class SignupComponent implements OnInit {
       alert("Please provide your Graduation Course");
       this.isValid = false;
       return;
+    }if(this.signupForm.get('uname').value === ''){
+      alert("Please provide your Graduation Course");
+      this.isValid = false;
+      return;
     }
     if(this.signupForm.get('graduationBranch').value === ''){
       alert("Please provide your Graduation Branch");
@@ -268,8 +275,10 @@ export class SignupComponent implements OnInit {
     this.signupRequestPayload.name = this.signupForm.get('name').value;
     this.signupRequestPayload.email = this.signupForm.get('email').value;
     this.signupRequestPayload.password = this.signupForm.get('password').value;
+    this.signupRequestPayload.uname = this.signupForm.get('uname').value;
     this.signupRequestPayload.confirmPassword = this.signupForm.get('confirmPassword').value;
-    
+    this.signupRequestPayload.batch = "DEFAULT";
+    this.signupRequestPayload.role = "DEFAULT";
     this.signupRequestPayload.surname = this.signupForm.get('surname').value;
     this.signupRequestPayload.city = this.signupForm.get('city').value;
     this.signupRequestPayload.state = this.signupForm.get('state').value;

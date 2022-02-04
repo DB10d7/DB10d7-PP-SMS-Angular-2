@@ -34,6 +34,7 @@ export class StudentListByBatchComponent implements OnInit {
       username: '',
       name:'',
       email: '',
+      uname:'',
       password: '',
       confirmPassword: '',
       
@@ -44,13 +45,15 @@ export class StudentListByBatchComponent implements OnInit {
       twelfthMarks: '',
       graduationMarks: '',
       number: '',
-      birthDate: '',
+      birthDate: new Date(),
       yearOfPassing: '',
       gender: '',
       collegeName: '',
       university: '',
       graduation: '',
-      graduationBranch: ''
+      graduationBranch: '',
+      batch: '',
+      role: ''
     };
   }
 
@@ -102,7 +105,8 @@ export class StudentListByBatchComponent implements OnInit {
       console.log(this.listData.length);
       for(var i=0;i<this.listData.length;i++){
         
-        this.listCleanData.username = this.listData[i].username;
+        this.listCleanData.username = ""+this.listData[i].id;
+        this.listCleanData.uname = this.listData[i].username;
         this.listCleanData.name = this.listData[i].name;
         this.listCleanData.email = this.listData[i].email;
         this.listCleanData.number = this.listData[i].phone;
@@ -115,7 +119,8 @@ export class StudentListByBatchComponent implements OnInit {
         this.listCleanData.graduation = "B.Tech";
         this.listCleanData.graduationBranch = "OTHERS";
         this.listCleanData.birthDate = this.listData[i].dob;
-        
+        this.listCleanData.batch = batch;
+        this.listCleanData.role = "STUDENT"
         this.listCleanData.password = "PacketPrep";
         this.listCleanData.collegeName = "NA";
         this.listCleanData.university = "NA";
@@ -124,10 +129,12 @@ export class StudentListByBatchComponent implements OnInit {
       }
       
       console.log(this.listCleanData);
+      // window.location.reload();
     })
+    // window.location.reload();
   }
   uploadApiData(list: any){
-    this.authService.signup(list).subscribe((result)=>{
+    this.authService.uploadApiData(list).subscribe((result)=>{
       console.log("Data uploaded");
     })
   }

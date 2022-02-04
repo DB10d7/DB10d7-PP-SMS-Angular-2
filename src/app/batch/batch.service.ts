@@ -28,4 +28,8 @@ export class BatchService {
     console.log(this.httpClient.put(this.host+'api/batch/update/' + name ,updateBatchRequest));
     return this.httpClient.put<any>(this.host+'api/batch/update/' + name , updateBatchRequest);
   }
+  deleteBatch(id: Number): Observable<any>{
+    console.log(this.httpClient.delete(this.host+'api/batch/delete/'+ id,));
+    return this.httpClient.delete(this.host+'api/batch/delete/'+ id,{ responseType: 'text' });
+  }
 }

@@ -19,6 +19,7 @@ export class BatchListComponent implements OnInit {
   days:any;
   batchToStudentMap: Map<String, number>= new Map() ;
   batchToDayMap: Map<String, number>= new Map() ;
+  batchId: Number=0;
   constructor(private batchService: BatchService,public dayService: DayService,public authService: AuthService,private studentService: StudentService,private route: ActivatedRoute, private router: Router) { }
   
   ngOnInit(): void {
@@ -33,6 +34,20 @@ export class BatchListComponent implements OnInit {
       
       })
 
+  }
+  recordId(id: Number){
+    this.batchId= id;
+    console.log(this.batchId);
+  }
+  deleteBatch(){
+    
+    this.batchService.deleteBatch(this.batchId).subscribe(data =>{
+      // alert(data);
+      // this.ngOnInit();
+      window.location.reload();
+    }, error =>{
+      alert("srry");
+    });
   }
   numberOfStudentsByBatch(name : string){
     this.studentService.getStudentListByBatch(name).subscribe((resp)=>{

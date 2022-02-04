@@ -23,6 +23,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
     this.userUpdateRequestPayload = {
       username: '',
       name: '',
+      uname:'',
       email: '',
       batch: '',
       role: '',
@@ -34,7 +35,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
       twelfthMarks: '',
       graduationMarks: '',
       number: '',
-      birthDate: '',
+      birthDate: new Date(),
       yearOfPassing: '',
       gender: '',
       collegeName: '',
@@ -51,6 +52,7 @@ export class UpdateDefaultRoleComponent implements OnInit {
       console.log(result);
       this.updateUser = result;
       this.getImage();
+      
       this.userUpdateForm = new FormGroup ({
         username: new FormControl(result['username']),
         name: new FormControl(result['name']),

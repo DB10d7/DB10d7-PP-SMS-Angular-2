@@ -27,6 +27,9 @@ export class AuthService {
   signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
     return this.httpClient.post(this.host+'api/auth/signup', signupRequestPayload, { responseType: 'text' });
   }
+  uploadApiData(signupRequestPayload: SignupRequestPayload): Observable<any> {
+    return this.httpClient.post(this.host+'api/auth/uploadApi', signupRequestPayload, { responseType: 'text' });
+  }
   getApiData(name: string): Observable<any>{
     console.log(name);
     console.log(this.httpClient.get('https://learn.packetprep.com/apiuser?token=ppofficerwx4356&info='+ name));

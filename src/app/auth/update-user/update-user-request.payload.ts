@@ -1,5 +1,6 @@
 export class UserUpdateRequestPayload {
     username: string="";
+    uname: string="";
     name: string="";
     email: string="";
     batch: string="";
@@ -8,7 +9,7 @@ export class UserUpdateRequestPayload {
     surname: string="";
     collegeName: string="";
     university: string="";
-    birthDate: string="";
+    birthDate!: Date;
     yearOfPassing: string="";
     gender: string="";
     tenthMarks: string="";

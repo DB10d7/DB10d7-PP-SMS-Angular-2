@@ -26,7 +26,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
         console.log(`req to ${req.url}`);
 
-        return next.handle(req);
+     //   return next.handle(req);
         if (jwtToken) {
             this.addToken(req, jwtToken);
             return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {

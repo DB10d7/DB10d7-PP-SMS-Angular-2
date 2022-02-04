@@ -10,7 +10,7 @@
             <label for="file-up" id="file-drag"></label>
           </form>
           <th><button (click)="downloadExcel()" class="btn btn-success my-2 mr-2">Download Excel</button></th>
-          <th><button (click)="fetchApi()" class="btn btn-success my-2">Fetch Api</button></th>
+          <th *ngIf="authService.getUserRole() === 'SUPER-ADMIN'"  ><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#fetchApiModal">Fetch Api</button></th>
           <input type="text" [(ngModel)]="searchText" placeholder="Search for names.." class="form-control me-2" aria-label="Search" >
         </div>
       </div>
@@ -63,6 +63,25 @@
           </div>
         </div>
       </div>
+      <!-- Modal -->
+  <div class="modal fade" id="fetchApiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title " id="exampleModalLabel">Delete Batch</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h6>The Data Of This Batch Will Delete Permanently..</h6>
+          <p>Do You Still Want To Delete This Batch ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="fetchApi()" class="btn btn-success">Yes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
       <!--<th><button (click)="createBlog()" class="btn btn-success">Add Blog</button></th>-->
     </div>
 </div>

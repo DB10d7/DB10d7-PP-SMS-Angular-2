@@ -24,6 +24,7 @@ export class UpdateUserComponent implements OnInit {
     
     this.userUpdateRequestPayload = {
       username: '',
+      uname: '',
       name: '',
       email: '',
       batch: '',
@@ -36,7 +37,7 @@ export class UpdateUserComponent implements OnInit {
       twelfthMarks: '',
       graduationMarks: '',
       number: '',
-      birthDate: '',
+      birthDate: new Date(),
       yearOfPassing: '',
       gender: '',
       collegeName: '',
@@ -52,8 +53,10 @@ export class UpdateUserComponent implements OnInit {
       console.log(result);
       this.updateUser = result;
       this.getImage();
+      
       this.userUpdateForm = new FormGroup ({
         username: new FormControl(result['username']),
+        uname: new FormControl(result['uname']),
         name: new FormControl(result['name']),
         email: new FormControl(result['email']),
         batch: new FormControl(result['batch']),
@@ -168,6 +171,7 @@ export class UpdateUserComponent implements OnInit {
 
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;
     this.userUpdateRequestPayload.name = this.userUpdateForm.get('name').value;
+    this.userUpdateRequestPayload.uname = this.userUpdateForm.get('uname').value;
     this.userUpdateRequestPayload.email = this.userUpdateForm.get('email').value;
     this.userUpdateRequestPayload.batch = this.userUpdateForm.get('batch').value;
     this.userUpdateRequestPayload.role = this.userUpdateForm.get('role').value;
