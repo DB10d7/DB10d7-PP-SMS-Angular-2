@@ -34,6 +34,11 @@
               <th *ngIf="!setStudentNotPresent.has(student.username)"><button (click)="removeStudent(student.username)" class="btn btn-danger">Absent</button></th>
               <th *ngIf="setStudentNotPresent.has(student.username)" style="color: red;" >Absent</th>
               <th *ngIf="!setStudentNotPresent.has(student.username)" style="color: rgb(31, 226, 31)">Present</th>
+              <!-- <th *ngIf="studentToDayMap.get(student.username) === 'absent'" ><button (click)="addStudent(student.username)" class="btn btn-success">Present</button></th>
+              <th></th>
+              <th *ngIf="studentToDayMap.get(student.username) === 'present'"><button (click)="removeStudent(student.username)" class="btn btn-danger">Absent</button></th>
+              <th *ngIf="studentToDayMap.get(student.username) === 'absent'" style="color: red;" >Absent</th>
+              <th *ngIf="studentToDayMap.get(student.username) === 'present'" style="color: rgb(31, 226, 31)">Present</th> -->
               
           </tr>        
         </tbody>

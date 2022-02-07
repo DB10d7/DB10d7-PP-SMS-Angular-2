@@ -79,6 +79,7 @@ export class UpdateUserComponent implements OnInit {
         graduationBranch: new FormControl(result['graduationBranch'])
        });
        this.username = this.userUpdateForm.get('username').value;
+       console.log(this.userUpdateForm.get('username').value)
        this.viewBatchList();
     });
    
@@ -92,81 +93,81 @@ export class UpdateUserComponent implements OnInit {
   }
   onSubmit(){
 
-    if(this.userUpdateForm.get('username').value === '' || this.userUpdateForm.get('username').value.length < 8 ){
-      alert("UserName Has To Be 8 Characters Long");
+    // if(this.userUpdateForm.get('username').value === '' || this.userUpdateForm.get('username').value.length < 8 ){
+    //   alert("UserName Has To Be 8 Characters Long");
       
-      return;
-    }
-    if(this.userUpdateForm.get('number').value === '' || this.userUpdateForm.get('number').value.length < 10){
-      alert("Please provide a valid mobile number");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('number').value === '' || this.userUpdateForm.get('number').value.length < 10){
+    //   alert("Please provide a valid mobile number");
       
-      return;
-    }
-    if(this.userUpdateForm.get('name').value === '' || this.userUpdateForm.get('name').value.length < 3 ){
-      alert("Name Has To Be 8 Characters Long");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('name').value === '' || this.userUpdateForm.get('name').value.length < 3 ){
+    //   alert("Name Has To Be 8 Characters Long");
       
-      return;
-    }
-    if(this.userUpdateForm.get('surname').value === '' || this.userUpdateForm.get('surname').value.length < 3 ){
-      alert("Surname Has To Be 8 Characters Long");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('surname').value === '' || this.userUpdateForm.get('surname').value.length < 3 ){
+    //   alert("Surname Has To Be 8 Characters Long");
       
-      return;
-    }
-    if(this.userUpdateForm.get('gender').value === ''){
-      alert("Please provide your City Name");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('gender').value === ''){
+    //   alert("Please provide your City Name");
       
-      return;
-    }
-    if(this.userUpdateForm.get('yearOfPassing').value === ''){
-      alert("Please provide your City Name");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('yearOfPassing').value === ''){
+    //   alert("Please provide your City Name");
       
-      return;
-    }
-    if(this.userUpdateForm.get('state').value === ''){
-      alert("Please provide your State Name");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('state').value === ''){
+    //   alert("Please provide your State Name");
       
-      return;
-    }
-    if(this.userUpdateForm.get('birthDate').value === ''){
-      alert("Please provide your Date of Birth");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('birthDate').value === ''){
+    //   alert("Please provide your Date of Birth");
       
-      return;
-    }
-    if(this.userUpdateForm.get('collegeName').value === ''){
-      alert("Please provide your College Name");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('collegeName').value === ''){
+    //   alert("Please provide your College Name");
       
-      return;
-    }
-    if(this.userUpdateForm.get('university').value === ''){
-      alert("Please provide your University Name");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('university').value === ''){
+    //   alert("Please provide your University Name");
       
-      return;
-    }
-    if(this.userUpdateForm.get('graduation').value === ''){
-      alert("Please provide your Graduation Course");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('graduation').value === ''){
+    //   alert("Please provide your Graduation Course");
       
-      return;
-    }
-    if(this.userUpdateForm.get('graduationBranch').value === ''){
-      alert("Please provide your Graduation Branch");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('graduationBranch').value === ''){
+    //   alert("Please provide your Graduation Branch");
       
-      return;
-    }
-    if(this.userUpdateForm.get('graduationMarks').value === '' || this.userUpdateForm.get('graduationMarks').value.length < 2){
-      alert("Please provide your Graduation Marks");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('graduationMarks').value === '' || this.userUpdateForm.get('graduationMarks').value.length < 2){
+    //   alert("Please provide your Graduation Marks");
       
-      return;
-    }
-    if(this.userUpdateForm.get('tenthMarks').value === '' || this.userUpdateForm.get('tenthMarks').value.length < 2){
-      alert("Please provide your Graduation Marks");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('tenthMarks').value === '' || this.userUpdateForm.get('tenthMarks').value.length < 2){
+    //   alert("Please provide your Graduation Marks");
       
-      return;
-    }
-    if(this.userUpdateForm.get('twelfthMarks').value === '' || this.userUpdateForm.get('twelfthMarks').value.length < 2){
-      alert("Please provide your Graduation Marks");
+    //   return;
+    // }
+    // if(this.userUpdateForm.get('twelfthMarks').value === '' || this.userUpdateForm.get('twelfthMarks').value.length < 2){
+    //   alert("Please provide your Graduation Marks");
       
-      return;
-    }
+    //   return;
+    // }
 
 
     this.userUpdateRequestPayload.username = this.userUpdateForm.get('username').value;
@@ -194,7 +195,7 @@ export class UpdateUserComponent implements OnInit {
 
 
     console.warn(this.userUpdateRequestPayload);
-    this.authService.updateUser(this.userUpdateRequestPayload,this.userUpdateRequestPayload.username).subscribe((data)=>{
+    this.authService.updateUser(this.userUpdateRequestPayload).subscribe((data)=>{
       console.warn("data is here",data);
       alert("User Updated Successfully");
       this.router.navigate(['userList']);

@@ -111,13 +111,13 @@ export class AuthService {
     console.log(this.httpClient.delete(this.host+'api/auth/delete/'+ id));
     return this.httpClient.delete(this.host+'api/auth/delete/'+ id, { responseType: 'text' });
   }
-  updateUser(userUpdateRequestPayload: UserUpdateRequestPayload, name: String ): Observable<any>{
-    console.log(this.httpClient.put(this.host+'api/auth/update/' + name,userUpdateRequestPayload));
-    return this.httpClient.put(this.host+'api/auth/update/' + name,userUpdateRequestPayload,{ responseType: 'text' });
+  updateUser(userUpdateRequestPayload: UserUpdateRequestPayload): Observable<any>{
+    console.log(this.httpClient.put(this.host+'api/auth/update/',userUpdateRequestPayload));
+    return this.httpClient.put(this.host+'api/auth/update/',userUpdateRequestPayload,{ responseType: 'text' });
   }
-  updateUserProfile(userUpdateRequestPayload: UserUpdateRequestPayload, name: String ): Observable<any>{
-    console.log(this.httpClient.put(this.host+'api/auth/updateProfile/' + name,userUpdateRequestPayload));
-    return this.httpClient.put(this.host+'api/auth/updateProfile/' + name,userUpdateRequestPayload,{ responseType: 'text' });
+  updateUserProfile(userUpdateRequestPayload: UserUpdateRequestPayload): Observable<any>{
+    console.log(this.httpClient.put(this.host+'api/auth/updateProfile/',userUpdateRequestPayload));
+    return this.httpClient.put(this.host+'api/auth/updateProfile/',userUpdateRequestPayload,{ responseType: 'text' });
   }
   getSingleUser(name : String): Observable<any>{
     console.log(this.httpClient.get(this.host+'api/auth/get/' + name));

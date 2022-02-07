@@ -245,7 +245,7 @@ export class UpdateProfileComponent implements OnInit {
     this.userUpdateRequestPayload.graduationBranch = this.userUpdateForm.get('graduationBranch').value;
 
     console.warn(this.userUpdateRequestPayload);
-    this.authService.updateUserProfile(this.userUpdateRequestPayload, this.username ).subscribe((data)=>{
+    this.authService.updateUserProfile(this.userUpdateRequestPayload).subscribe((data)=>{
       console.warn("data is here",data);
       this.uploadUserImage();
     })

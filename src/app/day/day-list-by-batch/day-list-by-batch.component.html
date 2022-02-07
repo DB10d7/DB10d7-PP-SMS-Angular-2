@@ -16,8 +16,8 @@
             
             <th scope="col">Session Name</th>
             <!-- <th scope="col">Video-Link</th> -->
-            <th scope="col">Topic</th>
             <th scope="col">Module</th>
+            <th scope="col">Topic</th>
             <!-- <th scope="col">CreatedBy</th> -->
       
             <th *ngIf="authService.getUserRole() === 'STUDENT'" scope="col">Status</th>
@@ -33,7 +33,7 @@
               <th>{{day.sessionName}}</th>
               <!-- <th>{{day.url}}</th> -->
               <th>{{day.topic}}</th>
-              <th>{{day.createdBy}}</th>
+              <th>{{day.description}}</th>
               
               <th *ngIf="authService.getUserRole() === 'STUDENT' && (listDayByStudent.has(day.dayName))" style="color: lightgreen;">Present</th>
               <th *ngIf="authService.getUserRole() === 'STUDENT' && (!listDayByStudent.has(day.dayName))" style="color: red;">Absent</th>

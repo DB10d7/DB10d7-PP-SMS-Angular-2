@@ -47,6 +47,7 @@ export class UpdateDayComponent implements OnInit {
    this.updateDayRequest.url= this.updateDayForm.get('url').value;
    this.updateDayRequest.createdBy= this.updateDayForm.get('createdBy').value;
    this.updateDayRequest.topic= this.updateDayForm.get('topic').value;
+   this.updateDayRequest.sessionName = this.updateDayForm.get('sessionName').value;
 
    this.dayService.updateDay(this.route.snapshot.params['name'],this.updateDayRequest).subscribe((data)=>{
     console.warn("data is here",data);
