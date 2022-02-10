@@ -67,22 +67,22 @@ export class StudentListByBatchComponent implements OnInit {
       this.name=this.route.snapshot.params['name'];
       this.listStudent= result;
       console.log(this.listStudent);
-      this.viewDaysListByBatch();
+      // this.viewDaysListByBatch();
     })
   }
-  viewDaysListByBatch(){
-    this.dayService.getDayListByBatch(this.route.snapshot.params['name']).subscribe((res)=>{
-      this.listTotalDays=res;
-      this.totalDays=this.listTotalDays.length;
-      console.log(this.totalDays);
-      for(var i=0;i<this.listStudent.length;i++){
-        console.log(this.listStudent[i].username);
-        this.viewDaysListByStudent(this.listStudent[i].username);
+  // viewDaysListByBatch(){
+  //   this.dayService.getDayListByBatch(this.route.snapshot.params['name']).subscribe((res)=>{
+  //     this.listTotalDays=res;
+  //     this.totalDays=this.listTotalDays.length;
+  //     console.log(this.totalDays);
+  //     for(var i=0;i<this.listStudent.length;i++){
+  //       console.log(this.listStudent[i].username);
+  //       this.viewDaysListByStudent(this.listStudent[i].username);
         
-      }
+  //     }
       
-    })
-  }
+  //   })
+  // }
   fetchApi(){
     var batch = this.route.snapshot.params['name'];
     console.log(batch);
@@ -172,25 +172,25 @@ export class StudentListByBatchComponent implements OnInit {
       console.log(workbook);
     }
   }
-  viewDaysListByStudent(name : string){
+  // viewDaysListByStudent(name : string){
     
-    this.dayService.getDayListByStudent(name).subscribe((result)=>{
-      // console.log(this.listStudent[i].username);
-      this.listDaysPresent=result;
-    //  var listDaysPresent=res;
-    //  console.log(res);
-    //  console.log(listDaysPresent);
-    //  this.listDaysPresent.add(listDaysPresent);
-        console.log(this.listDaysPresent.length)
-        this.numberOfDaysByStudent.set(name,this.listDaysPresent.length);
-      // console.log(this.listStudent[i].username);
-      // console.log(this.listDaysPresent.length);
-      // this.listStudent[i].add("daysPresent",this.listDaysPresent.length);
-      // console.log(this.listStudent);
-    })
-    // console.log(this.numberOfDaysByStudent);
+  //   this.dayService.getDayListByStudent(name).subscribe((result)=>{
+  //     // console.log(this.listStudent[i].username);
+  //     this.listDaysPresent=result;
+  //   //  var listDaysPresent=res;
+  //   //  console.log(res);
+  //   //  console.log(listDaysPresent);
+  //   //  this.listDaysPresent.add(listDaysPresent);
+  //       console.log(this.listDaysPresent.length)
+  //       this.numberOfDaysByStudent.set(name,this.listDaysPresent.length);
+  //     // console.log(this.listStudent[i].username);
+  //     // console.log(this.listDaysPresent.length);
+  //     // this.listStudent[i].add("daysPresent",this.listDaysPresent.length);
+  //     // console.log(this.listStudent);
+  //   })
+  //   // console.log(this.numberOfDaysByStudent);
     
-  }
+  // }
   updateStudent(name: String){
     this.router.navigate(['updateUser/',name]);
   }

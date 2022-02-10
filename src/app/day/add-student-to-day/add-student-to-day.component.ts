@@ -53,7 +53,7 @@ export class AddStudentToDayComponent implements OnInit {
         
         console.log(this.listStudent);
         console.log("helloViewDay");
-        this.studentListByBatch();
+        this.studentListByBatchNotPresent();
       })
       
       
@@ -79,7 +79,7 @@ export class AddStudentToDayComponent implements OnInit {
       });
   }
  
-  studentListByBatch(){
+  studentListByBatchNotPresent(){
     console.log("helloStudentList");
       this.dayService.studentListByBatchNotPresent(this.batchDayRequest).subscribe((resp)=>{
 

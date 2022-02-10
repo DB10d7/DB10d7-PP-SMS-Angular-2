@@ -27,10 +27,10 @@ export class BatchListComponent implements OnInit {
 
       this.listBatch = resp;
       console.log(this.listBatch);
-      for(var i=0;i<this.listBatch.length;i++){
-        this.numberOfStudentsByBatch(this.listBatch[i].name);
-        this.numberOfDaysByBatch(this.listBatch[i].name);
-      }
+      // for(var i=0;i<this.listBatch.length;i++){
+      //   this.numberOfStudentsByBatch(this.listBatch[i].name);
+      //   this.numberOfDaysByBatch(this.listBatch[i].name);
+      // }
       
       })
 
@@ -49,38 +49,38 @@ export class BatchListComponent implements OnInit {
       alert("srry");
     });
   }
-  numberOfStudentsByBatch(name : string){
-    this.studentService.getStudentListByBatch(name).subscribe((resp)=>{
-      this.students = resp;
-      console.log(this.students);
-      this.batchToStudentMap.set(name,this.students.length);
-      // for(var i=0;i<this.listBatch;i++){
-      //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
-      //   for(var j=0;j<this.totalStudents;j++){
-      //     // if(this.listBatch.get(i).n)
-      //     if(this.listBatch.get(i).name === this.totalStudents.get(j).batch){
-      //       this.batchToStudentMap.set(this.listBatch.get(i).name, this.batchToStudentMap.get(this.listBatch.get(i).name)+1);
-      //     }
-      //   }
-      // }
-    })
-  }
-  numberOfDaysByBatch(name : string){
-    this.dayService.getDayListByBatch(name).subscribe((resp)=>{
-      this.days = resp;
-      console.log(this.days);
-      this.batchToDayMap.set(name,this.days.length);
-      // for(var i=0;i<this.listBatch;i++){
-      //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
-      //   for(var j=0;j<this.totalStudents;j++){
-      //     // if(this.listBatch.get(i).n)
-      //     if(this.listBatch.get(i).name === this.totalStudents.get(j).batch){
-      //       this.batchToStudentMap.set(this.listBatch.get(i).name, this.batchToStudentMap.get(this.listBatch.get(i).name)+1);
-      //     }
-      //   }
-      // }
-    })
-  }
+  // numberOfStudentsByBatch(name : string){
+  //   this.studentService.getStudentListByBatch(name).subscribe((resp)=>{
+  //     this.students = resp;
+  //     console.log(this.students);
+  //     this.batchToStudentMap.set(name,this.students.length);
+  //     // for(var i=0;i<this.listBatch;i++){
+  //     //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
+  //     //   for(var j=0;j<this.totalStudents;j++){
+  //     //     // if(this.listBatch.get(i).n)
+  //     //     if(this.listBatch.get(i).name === this.totalStudents.get(j).batch){
+  //     //       this.batchToStudentMap.set(this.listBatch.get(i).name, this.batchToStudentMap.get(this.listBatch.get(i).name)+1);
+  //     //     }
+  //     //   }
+  //     // }
+  //   })
+  // }
+  // numberOfDaysByBatch(name : string){
+  //   this.dayService.getDayListByBatch(name).subscribe((resp)=>{
+  //     this.days = resp;
+  //     console.log(this.days);
+  //     this.batchToDayMap.set(name,this.days.length);
+  //     // for(var i=0;i<this.listBatch;i++){
+  //     //   this.batchToStudentMap.set(this.listBatch.get(i).name,0);
+  //     //   for(var j=0;j<this.totalStudents;j++){
+  //     //     // if(this.listBatch.get(i).n)
+  //     //     if(this.listBatch.get(i).name === this.totalStudents.get(j).batch){
+  //     //       this.batchToStudentMap.set(this.listBatch.get(i).name, this.batchToStudentMap.get(this.listBatch.get(i).name)+1);
+  //     //     }
+  //     //   }
+  //     // }
+  //   })
+  // }
   viewBatch(name: String){
     this.router.navigate(['singleBatch/',name]);
   }

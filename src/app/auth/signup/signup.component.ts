@@ -205,11 +205,12 @@ export class SignupComponent implements OnInit {
       alert("Please provide your Graduation Course");
       this.isValid = false;
       return;
-    }if(this.signupForm.get('uname').value === ''){
-      alert("Please provide your Graduation Course");
-      this.isValid = false;
-      return;
     }
+    // if(this.signupForm.get('uname').value === ''){
+    //   alert("Please provide your Graduation Course");
+    //   this.isValid = false;
+    //   return;
+    // }
     if(this.signupForm.get('graduationBranch').value === ''){
       alert("Please provide your Graduation Branch");
       this.isValid = false;

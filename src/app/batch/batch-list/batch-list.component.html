@@ -32,8 +32,8 @@
               <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.description}}</th> -->
               <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' ">{{batch.createdBy}}</th> -->
              <!-- <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewBatch(batch.name)" class="btn btn-view">View</button></th> -->
-             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewStudentList(batch.name)" class="btn btn-student">{{batchToStudentMap.get(batch.name)}} Students</button></th>
-             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-day">{{batchToDayMap.get(batch.name)}} Session</button></th> 
+             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewStudentList(batch.name)" class="btn btn-student">{{batch.numberOfStudents}} Students</button></th>
+             <th *ngIf="batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team' "><button (click)="viewDayList(batch.name)" class="btn btn-day">{{batch.numberOfDays}} Session</button></th> 
              <th *ngIf="(batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') && (authService.getUserRole() === 'SUPER-ADMIN' ) "><button type="button" (click)="recordId(batch.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></th>           
              <!-- <th *ngIf="(authService.getUserRole() === 'SUPER-ADMIN' || authService.getUserRole() === 'TRAINER' || authService.getUserRole() === 'ADMIN') && (batch.name !== 'DEFAULT' && batch.name !== 'PacketPrep-Team') "><button (click)="updateBatch(batch.name)" class="btn btn-update">Update</button></th>
             <!--   <th><button (click)="updateBlog(blog._id)" class="btn btn-info">Update</button></th> -->
